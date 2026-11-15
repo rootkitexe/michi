@@ -311,6 +311,16 @@ input[type=range]{width:100%;accent-color:var(--shu)}
 .ref:hover{border-color:var(--c)}
 .ref b{display:block}.ref span{font-size:13px;color:var(--mut)}
 .credit{font-size:12px;color:var(--mut);margin-top:24px}
+.chip.si{background:var(--ink);border-color:var(--ink);color:var(--bg);font-weight:700}
+.av{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--shu);color:#fff;font-weight:700;font-size:14px}.av.big{width:52px;height:52px;font-size:22px}
+.dlg.auth{width:min(420px,100%)}.dlg.auth h2{margin-bottom:10px}
+.gbtn{width:100%;background:#fff;color:#1f1f1f;border:1px solid #dadce0}.gbtn:hover{background:#f7f8f8}
+.or{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--mut);font-size:13px}.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.fl{display:block;font-size:14px;font-weight:500;margin-bottom:12px}.tin2{display:block;width:100%;height:48px;margin-top:6px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:16px var(--jp);padding:0 14px}.tin2:focus{border-color:var(--ai);outline:none}
+.aerr{color:var(--bad);font-size:14px;margin:0 0 12px}
+.alinks{display:flex;justify-content:space-between;gap:10px;margin-top:12px;font-size:14px}
+.sib{display:flex;align-items:center;gap:14px;margin-top:20px;padding:14px 16px;border-radius:16px;background:var(--sf);border:1px solid var(--line)}.sib span{flex:1}.sib .btn{min-height:40px}
+@media (max-width:600px){.sib{flex-wrap:wrap}.sib .spk{position:absolute;right:8px;top:8px}.sib{position:relative;padding-right:56px}}
 @media (max-width:860px){.pt{grid-template-columns:repeat(3,minmax(0,1fr))}.pgrid{grid-template-columns:minmax(0,1fr)}.ph{grid-template-columns:minmax(0,1fr)}.strip{grid-template-columns:repeat(2,minmax(0,1fr))}.road{grid-template-columns:repeat(3,minmax(0,1fr))}.up{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:600px){.pt{grid-template-columns:repeat(2,minmax(0,1fr))}.rg{width:116px;height:116px}.sp i{width:56px}.chip.xpc{display:none}.cd{grid-template-columns:minmax(0,1fr)}.refs{grid-template-columns:minmax(0,1fr)}.kg.c6{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{grid-template-columns:minmax(0,1fr);padding:20px}.hero .pic{order:-1}.sq{width:min(64vw,230px)}
 .top .wrap{gap:6px}.brand .nm{display:none}.chip{padding:0 10px;height:38px}.chip .tx{display:none}
@@ -797,7 +807,7 @@ const def=()=>({v:1,u:{},srs:{},xp:{},time:{},acc:{},miss:{},badges:{},okT:0,rev
 let S=def();try{const s=localStorage.getItem(LSK);if(s)S=Object.assign(def(),JSON.parse(s))}catch(e){}
 const U=id=>S.u[id]||(S.u[id]={});
 let store={ref:null},writing=false,dirty=false,saveT=null,syncTxt='Saved on this device';
-function save(){S.upd=Date.now();try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}dirty=true;clearTimeout(saveT);saveT=setTimeout(flush,1200)}
+function save(){S.upd=Date.now();try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}dirty=true;clearTimeout(saveT);saveT=setTimeout(flush,store.kind==='fb'?15000:1200)}
 async function flush(){if(!store.ref||writing||!dirty)return;writing=true;dirty=false;
  try{await store.ref.set({s:JSON.stringify(S),upd:S.upd});syncTxt='Synced to your account'}catch(e){syncTxt='Saved on this device (sync paused)'}
  writing=false;if(dirty)flush()}
@@ -1049,7 +1059,7 @@ function progV(){checkBadges();
  // badges
  const bd=`<section class="pc"><h2>Milestones</h2><div class="bg">${BADGES.map(b=>{const got=S.badges&&S.badges[b[0]];return`<div class="bdg ${got?'got st-'+b[4]:''}"><span class="bi">${b[3]}</span><b>${b[1]}</b><small>${got?'Earned '+new Date(got).toLocaleDateString('en',{day:'numeric',month:'short'}):b[2]}</small></div>`}).join('')}</div></section>`;
  // backup
- const pr=pendingRestore;const bk=`<section class="pc" id="backup"><h2>Backup and sync</h2><p class="fine" style="margin-bottom:12px">${esc(syncTxt)}. Keep a backup so you never lose progress, or to move it to another browser (for example, a copy hosted on GitHub Pages).</p>
+ const pr=pendingRestore;const bk=`<section class="pc" id="backup"><h2>Backup and sync</h2><p class="fine" style="margin-bottom:12px">${esc(syncTxt)}. ${FB?(fbUser?'Your progress syncs to your account automatically. ':'Sign in to sync your progress across devices. '):''}You can also keep a backup file, or use one to move progress between browsers.</p>
   ${pr?`<div class="gate" id="bkconfirm"><b>Restore this backup?</b> It has ${Object.values(pr.st.u).filter(x=>x.pass).length} units passed and ${Object.keys(pr.st.srs).length} items${pr.at?`, saved ${new Date(pr.at).toLocaleString('en',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}`:''}. It replaces your current progress.<div class="pbtn" style="justify-content:flex-start"><button class="btn pri" data-act="bk-apply">Restore</button><button class="btn" data-act="bk-cancel">Cancel</button></div></div>`:''}
   <div class="pbtn" style="justify-content:flex-start"><button class="btn ai" data-act="bk-dl">Download backup</button><button class="btn" data-act="bk-copy">Copy backup code</button><label class="btn" for="bkf">Restore from file</label><input type="file" id="bkf" accept=".json,application/json" hidden></div>
   <details class="pst"><summary>Restore from a pasted code</summary><textarea id="bkt" rows="3" placeholder="Paste a backup code here"></textarea><button class="btn" data-act="bk-paste">Check code</button></details></section>`;
@@ -1057,6 +1067,77 @@ function progV(){checkBadges();
 
 /* hero decoration: seigaiha waves */
 const WAVES=(()=>{const R=34,rows=[];for(let j=0;j<9;j++){const y=j*R/2,off=j%2?R:0;let row='';for(let x=-R+off;x<=440+R;x+=2*R)row+=[R,R*.75,R*.5,R*.25].map(r=>`<circle cx="${x}" cy="${y}" r="${r}"/>`).join('');rows.push(row)}return`<svg class="wave" viewBox="0 0 440 150" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">${rows.join('')}</svg>`})();
+
+/* ===== ACCOUNTS + CLOUD SYNC (Firebase) — self-hosted copies only ===== */
+const FB_CFG={apiKey:"AIzaSyBFRq7_d5gQXbYtDpfbNqcyZEFrGB_Ia9M",authDomain:"michi-6af83.firebaseapp.com",projectId:"michi-6af83",storageBucket:"michi-6af83.firebasestorage.app",messagingSenderId:"336552799445",appId:"1:336552799445:web:40011229c1da305267065c"};
+const CLOUD_OK=!window.claude&&/^https?:$/.test(location.protocol);
+let FB=null,fbUser=null,fbReady=false,AUTHMODE='in',authErrTxt='',authBusy=false,pendingChoice=null,lastSync=0;
+const hasProgress=st=>!!st&&(Object.keys(st.srs||{}).length>0||Object.values(st.u||{}).some(x=>x&&x.l));
+const progSummary=st=>{const u=Object.values(st.u||{}).filter(x=>x&&x.pass).length,i=Object.keys(st.srs||{}).length;return`${u} unit${u===1?'':'s'} passed, ${i} item${i===1?'':'s'} learned`};
+function authErr(e){const c=(e&&e.code)||'';return({
+ 'auth/invalid-credential':'Wrong email or password.','auth/wrong-password':'Wrong email or password.','auth/user-not-found':'No account with that email. Create one instead?',
+ 'auth/email-already-in-use':'That email already has an account. Sign in instead.','auth/weak-password':'Use a password of at least 6 characters.',
+ 'auth/invalid-email':'That email address doesn\'t look right.','auth/missing-password':'Enter your password.','auth/too-many-requests':'Too many attempts. Wait a minute and try again.',
+ 'auth/network-request-failed':'No connection. Check your internet and try again.','auth/unauthorized-domain':'This website isn\'t approved for sign-in yet (Firebase → Authentication → Settings → Authorized domains).',
+ 'auth/operation-not-allowed':'This sign-in method is switched off in Firebase.','auth/popup-blocked':'Your browser blocked the sign-in window.'})[c]||('Sign-in failed'+(c?` (${c.replace('auth/','')})`:'')+'. Please try again.')}
+async function initCloud(){if(!CLOUD_OK)return;
+ try{FB=await import('./fb.js')}catch(e){return}
+ const app=FB.initializeApp(FB_CFG);FB.auth=FB.getAuth(app);FB.db=FB.getFirestore(app);
+ try{await FB.getRedirectResult(FB.auth)}catch(e){toast(authErr(e))}
+ FB.onAuthStateChanged(FB.auth,async u=>{fbUser=u;fbReady=true;if(u)await linkAccount(u);else{store.ref=null;store.kind=null;syncTxt='Saved on this device'}
+  renderTop();if(['home','prog'].includes(VIEW))render()});
+ document.addEventListener('visibilitychange',()=>{if(!fbUser)return;if(document.visibilityState==='visible')pullRemote();else flushNow()});
+ addEventListener('pagehide',()=>{if(fbUser)flushNow()})}
+function parseRemote(d){try{return d&&d.s?JSON.parse(d.s):null}catch(e){return null}}
+function applyRemote(r,uid){try{localStorage.setItem('michi.prev',JSON.stringify(S))}catch(e){}S=Object.assign(def(),r);S.owner=uid;try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}lastSync=Date.now()}
+async function linkAccount(u){syncTxt='Connecting to your account…';const ref=FB.doc(FB.db,'users',u.uid);let snap;
+ try{snap=await FB.getDoc(ref)}catch(e){syncTxt='Signed in, but sync is unavailable right now';return}
+ store.kind='fb';store.ref={set:o=>FB.setDoc(ref,{s:o.s,upd:o.upd,at:FB.serverTimestamp()})};
+ const remote=snap.exists()?parseRemote(snap.data()):null;syncTxt='Synced to your account';lastSync=Date.now();
+ if(!remote||!hasProgress(remote)){S.owner=u.uid;if(hasProgress(S)){S.upd=Date.now();try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}dirty=true;flushNow()}return}
+ if(S.owner===u.uid){if((remote.upd||0)>(S.upd||0)){applyRemote(remote,u.uid);render()}else if((S.upd||0)>(remote.upd||0)){dirty=true;flushNow()}return}
+ if(!hasProgress(S)){applyRemote(remote,u.uid);render();toast('Welcome back! Your progress is loaded.');return}
+ pendingChoice={remote,uid:u.uid};showChoice()}
+async function pullRemote(){if(!fbUser||!store.ref||['ses','lesson'].includes(VIEW))return;
+ try{const snap=await FB.getDoc(FB.doc(FB.db,'users',fbUser.uid));const r=snap.exists()?parseRemote(snap.data()):null;lastSync=Date.now();
+  if(r&&(r.upd||0)>(S.upd||0)+1000){applyRemote(r,fbUser.uid);render();toast('Loaded your latest progress from another device')}}catch(e){}}
+function flushNow(){clearTimeout(saveT);if(dirty)flush()}
+function showChoice(){const p=pendingChoice;if(!p)return;
+ $('#modal').innerHTML=`<div class="ov"><div class="dlg" role="dialog" aria-modal="true" aria-label="Choose progress"><h2>Which progress should we keep?</h2>
+ <p>Your account and this device both have progress saved.</p>
+ <div class="seg" style="grid-template-columns:minmax(0,1fr)"><button data-act="keep-acct"><b>Keep my account's progress</b><span>${progSummary(p.remote)}. This device's progress is saved as a backup first.</span></button>
+ <button data-act="keep-dev"><b>Keep this device's progress</b><span>${progSummary(S)}. This replaces what's in your account.</span></button></div></div></div>`}
+function authModal(){if(!FB){toast('Sign-in isn\'t available right now. Check your connection.');return}
+ const up=AUTHMODE==='up';
+ $('#modal').innerHTML=`<div class="ov" data-act="close"><div class="dlg auth" role="dialog" aria-modal="true" aria-label="Sign in"><span class="seal" style="margin-bottom:12px">道</span><h2>${up?'Create your account':'Sign in to Michi'}</h2>
+ <p class="fine" style="margin:-6px 0 16px">Your progress is saved to your account, so you can continue on any device.</p>
+ <button class="btn gbtn" data-act="g-signin" ${authBusy?'disabled':''}><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17.5z"/><path fill="#FBBC05" d="M10.6 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.2 0-11.5-4.1-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>Continue with Google</button>
+ <div class="or"><span>or use email</span></div>
+ <form id="ef" novalidate><label class="fl">Email<input class="tin2" id="em" type="email" autocomplete="email" required></label>
+ <label class="fl">Password<input class="tin2" id="pw" type="password" autocomplete="${up?'new-password':'current-password'}" minlength="6" required></label>
+ ${authErrTxt?`<p class="aerr" role="alert">${esc(authErrTxt)}</p>`:''}
+ <button class="btn pri" type="submit" style="width:100%" ${authBusy?'disabled':''}>${authBusy?'Please wait…':up?'Create account':'Sign in'}</button></form>
+ <div class="alinks">${up?`<a href="#" data-act="amode:in">I already have an account</a>`:`<a href="#" data-act="amode:up">Create an account</a><a href="#" data-act="forgot">Forgot password?</a>`}</div>
+ <button class="btn ghost" data-act="close" style="width:100%;margin-top:8px">Not now</button></div></div>`;
+ const em=$('#em');if(em)em.focus()}
+function accountModal(){if(!fbUser)return authModal();const n=fbUser.displayName||fbUser.email||'You';
+ $('#modal').innerHTML=`<div class="ov" data-act="close"><div class="dlg" role="dialog" aria-modal="true" aria-label="Account"><div style="display:flex;gap:14px;align-items:center;margin-bottom:14px"><span class="av big">${esc(n[0].toUpperCase())}</span><div><h2 style="margin:0">${esc(fbUser.displayName||'Your account')}</h2><span class="fine">${esc(fbUser.email||'')}</span></div></div>
+ <div class="row"><b>Sync</b><p class="fine" style="margin:0">${esc(syncTxt)}${lastSync?` · last checked ${new Date(lastSync).toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit'})}`:''}. Progress saves to your account automatically after each session.</p></div>
+ <div class="pbtn" style="justify-content:flex-start"><button class="btn ai" data-act="sync-now">Sync now</button><button class="btn" data-act="signout">Sign out</button></div>
+ <p class="fine" style="margin-top:14px">Signing out removes your progress from this device. It stays safe in your account.</p>
+ <div style="text-align:right;margin-top:10px"><button class="btn" data-act="close">Close</button></div></div></div>`}
+async function doEmail(){const em=($('#em')||{}).value||'',pw=($('#pw')||{}).value||'';if(!em||!pw){authErrTxt='Enter your email and password.';authModal();return}
+ authBusy=true;authErrTxt='';authModal();
+ try{if(AUTHMODE==='up')await FB.createUserWithEmailAndPassword(FB.auth,em.trim(),pw);else await FB.signInWithEmailAndPassword(FB.auth,em.trim(),pw);authBusy=false;if($('.dlg.auth'))$('#modal').innerHTML='';toast('Signed in')}
+ catch(e){authBusy=false;authErrTxt=authErr(e);authModal();const a=$('#em');if(a)a.value=em}}
+async function doGoogle(){const pr=new FB.GoogleAuthProvider();try{await FB.signInWithPopup(FB.auth,pr);if($('.dlg.auth'))$('#modal').innerHTML='';toast('Signed in')}
+ catch(e){const c=e&&e.code;if(c==='auth/popup-closed-by-user'||c==='auth/cancelled-popup-request')return;
+  if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'){try{await FB.signInWithRedirect(FB.auth,pr);return}catch(e2){e=e2}}
+  authErrTxt=authErr(e);authModal()}}
+async function doForgot(){const em=(($('#em')||{}).value||'').trim();if(!em){authErrTxt='Type your email above first, then tap "Forgot password?"';authModal();return}
+ try{await FB.sendPasswordResetEmail(FB.auth,em);authErrTxt='';toast('Password reset email sent. Check your inbox.')}catch(e){authErrTxt=authErr(e);authModal();const a=$('#em');if(a)a.value=em}}
+async function doSignOut(){flushNow();try{await new Promise(r=>setTimeout(r,400));await FB.signOut(FB.auth)}catch(e){}
+ store.ref=null;store.kind=null;S=def();try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}$('#modal').innerHTML='';go('home');toast('Signed out. Your progress is safe in your account.')}
 
 /* ================= AUDIO ================= */
 let ttsP=null,ttsOff=false;
@@ -1075,6 +1156,7 @@ function renderTop(){const x=xpToday(),g=S.goal,p=Math.min(1,x/g),C2=2*Math.PI*1
  <button class="chip ${d?'due':''}" data-act="review" title="Reviews due">${IC.cards}<b>${d}</b><span class="tx">review${d===1?'':'s'}</span></button>
  <button class="chip ${VIEW==='prog'?'due':''}" data-act="progress" aria-label="Progress" title="Progress">${IC.chart}<span class="tx">Progress</span></button>
  <button class="chip" data-act="chart" aria-label="Charts" title="Charts">${IC.grid}<span class="tx">Charts</span></button>
+ ${FB?(fbUser?`<button class="chip ico" data-act="account" aria-label="Account" title="${esc(fbUser.email||'Account')}"><span class="av">${esc((fbUser.displayName||fbUser.email||'?')[0].toUpperCase())}</span></button>`:`<button class="chip si" data-act="signin">Sign in</button>`):''}
  <button class="chip ico" data-act="settings" aria-label="Settings" title="Settings">${IC.cog}</button>`}
 function render(){renderTop();const a=$('#app');
  if(VIEW==='home')a.innerHTML=home();else if(VIEW==='unit')a.innerHTML=unitPage(VU);else if(VIEW==='lesson')a.innerHTML=lessonV();else if(VIEW==='ses')a.innerHTML=sesV();else if(VIEW==='res')a.innerHTML=resV();else if(VIEW==='chart')a.innerHTML=chartV();else if(VIEW==='prog')a.innerHTML=progV();
@@ -1104,7 +1186,8 @@ function home(){const u=curUnit(),d=dueIds().length,x=xpToday(),g=S.goal;let her
  const refs=`<section class="sec"><h2>Reference charts</h2><p>Every character with stroke-order animations, audio and a writing pad.</p><div class="refs"><button class="ref st-s1" data-act="chart:h"><span class="g">あ</span><span><b>Hiragana chart</b><span>46 basic + voiced + combinations</span></span></button><button class="ref st-s2" data-act="chart:k"><span class="g">ア</span><span><b>Katakana chart</b><span>Including foreign sounds</span></span></button><button class="ref st-s5" data-act="chart:j"><span class="g">字</span><span><b>Kanji chart</b><span>All 102 N5 kanji</span></span></button></div></section>`;
  const path=`<section class="sec"><h2>Your path</h2><p>Each unit unlocks only when you pass the one before it.</p>${STAGES.map(s=>{const su=UNITS.filter(x=>x.st===s.id),sp=su.filter(passed).length;return`<div class="stage st-${s.id}"><div class="sh"><h3>${esc(s.name)}</h3><span class="jp">${esc(s.jp)}</span><span class="tag">${esc(s.lvl)}</span><span class="sp">${sp}/${su.length}<i><b style="width:${sp/su.length*100}%"></b></i></span></div><div class="units">${su.map(unitCard).join('')}</div></div>`}).join('')}</section>`;
  const road=`<section class="sec"><h2>The road to N1</h2><p>The JLPT has five levels. You are working through N5 now: scripts, first grammar, verbs and adjectives, and the first 102 kanji. Higher levels are added stage by stage.</p><div class="road">${ROAD.map(([l,t],i)=>`<div class="lv ${i===0?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div><p class="fine">Word and kanji counts are common estimates; the JLPT does not publish official lists.</p></section>`;
- return hero+strip+path+refs+road}
+ const sib=FB&&fbReady&&!fbUser&&!S.noSignin?`<div class="sib"><span><b>Save your progress to an account</b> so it follows you to any device, and never gets lost.</span><button class="btn pri" data-act="signin">Sign in</button><button class="spk" data-act="sib-x" aria-label="Dismiss">${IC.x}</button></div>`:'';
+ return sib+hero+strip+path+refs+road}
 function unitCard(u){const p=passed(u),a=avail(u),c=curUnit()===u;
  return`<button class="unit st-${u.st} ${p?'passed':''} ${c?'cur':''} ${!a?'lock':''}" ${a?`data-act="unit:${u.id}"`:'disabled aria-disabled="true"'}><span class="g">${a?esc(u.g):IC.lock}</span><span><span class="t">${esc(u.t)}</span><span class="s" style="display:block">${esc(u.sub)}</span></span>${p?'<span class="stamp">合格</span>':''}</button>`}
 function unitPage(u){const s=U(u.id),d=dueIds().length,blocked=!s.l&&d>=GATE,stg=STAGES.find(x=>x.id===u.st);
@@ -1185,7 +1268,7 @@ function finish(){const {mode,u}=SES,s=u?U(u.id):null;markDay();let r={mode,u,ok
   if(sc>=0.9){r.pass=1;const was=s.pass;s.pass=1;s.fix=[];if(!was){addXP(25);r.xp+=25}if(isExam(u))srsAdd(unitIds(u))}else{r.pass=0;s.fix=[...SES.missed]}}
  if(mode==='fix')s.fix=[];
  r.badges=checkBadges();
- save();RES=r;SES=null;go('res')}
+ save();if(store.kind==='fb')flushNow();RES=r;SES=null;go('res')}
 function resV(){const r=RES;let h='',acts='';
  if(r.mode==='test'){const pc=Math.round(r.score*100);
   if(r.pass){const nx=UNITS[r.u.i+1];h=`<div class="bigstamp">合格</div><h1>Passed with ${pc}%</h1><p>${esc(r.u.t)} is sealed. ${nx?`<b>${esc(nx.t)}</b> is now unlocked.`:'You have finished Phase 1!'}</p>`;acts=nx?`<button class="btn pri big" data-act="unit:${nx.id}">Next unit</button><button class="btn big" data-act="home">Back to path</button>`:`<button class="btn pri big" data-act="home">Back to path</button>`}
@@ -1245,6 +1328,16 @@ document.addEventListener('click',e=>{
  case'review':startSes('review');break;
  case'chart':if(arg)CTAB=arg;go('chart');break;
  case'progress':e.preventDefault();go('prog');break;
+ case'signin':AUTHMODE='in';authErrTxt='';authModal();break;
+ case'account':accountModal();break;
+ case'g-signin':doGoogle();break;
+ case'amode':e.preventDefault();AUTHMODE=arg;authErrTxt='';authModal();break;
+ case'forgot':e.preventDefault();doForgot();break;
+ case'sync-now':flushNow();pullRemote().then(()=>{toast('Synced');accountModal()});break;
+ case'signout':doSignOut();break;
+ case'keep-acct':if(pendingChoice){applyRemote(pendingChoice.remote,pendingChoice.uid);pendingChoice=null;$('#modal').innerHTML='';render();toast('Account progress loaded. This device\'s old progress is kept as a backup.')}break;
+ case'keep-dev':if(pendingChoice){S.owner=pendingChoice.uid;pendingChoice=null;save();dirty=true;flushNow();$('#modal').innerHTML='';render();toast('This device\'s progress is now saved to your account.')}break;
+ case'sib-x':S.noSignin=1;save();render();break;
  case'weak':startSes('weak');break;
  case'bk-dl':bkDownload();break;
  case'bk-copy':bkCopy();break;
@@ -1265,11 +1358,12 @@ document.addEventListener('click',e=>{
  case'next':nextQ();break;
  case'tile':if(!SES.ans){SES.built.push(+arg);render()}break;
  case'untile':if(!SES.ans){SES.built.splice(+arg,1);render()}break;
- case'quit':{if(SES&&SES.xp)markDay();save();const u=SES&&SES.u;SES=null;if(u){VU=u;go('unit')}else go('home');break}
+ case'quit':{if(SES&&SES.xp)markDay();save();if(store.kind==='fb')flushNow();const u=SES&&SES.u;SES=null;if(u){VU=u;go('unit')}else go('home');break}
  case'goal':S.goal=+arg;save();settings();renderTop();break;
  case'romaji':S.romaji=!S.romaji;save();settings();break;
  case'reset':if(el.dataset.armed){S=def();save();$('#modal').innerHTML='';go('home');toast('Progress reset')}else{el.dataset.armed=1;el.textContent='Tap again to erase everything';el.classList.add('pri')}break;
  }});
+document.addEventListener('submit',e=>{if(e.target.id==='ef'){e.preventDefault();doEmail()}});
 document.addEventListener('change',e=>{if(e.target.id==='bkf'&&e.target.files&&e.target.files[0]){const f=e.target.files[0];f.text().then(bkParse).catch(()=>toast('Could not read that file'))}});
 document.addEventListener('input',e=>{if(e.target.id==='rate'){S.rate=+e.target.value;save()}if(e.target.id==='tin'){const p=$('#prev');if(p){const v=e.target.value;p.textContent=/[a-z]/i.test(v)?toKana(v):''}}});
 document.addEventListener('keydown',e=>{if($('#modal').innerHTML&&e.key==='Escape'){$('#modal').innerHTML='';render();return}
@@ -1279,10 +1373,10 @@ document.addEventListener('keydown',e=>{if($('#modal').innerHTML&&e.key==='Escap
   if(!SES.ans&&q.listen&&e.key===' '&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='BUTTON'){e.preventDefault();say(q.listen)}}
  if(VIEW==='lesson'&&LS){if(e.key==='ArrowRight'&&LS.i<LS.cards.length-1)$('[data-act="lnext"]').click();if(e.key==='ArrowLeft'&&LS.i>0)$('[data-act="lprev"]').click()}});
 
-checkBadges();render();initStore();
+checkBadges();render();initStore();initCloud();
 }
 </script>
 
-<script>if('serviceWorker' in navigator&&location.protocol==='https:'&&!/claude\.ai|claudeusercontent/.test(location.hostname)){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
+<script>if('serviceWorker' in navigator&&location.protocol==='https:'){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
 </body>
 </html>
