@@ -1081,7 +1081,7 @@ function authErr(e){const c=(e&&e.code)||'';return({
  'auth/network-request-failed':'No connection. Check your internet and try again.','auth/unauthorized-domain':'This website isn\'t approved for sign-in yet (Firebase → Authentication → Settings → Authorized domains).',
  'auth/operation-not-allowed':'This sign-in method is switched off in Firebase.','auth/popup-blocked':'Your browser blocked the sign-in window.'})[c]||('Sign-in failed'+(c?` (${c.replace('auth/','')})`:'')+'. Please try again.')}
 async function initCloud(){if(!CLOUD_OK)return;
- try{FB=await import('./fb.js')}catch(e){return}
+ try{FB=Object.assign({},await import('./fb.js'))}catch(e){return}
  const app=FB.initializeApp(FB_CFG);FB.auth=FB.getAuth(app);FB.db=FB.getFirestore(app);
  try{await FB.getRedirectResult(FB.auth)}catch(e){toast(authErr(e))}
  FB.onAuthStateChanged(FB.auth,async u=>{fbUser=u;fbReady=true;if(u)await linkAccount(u);else{store.ref=null;store.kind=null;syncTxt='Saved on this device'}
