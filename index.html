@@ -327,6 +327,23 @@ input[type=range]{width:100%;accent-color:var(--shu)}
 .msecs{display:grid;gap:10px;max-width:420px;margin:18px auto 0;text-align:left}.msecs>div{display:grid;grid-template-columns:100px minmax(0,1fr) 54px;gap:10px;align-items:center}.msecs b{text-align:right}
 .ref.lock{opacity:.55;cursor:not-allowed}.ref.lock .g{background:var(--sf);color:var(--mut)}
 select.tin2{appearance:auto}
+.st-d1{--c:light-dark(#2b59c3,#8eaaf5);--cS:light-dark(#e9effc,color-mix(in srgb,#8eaaf5 8%,#151c28));--cM:light-dark(#c3d3f5,color-mix(in srgb,#8eaaf5 35%,#151c28))}
+.st-d2{--c:light-dark(#2f855a,#7ed3a3);--cS:light-dark(#e6f4ec,color-mix(in srgb,#7ed3a3 8%,#151c28));--cM:light-dark(#bfe3cf,color-mix(in srgb,#7ed3a3 35%,#151c28))}
+.st-d3{--c:light-dark(#b7791f,#f2c46d);--cS:light-dark(#fbf1df,color-mix(in srgb,#f2c46d 8%,#151c28));--cM:light-dark(#f0d6a6,color-mix(in srgb,#f2c46d 35%,#151c28))}
+.st-d4{--c:light-dark(#b83280,#f497c9);--cS:light-dark(#fbe8f2,color-mix(in srgb,#f497c9 8%,#151c28));--cM:light-dark(#f1c1db,color-mix(in srgb,#f497c9 35%,#151c28))}
+.g-der{color:light-dark(#2563eb,#7aa7ff)}.g-die{color:light-dark(#dc2626,#ff8a8a)}.g-das{color:light-dark(#16a34a,#6ee7a0)}
+.chip.crs{gap:4px;padding:0 8px 0 12px;font-weight:700}.chip.crs svg{width:16px;height:16px}.chip.crs .sc2{display:none}
+@media (max-width:600px){.chip.crs .sc2{display:inline}}
+.sq.wd span{font:700 clamp(40px,7vw,72px)/1.1 var(--jp);text-align:center;padding:0 10px;word-break:break-word}
+[data-course=de] .qbig,[data-course=de] .opt.jp,[data-course=de] .unit .g,[data-course=de] .sq span,[data-course=de] .ref .g,[data-course=de] .bdg .bi{font-family:var(--jp);font-weight:700}
+[data-course=de] .unit .g{font-size:18px}[data-course=de] .ref .g{font-size:20px}[data-course=de] .qbig:not(.w):not(.s){font-size:clamp(48px,9vw,72px)}
+.uml{display:flex;gap:8px;justify-content:center;margin-top:10px}.uml .tl{min-width:48px}
+.crsl{display:grid;gap:10px}.crsc{display:flex;gap:14px;align-items:center;text-align:left;padding:14px;border-radius:16px;border:2px solid var(--line);background:var(--bg)}
+.crsc.on{border-color:var(--c);background:var(--cS)}.crsc .g{flex:none;display:grid;place-items:center;min-width:76px;height:56px;padding:0 8px;border-radius:12px;background:var(--cS);color:var(--c);font-weight:700;font-size:17px}
+.crsc b{display:block}.crsc span span{display:block;font-size:13px;color:var(--mut)}.cp{display:flex!important;align-items:center;gap:8px;margin-top:6px}.cp i{display:block;width:90px;height:6px;border-radius:6px;background:var(--sf2);overflow:hidden}.cp i b{display:block;height:100%;background:var(--c)}
+.gtw{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}.gtw .pc{margin-top:0}
+.gtw .pc{overflow:hidden}.gtw .scroll{max-width:100%}.gt th{white-space:nowrap}.gt td{white-space:normal}
+[data-course=de] .sh .jp{font-family:var(--jp);font-weight:600}.gsay{border:0;background:none;padding:2px 4px;margin:-2px -4px;border-radius:6px;font:inherit;color:inherit;text-align:left}.gsay:hover{background:var(--sf2)}
 .chip.si{background:var(--ink);border-color:var(--ink);color:var(--bg);font-weight:700}
 .av{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--shu);color:#fff;font-weight:700;font-size:14px}.av.big{width:52px;height:52px;font-size:22px}
 .dlg.auth{width:min(420px,100%)}.dlg.auth h2{margin-bottom:10px}
@@ -1186,14 +1203,340 @@ const READING={
 UNITS.push(...N4_UNITS);
 KJ2_UNITS.forEach(([id,t,sub,ks],ix)=>UNITS.push({id,st:'s7',t,sub,g:ks[0][0],kind:'kanji',intro:ix===0?[{h:'Kanji II: the N4 kanji',p:['These 168 kanji complete the roughly 270 you need for N4. They are grouped by theme, and each one comes with its stroke order, readings and real words.','From here on, more and more of the words you know will appear in kanji. Learning the kanji for words you already know is the fastest way to read.'],tip:'Kanji repeat parts. Spot 氵 (water), 亻 (person), 言 (words) and ⻌ (movement), and new kanji get much easier.'}]:[{h:t,p:[`${ks.length} new kanji. Watch each stroke animation, trace it, then learn the words that use it.`]}],ks:ks.map(a=>{const k={c:a[0],m:a[1],on:a[2],kun:a[3],h:a[4],w:a[5].map(([w,r,e])=>({w,r,e})),u:id};KJI[a[0]]=k;return k})}));
 UNITS.push({id:'kkx',st:'s7',t:'Kanji II mastery exam',sub:'All 168 N4 kanji',g:'漢',kind:'kexam',from:KJ2_UNITS.map(x=>x[0]),intro:[{h:'Prove you know the N4 kanji',p:['Meanings, readings, listening and writing from memory across every Kanji II unit. Score 90% to complete N4 and unlock the N4 mock test.']}]});
-const UI={};UNITS.forEach((u,i)=>{u.i=i;UI[u.id]=u});
+const JA_UNITS=UNITS.slice(),JA_STAGES=STAGES.slice();
+/* ===== GERMAN COURSE: A1 ===== */
+const DE_STAGES=[
+ {id:'d1',name:'First steps',jp:'Erste Schritte',lvl:'A1',link:[['Deutsche Welle: Nicos Weg A1 (free course)','https://learngerman.dw.com/en/nicos-weg/c-36519789'],['Goethe-Institut: A1 exam info','https://www.goethe.de/en/spr/prf/gzsd1.html']]},
+ {id:'d2',name:'Everyday life',jp:'Alltag',lvl:'A1',link:[['Deutsche Welle: Nicos Weg A1','https://learngerman.dw.com/en/nicos-weg/c-36519789'],['DW: Deutsch – warum nicht? (grammar)','https://learngerman.dw.com/en/beginners/c-36519718']]},
+ {id:'d3',name:'Out and about',jp:'Unterwegs',lvl:'A1',link:[['Deutsche Welle: Nicos Weg A1','https://learngerman.dw.com/en/nicos-weg/c-36519789'],['Nachrichtenleicht (easy German news)','https://www.nachrichtenleicht.de/']]},
+ {id:'d4',name:'Practical German',jp:'Praktisch',lvl:'A1',link:[['Goethe-Institut: A1 practice materials','https://www.goethe.de/en/spr/prf/ueb/pba1.html'],['Make it in Germany (work and life)','https://www.make-it-in-germany.com/en/']]}];
+const DE_UNITS=[
+{id:'da1',st:'d1',t:'Sounds and spelling',sub:'ä ö ü ß · ei ie · sch ch',g:'ä',kind:'gram',
+ words:W([['hallo','hello'],['ja','yes'],['nein','no'],['danke','thank you'],['bitte','please; you\'re welcome'],['Entschuldigung','excuse me; sorry']]),
+ intro:[{h:'German is written as it sounds',p:['Good news: German spelling is very regular. Learn a handful of rules and you can read almost any word aloud, even one you have never seen.','Two things to know from day one: <b>every noun starts with a capital letter</b> (das Haus, der Tisch), and the stress is usually on the first syllable.']},
+  {h:'Vowels and umlauts',say:1,tbl:[['a','Vater','like "ah"'],['e','geht','like "eh", long'],['i','Kino','like "ee"'],['o','Brot','like "oh"'],['u','gut','like "oo"'],['ä','Käse','like the e in "bed"'],['ö','schön','say "eh" with rounded lips'],['ü','für','say "ee" with rounded lips']],p:['The two dots (the <i>Umlaut</i>) change the sound. If you can\'t type them, write ae, oe, ue.']},
+  {h:'Letter pairs',say:1,tbl:[['ei','mein','like "eye"'],['ie','Liebe','like "ee"'],['eu / äu','heute','like "oy"'],['sch','Schule','like "sh"'],['ch','ich · Buch','a soft hiss after e/i; throaty after a/o/u'],['sp / st','Sport · Straße','"shp" / "sht" at the start of a word']],tip:'ei and ie trip everyone up. Say the second letter: ei sounds like the English letter "I", ie sounds like the English letter "E".'},
+  {h:'Consonants that surprise',say:1,tbl:[['w','Wasser','like English v'],['v','Vater','like English f'],['z','Zeit','like "ts"'],['j','ja','like English y'],['ß','Straße','a sharp "ss"'],['b d g at the end','ab · und · Tag','sound like p, t, k']],p:['The German r is made at the back of the throat, a bit like gentle gargling. At the end of a word (Vater, hier) it softens into an "uh" sound.']}],
+ qs:[{t:'mc',listen:1,jp:'Liebe',q:'Listen. Which word did you hear?',o:['Liebe','Leibe','Lebe','Laube'],why:'ie sounds like "ee": Liebe (love).'},
+  {t:'mc',listen:1,jp:'schön',q:'Listen. Which word did you hear?',o:['schön','schon','schien','Schein'],why:'ö is said with rounded lips: schön (beautiful).'},
+  {t:'mc',q:'How is the w in "Wasser" pronounced?',o:['Like English v','Like English w','Like English f','It is silent'],why:'German w sounds like English v.'},
+  {t:'mc',q:'How is "ei" in "mein" pronounced?',o:['Like "eye"','Like "ee"','Like the "ay" in "day"','Like "eh"'],why:'ei sounds like the English letter I.'},
+  {t:'mc',q:'What sound does z make in "Zeit"?',o:['ts','z as in "zoo"','s','sh'],why:'German z is "ts".'},
+  {t:'mc',listen:1,jp:'für',q:'Listen. Which word did you hear?',o:['für','vier','fuhr','fair'],why:'ü is "ee" with rounded lips: für (for). vier (four) has a clear "ee".'},
+  {t:'mc',q:'What is ß?',o:['A sharp "ss" sound','A "b" sound','A long "z" sound','A silent letter'],why:'ß is a sharp ss, as in Straße.'},
+  {t:'mc',q:'How does v sound in "Vater"?',o:['Like English f','Like English v','Like English w','Like English b'],why:'German v usually sounds like f.'},
+  {t:'mc',listen:1,jp:'heute',q:'Listen. Which word did you hear?',o:['heute','Hütte','Hüte','hatte'],why:'eu sounds like "oy": heute (today).'},
+  {t:'mc',q:'How are all German nouns written?',o:['With a capital letter','In lower case','With an umlaut','With an article joined on'],why:'Every German noun is capitalised.'}]},
+{id:'da2',st:'d1',t:'Greetings and introductions',sub:'Hallo! · Ich heiße … · du / Sie',g:'Hallo',kind:'gram',
+ words:W([['Guten Morgen','good morning'],['Guten Tag','good day, hello'],['Guten Abend','good evening'],['Gute Nacht','good night'],['Tschüss','bye (informal)'],['Auf Wiedersehen','goodbye (polite)'],['Wie geht\'s?','how are you?'],['Freut mich','nice to meet you'],['Ich heiße …','my name is …'],['Ich komme aus …','I come from …']]),
+ intro:[{h:'Greetings through the day',ex:[['Guten Morgen!','Good morning!'],['Guten Tag!','Hello! (daytime, polite)'],['Guten Abend!','Good evening!'],['Hallo!','Hi! (informal)'],['Tschüss! / Auf Wiedersehen!','Bye! / Goodbye! (polite)']]},
+  {h:'du or Sie?',p:['German has two words for "you". <b>du</b> is for friends, family, children and other students. <b>Sie</b> (always with a capital S) is for strangers, shop staff, officials and most people at work.','When in doubt, use Sie. People will tell you if you can switch to du.']},
+  {h:'Introducing yourself',ex:[['Wie heißen Sie? / Wie heißt du?','What\'s your name? (polite / informal)'],['Ich heiße Ryu.','My name is Ryu.'],['Woher kommst du?','Where are you from?'],['Ich komme aus Indien.','I come from India.'],['Ich wohne in Berlin.','I live in Berlin.'],['Freut mich!','Nice to meet you!']]},
+  {h:'How are you?',ex:[['Wie geht\'s?','How are you?'],['Gut, danke. Und dir?','Good, thanks. And you? (informal)'],['Es geht.','So-so.']],tip:'With Sie, ask "Wie geht es Ihnen?" and answer "Gut, danke. Und Ihnen?"'}],
+ qs:[{t:'mc',q:'It\'s 9 a.m. and you meet your manager. What do you say?',o:['Guten Morgen!','Gute Nacht!','Tschüss!','Guten Abend!'],why:'Guten Morgen is the morning greeting.'},
+  {t:'mc',q:'Which "you" do you use with a shop assistant you don\'t know?',o:['Sie','du','ihr','er'],why:'Sie is the polite "you".'},
+  {t:'mc',q:'How do you ask a stranger their name politely?',o:['Wie heißen Sie?','Wie heißt du?','Wer bist du?','Was ist Name?'],why:'Polite: Wie heißen Sie?'},
+  {t:'fill',jp:'Ich ＿ Anna.',en:'My name is Anna.',o:['heiße','heißt','heißen','heiß'],why:'ich heiße = I am called.'},
+  {t:'fill',jp:'Ich komme ＿ Indien.',en:'I come from India.',o:['aus','in','nach','von'],why:'Countries you come from take aus.'},
+  {t:'mc',q:'What does "Freut mich!" mean?',o:['Nice to meet you!','Thank you!','Excuse me!','See you later!'],why:'Freut mich = (it) pleases me.'},
+  {t:'build',en:'I live in Berlin.',tiles:['Ich','wohne','in','Berlin'],x:['wohnst','aus'],why:'ich wohne in + city.'},
+  {t:'mc',q:'A friend asks "Wie geht\'s?" What is a natural answer?',o:['Gut, danke. Und dir?','Ich heiße gut.','Aus Indien.','Guten Tag.'],why:'Gut, danke = fine, thanks.'},
+  {t:'type',q:'Write in German: "Thank you"',a:['Danke','Danke schön'],why:'danke = thank you.'},
+  {t:'mc',q:'What does "Tschüss" mean?',o:['Bye (informal)','Hello','Please','Good night'],why:'Tschüss is the casual goodbye.'}]},
+{id:'da3',st:'d1',t:'Numbers 0 to 100',sub:'eins · zwei · einundzwanzig',g:'21',kind:'gram',drill:{t:'denum',L:[0,1,2,3,6,7,11,12,13,16,17,20,21,25,30,34,38,43,47,50,56,61,67,72,76,81,89,93,98,100]},
+ words:W([['eins','one'],['zwei','two'],['drei','three'],['zehn','ten'],['zwanzig','twenty'],['hundert','a hundred'],['Wie viel?','how much?'],['Wie alt bist du?','how old are you?']]),
+ intro:[{h:'Zero to twelve',say:1,tbl:[['0','null',''],['1','eins',''],['2','zwei','also "zwo" on the phone'],['3','drei',''],['4','vier',''],['5','fünf',''],['6','sechs',''],['7','sieben',''],['8','acht',''],['9','neun',''],['10','zehn',''],['11','elf',''],['12','zwölf','']]},
+  {h:'13 to 19, and the tens',p:['13–19 are the digit + zehn: dreizehn, vierzehn, fünfzehn. Two drop letters: <b>sechzehn</b> (16) and <b>siebzehn</b> (17).','The tens end in -zig: vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig. The odd ones out: <b>zwanzig</b> (20) and <b>dreißig</b> (30).']},
+  {h:'21 and up: ones first!',p:['German says the ones before the tens, joined with und: 21 = <b>einundzwanzig</b> ("one-and-twenty"). 47 = siebenundvierzig.','Note eins becomes ein: einundzwanzig, not einsundzwanzig. 100 is hundert.'],tip:'Listen for the last part to know the tens: dreiundfünfzig ends in fünfzig, so it\'s fifty-something (53).'}],
+ qs:[{t:'mc',q:'How do you say 25?',o:['fünfundzwanzig','zwanzigfünf','fünfzwanzig','zweiundfünfzig'],why:'Ones first: fünf-und-zwanzig.'},
+  {t:'mc',q:'What number is "siebzehn"?',o:['17','70','7','27'],why:'sieb-zehn = 17.'},
+  {t:'mc',q:'What number is "dreiundvierzig"?',o:['43','34','33','430'],why:'drei (3) und vierzig (40) = 43.'},
+  {t:'mc',q:'How do you say 30?',o:['dreißig','dreizig','dreizehn','drei und zehn'],why:'30 is the irregular dreißig.'},
+  {t:'mc',q:'What does "Wie alt bist du?" mean?',o:['How old are you?','How are you?','How much is it?','Where are you from?'],why:'alt = old.'},
+  {t:'build',en:'I am 28 years old.',tiles:['Ich','bin','achtundzwanzig','Jahre','alt'],x:['habe','zwanzigacht'],why:'German uses sein (bin) for age, like English.'},
+  {t:'type',q:'Write the number 12 in German.',a:['zwölf'],why:'12 = zwölf.'},
+  {t:'mc',listen:1,jp:'sechsundsechzig',q:'Listen. Which number did you hear?',o:['66','56','76','16'],why:'sechs-und-sechzig = 66.'}]},
+{id:'da4',st:'d1',t:'I, you, we and "to be"',sub:'ich bin · du bist · wir sind',g:'sein',kind:'gram',drill:{t:'deverb',L:[['sein','to be',['bin','bist','ist','sind','seid','sind']]]},
+ words:W([['ich','I'],['du','you (informal)'],['er · sie · es','he · she · it'],['wir','we'],['ihr','you all (informal)'],['müde','tired'],['nett','nice'],['der Student','student (male)'],['die Studentin','student (female)']]),
+ intro:[{h:'Personal pronouns',tbl:[['ich','I',''],['du','you','informal, one person'],['er · sie · es','he · she · it',''],['wir','we',''],['ihr','you','informal, several people'],['sie','they',''],['Sie','you','polite, one or more people']]},
+  {h:'sein: to be',tbl:[['ich bin','I am',''],['du bist','you are',''],['er / sie / es ist','he / she / it is',''],['wir sind','we are',''],['ihr seid','you (all) are',''],['sie / Sie sind','they are / you are (polite)','']],tip:'sein is irregular, like "to be" in English. It\'s worth learning by heart today.'},
+  {h:'No article for jobs and nationality',p:['German leaves out "a" before jobs and nationalities. Women add <b>-in</b> to most job words.'],ex:[['Ich bin Student.','I\'m a student. (man)'],['Sie ist Lehrerin.','She is a teacher.'],['Er ist Inder.','He is Indian.']]}],
+ qs:[{t:'fill',jp:'Ich ＿ müde.',en:'I am tired.',o:['bin','bist','ist','sind'],why:'ich bin.'},
+  {t:'fill',jp:'Wir ＿ aus Indien.',en:'We are from India.',o:['sind','seid','ist','bin'],why:'wir sind.'},
+  {t:'fill',jp:'Du ＿ sehr nett.',en:'You are very nice.',o:['bist','bin','ist','seid'],why:'du bist.'},
+  {t:'mc',q:'What is the difference between "sie" and "Sie"?',o:['"Sie" with a capital S is the polite "you"','There is no difference','"sie" is the plural "you"','"Sie" only means "she"'],why:'Sie (capital) = polite you; sie = she / they.'},
+  {t:'mc',q:'How do you say "She is a teacher"?',o:['Sie ist Lehrerin.','Sie ist eine Lehrerin ist.','Sie bist Lehrerin.','Sie sind Lehrerin.'],why:'sie ist, and no article is needed.'},
+  {t:'fill',jp:'Ihr ＿ meine Freunde.',en:'You (all) are my friends.',o:['seid','sind','ist','bist'],why:'ihr seid.'},
+  {t:'build',en:'He is from Germany.',tiles:['Er','ist','aus','Deutschland'],x:['bin','in'],why:'er ist + aus + country.'},
+  {t:'type',q:'Write in German: "I am a student." (male)',a:['Ich bin Student','Ich bin ein Student'],why:'Ich bin Student.'}]},
+{id:'da5',st:'d1',t:'Nouns: der, die, das',sub:'der Tisch · die Lampe · das Buch',g:'das',kind:'gram',drill:{t:'gender',L:[['der','Tisch','table'],['die','Lampe','lamp'],['das','Buch','book'],['der','Stuhl','chair'],['die','Tür','door'],['das','Fenster','window'],['der','Mann','man'],['die','Frau','woman'],['das','Kind','child'],['der','Apfel','apple'],['die','Zeitung','newspaper'],['das','Mädchen','girl'],['der','Hund','dog'],['die','Katze','cat'],['das','Haus','house'],['die','Stadt','city'],['der','Bahnhof','train station'],['das','Auto','car'],['die','Wohnung','apartment'],['das','Handy','mobile phone']]},
+ words:W([['der Tisch','the table'],['die Lampe','the lamp'],['das Buch','the book'],['der Mann','the man'],['die Frau','the woman'],['das Kind','the child'],['ein · eine','a, an']]),
+ intro:[{h:'Every noun has a gender',p:['German nouns are masculine, feminine or neuter, and the word for "the" changes: <b class="g-der">der</b>, <b class="g-die">die</b>, <b class="g-das">das</b>.','Gender is mostly grammatical, not logical, so <b>always learn a noun together with its article</b>. Michi colours them blue, red and green to help your memory.']},
+  {h:'Helpful patterns',say:2,tbl:[['-ung, -heit, -keit, -ion, -schaft','die','die Zeitung, die Station'],['most nouns ending in -e','die','die Lampe, die Katze'],['-chen, -lein','das','das Mädchen (the girl)'],['days, months, seasons','der','der Montag, der Mai']]},
+  {h:'"a / an": ein and eine',p:['Use <b>ein</b> for der and das nouns, <b>eine</b> for die nouns.'],ex:[['ein Tisch, ein Buch','a table, a book'],['eine Lampe','a lamp']]},
+  {h:'Plural: always die',p:['In the plural, all genders use <b>die</b>: die Bücher, die Frauen. Plural endings vary, so you\'ll learn them word by word.']}],
+ qs:[{t:'mc',q:'Why is it "das Mädchen" (the girl) and not "die"?',o:['Nouns ending in -chen are always das','Girls are neuter in every language','It\'s an exception with no rule','Because it starts with M'],why:'-chen words are always das.'},
+  {t:'mc',q:'Which article goes with "Zeitung"?',o:['die','der','das','den'],why:'-ung words are feminine: die Zeitung.'},
+  {t:'fill',jp:'＿ Haus ist groß.',en:'The house is big.',o:['Das','Der','Die','Ein'],why:'das Haus.'},
+  {t:'fill',jp:'Das ist ＿ Lampe.',en:'That is a lamp.',o:['eine','ein','einen','der'],why:'die Lampe → eine Lampe.'},
+  {t:'fill',jp:'Das ist ＿ Tisch.',en:'That is a table.',o:['ein','eine','einen','die'],why:'der Tisch → ein Tisch.'},
+  {t:'mc',q:'Which article do all plural nouns use?',o:['die','der','das','den'],why:'Plural is always die.'},
+  {t:'mc',q:'What does "der Bahnhof" mean?',o:['the train station','the airport','the bus','the street'],why:'der Bahnhof = train station.'},
+  {t:'type',q:'Write "the book" in German.',a:['das Buch'],why:'das Buch.'}]},
+{id:'dax',st:'d1',t:'First steps checkpoint',sub:'Sounds, greetings, numbers, nouns',g:'A',kind:'gexam',from:['da1','da2','da3','da4','da5'],
+ intro:[{h:'Check your first steps',p:['A mixed exam over pronunciation, greetings, numbers, sein and noun genders. Score 90% to unlock Everyday life.']}]},
+{id:'db1',st:'d2',t:'Present tense: regular verbs',sub:'ich wohne · du wohnst · er wohnt',g:'-en',kind:'gram',drill:{t:'deverb',L:[['wohnen','live'],['lernen','learn'],['machen','do, make'],['spielen','play'],['kochen','cook'],['arbeiten','work'],['heißen','be called'],['kommen','come'],['trinken','drink'],['hören','hear, listen'],['kaufen','buy'],['finden','find'],['tanzen','dance'],['fragen','ask'],['brauchen','need']]},
+ words:W([['wohnen','to live'],['lernen','to learn'],['machen','to do, make'],['spielen','to play'],['kochen','to cook'],['arbeiten','to work'],['trinken','to drink'],['gern','gladly (likes doing)'],['Deutsch','German (language)'],['der Fußball','football']]),
+ intro:[{h:'Stem + ending',p:['Most verbs end in -en. Remove it to get the stem (wohn-), then add an ending for each person.'],tbl:[['ich wohne','-e',''],['du wohnst','-st',''],['er / sie / es wohnt','-t',''],['wir wohnen','-en',''],['ihr wohnt','-t',''],['sie / Sie wohnen','-en','']]},
+  {h:'Two small spelling rules',p:['Stems ending in <b>-t</b> or <b>-d</b> add an e: du arbeitest, er arbeitet, ihr findet.','Stems ending in <b>-s, -ß, -z</b> just add -t for du: du heißt, du tanzt.']},
+  {h:'The verb comes second',p:['In a German statement the verb is always the <b>second element</b>. If something else comes first, the subject moves behind the verb.'],ex:[['Ich lerne heute Deutsch.','I\'m learning German today.'],['Heute lerne ich Deutsch.','Today I\'m learning German.']],tip:'Add gern to say you like doing something: Ich spiele gern Fußball = I like playing football.'}],
+ qs:[{t:'fill',jp:'Ich ＿ in München.',en:'I live in Munich.',o:['wohne','wohnst','wohnt','wohnen'],why:'ich → -e.'},
+  {t:'fill',jp:'Du ＿ Deutsch.',en:'You are learning German.',o:['lernst','lerne','lernt','lernen'],why:'du → -st.'},
+  {t:'fill',jp:'Er ＿ bei Siemens.',en:'He works at Siemens.',o:['arbeitet','arbeitt','arbeitest','arbeiten'],why:'Stem ends in -t, so add e: arbeitet.'},
+  {t:'fill',jp:'Wir ＿ gern Fußball.',en:'We like playing football.',o:['spielen','spielt','spiele','spielst'],why:'wir → -en.'},
+  {t:'mc',q:'What does "gern" add to a verb?',o:['That you like doing it','That you did it in the past','That you must do it','That you can do it'],why:'gern = gladly, with pleasure.'},
+  {t:'fill',jp:'Ihr ＿ Kaffee.',en:'You (all) drink coffee.',o:['trinkt','trinken','trinkst','trinke'],why:'ihr → -t.'},
+  {t:'build',en:'She cooks pasta.',tiles:['Sie','kocht','Pasta'],x:['kochen','kochst'],why:'sie → -t.'},
+  {t:'type',q:'Write in German: "I work in Berlin."',a:['Ich arbeite in Berlin'],why:'ich arbeite.'},
+  {t:'mc',q:'Which sentence has the right word order?',o:['Heute lerne ich Deutsch.','Heute ich lerne Deutsch.','Ich Deutsch heute lerne.','Lerne heute ich Deutsch.'],why:'The verb is second.'}]},
+{id:'db2',st:'d2',t:'haben and stem-changing verbs',sub:'ich habe · du isst · er fährt',g:'ä',kind:'gram',drill:{t:'deverb',L:[['haben','have',['habe','hast','hat','haben','habt','haben']],['essen','eat',['esse','isst','isst','essen','esst','essen']],['sprechen','speak',['spreche','sprichst','spricht','sprechen','sprecht','sprechen']],['nehmen','take',['nehme','nimmst','nimmt','nehmen','nehmt','nehmen']],['lesen','read',['lese','liest','liest','lesen','lest','lesen']],['sehen','see',['sehe','siehst','sieht','sehen','seht','sehen']],['fahren','drive, travel',['fahre','fährst','fährt','fahren','fahrt','fahren']],['schlafen','sleep',['schlafe','schläfst','schläft','schlafen','schlaft','schlafen']],['geben','give',['gebe','gibst','gibt','geben','gebt','geben']],['helfen','help',['helfe','hilfst','hilft','helfen','helft','helfen']],['laufen','run, walk',['laufe','läufst','läuft','laufen','lauft','laufen']],['treffen','meet',['treffe','triffst','trifft','treffen','trefft','treffen']]]},
+ words:W([['haben','to have'],['essen','to eat'],['sprechen','to speak'],['lesen','to read'],['fahren','to drive, travel'],['schlafen','to sleep'],['die Zeit','time'],['der Hunger','hunger'],['der Durst','thirst']]),
+ intro:[{h:'haben: to have',tbl:[['ich habe','',''],['du hast','',''],['er / sie / es hat','',''],['wir haben','',''],['ihr habt','',''],['sie / Sie haben','','']],ex:[['Ich habe Hunger.','I\'m hungry. (I have hunger)'],['Hast du Zeit?','Do you have time?']]},
+  {h:'Stem-changing verbs',say:2,p:['Some common verbs change their vowel, but <b>only for du and er/sie/es</b>. Everything else is regular.'],tbl:[['e → i','essen, sprechen, nehmen','du isst, er spricht, er nimmt'],['e → ie','lesen, sehen','du liest, er sieht'],['a → ä','fahren, schlafen, laufen','du fährst, er schläft, er läuft']]}],
+ qs:[{t:'fill',jp:'Ich ＿ Hunger.',en:'I\'m hungry.',o:['habe','hast','hat','bin'],why:'German says "I have hunger": ich habe Hunger.'},
+  {t:'fill',jp:'Er ＿ gut Englisch.',en:'He speaks English well.',o:['spricht','sprecht','sprechen','spreche'],why:'e → i: er spricht.'},
+  {t:'fill',jp:'Du ＿ zu viel.',en:'You eat too much.',o:['isst','esst','essen','esse'],why:'e → i: du isst.'},
+  {t:'fill',jp:'Sie ＿ ein Buch.',en:'She is reading a book.',o:['liest','lest','lesen','lese'],why:'e → ie: sie liest.'},
+  {t:'fill',jp:'Wohin ＿ du?',en:'Where are you going (by car/train)?',o:['fährst','fahrst','fahren','fährt'],why:'a → ä: du fährst.'},
+  {t:'mc',q:'Which forms change in stem-changing verbs?',o:['Only du and er/sie/es','All forms','Only ich','Only wir and sie'],why:'Just the du and er/sie/es forms.'},
+  {t:'mc',q:'What does "Ich habe Durst" mean?',o:['I\'m thirsty.','I have time.','I\'m tired.','I\'m hungry.'],why:'der Durst = thirst.'},
+  {t:'build',en:'Do you have time?',tiles:['Hast','du','Zeit'],x:['Hat','bist'],why:'Questions start with the verb: Hast du …?'},
+  {t:'type',q:'Write in German: "He sleeps."',a:['Er schläft'],why:'a → ä: er schläft.'}]},
+{id:'db3',st:'d2',t:'Asking questions',sub:'Wo? Woher? Wann? · Kommst du?',g:'?',kind:'gram',
+ words:W([['wer','who'],['was','what'],['wo','where'],['woher','where from'],['wohin','where to'],['wann','when'],['wie','how'],['warum','why'],['wie viel','how much'],['doch','yes (to a negative question)']]),
+ intro:[{h:'W-questions',p:['Question word first, then the verb, then the subject.'],tbl:[['wer','who',''],['was','what',''],['wo · woher · wohin','where · where from · where to',''],['wann','when',''],['wie','how',''],['warum','why',''],['wie viel','how much','']],ex:[['Wo wohnst du?','Where do you live?'],['Wann kommt der Zug?','When does the train come?']]},
+  {h:'Yes/no questions',p:['Start with the verb.'],ex:[['Kommst du aus Indien?','Are you from India?'],['Ja. / Nein.','Yes. / No.']]},
+  {h:'The special "doch"',p:['To say "yes" to a negative question, Germans use <b>doch</b>.'],ex:[['Kommst du nicht mit?','Aren\'t you coming along?'],['Doch!','Yes, I am!']]}],
+ qs:[{t:'fill',jp:'＿ wohnst du?',en:'Where do you live?',o:['Wo','Woher','Wohin','Wer'],why:'wo = where (location).'},
+  {t:'fill',jp:'＿ kommst du?',en:'Where are you from?',o:['Woher','Wo','Wohin','Wann'],why:'woher = where from.'},
+  {t:'fill',jp:'＿ fährst du?',en:'Where are you going (to)?',o:['Wohin','Woher','Wo','Wie'],why:'wohin = where to.'},
+  {t:'mc',q:'Make "Du sprichst Deutsch." into a yes/no question.',o:['Sprichst du Deutsch?','Du sprichst Deutsch ja?','Deutsch du sprichst?','Sprichst Deutsch du?'],why:'Verb first, then the subject.'},
+  {t:'fill',jp:'＿ kostet das?',en:'How much does that cost?',o:['Wie viel','Wie','Wann','Wer'],why:'wie viel = how much.'},
+  {t:'mc',q:'"Kommst du nicht?" — "Doch!" What does Doch mean here?',o:['Yes, I am coming','No, I\'m not coming','Maybe','I don\'t know'],why:'doch contradicts a negative: yes, I am.'},
+  {t:'build',en:'When does the train come?',tiles:['Wann','kommt','der','Zug'],x:['kommen','Wo'],why:'Question word, verb, subject.'},
+  {t:'type',q:'Write in German: "What is that?"',a:['Was ist das'],why:'Was ist das?'},
+  {t:'fill',jp:'＿ heißt du?',en:'What\'s your name?',o:['Wie','Was','Wer','Wo'],why:'German asks "How are you called?": Wie heißt du?'}]},
+{id:'db4',st:'d2',t:'Saying no: nicht and kein',sub:'Ich komme nicht · kein Auto',g:'kein',kind:'gram',
+ words:W([['nicht','not'],['kein · keine','no, not a'],['das Geld','money'],['das Problem','problem'],['der Bruder','brother'],['die Schwester','sister']]),
+ intro:[{h:'kein: "no / not a"',p:['Use <b>kein</b> to negate a noun that would have ein or no article. It takes the same endings as ein: kein (der/das), keine (die and plural).'],ex:[['Ich habe kein Auto.','I don\'t have a car.'],['Ich habe keine Zeit.','I have no time.'],['Das ist kein Problem.','That\'s no problem.']]},
+  {h:'nicht: "not"',p:['Use <b>nicht</b> for everything else: verbs, adjectives, names, and nouns with der/die/das.'],ex:[['Ich komme nicht.','I\'m not coming.'],['Das ist nicht gut.','That\'s not good.']],tip:'nein answers a question ("No."). nicht and kein negate part of a sentence.'}],
+ qs:[{t:'fill',jp:'Ich habe ＿ Auto.',en:'I don\'t have a car.',o:['kein','nicht','keine','nein'],why:'das Auto → kein Auto.'},
+  {t:'fill',jp:'Das ist ＿ gut.',en:'That\'s not good.',o:['nicht','kein','keine','nein'],why:'Adjectives take nicht.'},
+  {t:'fill',jp:'Ich habe ＿ Zeit.',en:'I have no time.',o:['keine','kein','nicht','nein'],why:'die Zeit → keine Zeit.'},
+  {t:'fill',jp:'Er kommt heute ＿.',en:'He isn\'t coming today.',o:['nicht','kein','keine','nein'],why:'Verbs take nicht.'},
+  {t:'mc',q:'Which sentence is correct?',o:['Das ist kein Problem.','Das ist nicht Problem.','Das ist keine Problem.','Das nicht ist Problem.'],why:'das Problem → kein Problem.'},
+  {t:'mc',q:'What\'s the difference between nein and nicht?',o:['nein answers a question; nicht negates part of a sentence','They mean exactly the same','nicht is only used with nouns','nein goes at the end of a sentence'],why:'nein = no (answer); nicht = not.'},
+  {t:'build',en:'I\'m not tired.',tiles:['Ich','bin','nicht','müde'],x:['kein','keine'],why:'Adjectives take nicht.'},
+  {t:'type',q:'Write in German: "I have no money."',a:['Ich habe kein Geld'],why:'das Geld → kein Geld.'}]},
+{id:'db5',st:'d2',t:'Family and "my, your"',sub:'mein Vater · meine Mutter',g:'mein',kind:'gram',
+ words:W([['der Vater','father'],['die Mutter','mother'],['die Eltern','parents'],['der Bruder','brother'],['die Schwester','sister'],['der Sohn','son'],['die Tochter','daughter'],['die Familie','family']]),
+ intro:[{h:'Family words',ex:[['der Vater · die Mutter · die Eltern','father · mother · parents'],['der Bruder · die Schwester','brother · sister'],['der Sohn · die Tochter','son · daughter'],['der Mann · die Frau','husband · wife (also man · woman)']]},
+  {h:'Possessives',tbl:[['ich → mein','my',''],['du → dein','your','informal'],['er / es → sein','his / its',''],['sie → ihr','her / their',''],['wir → unser','our',''],['ihr → euer','your','informal plural'],['Sie → Ihr','your','polite']],p:['They take ein-endings: <b>mein</b> Vater, <b>mein</b> Kind, but <b>meine</b> Mutter, <b>meine</b> Eltern.']}],
+ qs:[{t:'fill',jp:'Das ist ＿ Mutter.',en:'That is my mother.',o:['meine','mein','meinen','meiner'],why:'die Mutter → meine.'},
+  {t:'fill',jp:'Das ist ＿ Vater.',en:'That is my father.',o:['mein','meine','meinen','meinem'],why:'der Vater → mein.'},
+  {t:'fill',jp:'Wie heißt ＿ Schwester?',en:'What\'s your sister\'s name? (informal)',o:['deine','dein','deinen','deinem'],why:'die Schwester → deine.'},
+  {t:'mc',q:'What can "ihr Bruder" mean?',o:['her brother or their brother','only his brother','only our brother','only my brother'],why:'ihr = her or their (Ihr with a capital = your, polite).'},
+  {t:'fill',jp:'Das sind ＿ Eltern.',en:'Those are our parents.',o:['unsere','unser','euer','eure'],why:'Plural → unsere.'},
+  {t:'mc',q:'What does "die Tochter" mean?',o:['the daughter','the son','the aunt','the sister'],why:'die Tochter = daughter.'},
+  {t:'build',en:'His sister lives in Hamburg.',tiles:['Seine','Schwester','wohnt','in','Hamburg'],x:['Sein','wohnen'],why:'die Schwester → seine.'},
+  {t:'type',q:'Write in German: "my family"',a:['meine Familie'],why:'die Familie → meine Familie.'}]},
+{id:'db6',st:'d2',t:'Time, days and routines',sub:'um 8 Uhr · am Montag · aufstehen',g:'Uhr',kind:'gram',
+ words:W([['der Montag','Monday'],['der Dienstag','Tuesday'],['der Mittwoch','Wednesday'],['der Donnerstag','Thursday'],['der Freitag','Friday'],['der Samstag','Saturday'],['der Sonntag','Sunday'],['aufstehen','to get up'],['einkaufen','to shop'],['anrufen','to call (phone)'],['die Uhr','clock; o\'clock']]),
+ intro:[{h:'Telling the time',ex:[['Wie spät ist es?','What time is it?'],['Es ist drei Uhr.','It\'s three o\'clock.'],['Viertel nach drei','3:15'],['halb vier','3:30 ("half to four")'],['Viertel vor vier','3:45']],tip:'halb looks ahead to the next hour: halb vier is 3:30, not 4:30.'},
+  {h:'um, am',p:['<b>um</b> + clock time, <b>am</b> + day.'],ex:[['um acht Uhr','at eight o\'clock'],['am Montag','on Monday']]},
+  {h:'Separable verbs',p:['Many everyday verbs have a prefix that jumps to the <b>end</b> of the sentence: aufstehen, einkaufen, anrufen, fernsehen.'],ex:[['Ich stehe um sieben Uhr auf.','I get up at seven.'],['Wir kaufen am Samstag ein.','We go shopping on Saturday.'],['Ich rufe dich an.','I\'ll call you.']]}],
+ qs:[{t:'mc',q:'What time is "halb vier"?',o:['3:30','4:30','3:04','4:00'],why:'halb vier = half (way) to four.'},
+  {t:'fill',jp:'Ich stehe um sieben Uhr ＿.',en:'I get up at seven.',o:['auf','an','ein','aus'],why:'aufstehen → ich stehe … auf.'},
+  {t:'fill',jp:'Wir sehen uns ＿ Montag.',en:'See you on Monday.',o:['am','um','im','an'],why:'Days take am.'},
+  {t:'fill',jp:'Der Kurs beginnt ＿ neun Uhr.',en:'The course starts at nine.',o:['um','am','im','an'],why:'Clock times take um.'},
+  {t:'mc',q:'Where does the prefix of a separable verb go?',o:['To the end of the sentence','To the start','It disappears','Before the subject'],why:'Ich stehe … auf.'},
+  {t:'build',en:'I\'m calling my mother.',tiles:['Ich','rufe','meine','Mutter','an'],x:['anrufe','ein'],why:'anrufen → ich rufe … an.'},
+  {t:'mc',q:'What time is "Viertel vor acht"?',o:['7:45','8:15','8:45','7:15'],why:'A quarter before eight.'},
+  {t:'type',q:'Write in German: "on Sunday"',a:['am Sonntag'],why:'am + day.'},
+  {t:'mc',q:'Which day comes after Mittwoch?',o:['Donnerstag','Dienstag','Freitag','Montag'],why:'Mittwoch (Wed) → Donnerstag (Thu).'}]},
+{id:'dbx',st:'d2',t:'Everyday life checkpoint',sub:'Verbs, questions, negation, time',g:'B',kind:'gexam',from:['db1','db2','db3','db4','db5','db6'],
+ intro:[{h:'Check your everyday German',p:['Verb endings, stem changes, questions, nicht and kein, family and time. Score 90% to unlock Out and about.']}]},
+{id:'dc1',st:'d3',t:'Food and ordering',sub:'Ich möchte … · Die Rechnung, bitte',g:'Café',kind:'gram',
+ words:W([['der Kaffee','coffee'],['der Tee','tea'],['das Wasser','water'],['das Brot','bread'],['die Suppe','soup'],['der Salat','salad'],['die Rechnung','the bill'],['lecker','delicious'],['Guten Appetit!','enjoy your meal!']]),
+ intro:[{h:'Ordering politely',ex:[['Ich möchte einen Kaffee, bitte.','I\'d like a coffee, please.'],['Ich hätte gern eine Suppe.','I\'d like a soup.'],['Was kostet der Salat?','How much is the salad?'],['Die Rechnung, bitte. / Zahlen, bitte.','The bill, please.']]},
+  {h:'A first look at the accusative',p:['After möchte, habe, nehme and most verbs, a <b>der</b> noun changes: ein → <b>einen</b>. die and das nouns stay the same.'],ex:[['Ich möchte einen Kaffee.','der Kaffee → einen'],['Ich möchte eine Cola.','die Cola → eine'],['Ich möchte ein Wasser.','das Wasser → ein']],tip:'You\'ll learn the full accusative in the next unit.'}],
+ qs:[{t:'mc',q:'How do you politely order a coffee?',o:['Ich möchte einen Kaffee, bitte.','Ich will Kaffee jetzt.','Kaffee ich möchte.','Gib Kaffee!'],why:'Ich möchte … bitte is polite.'},
+  {t:'fill',jp:'Ich möchte ＿ Wasser, bitte.',en:'I\'d like a water, please.',o:['ein','einen','eine','einem'],why:'das Wasser → ein.'},
+  {t:'fill',jp:'Ich nehme ＿ Suppe.',en:'I\'ll have a soup.',o:['eine','ein','einen','einer'],why:'die Suppe → eine.'},
+  {t:'mc',q:'How do you ask for the bill?',o:['Die Rechnung, bitte.','Das Geld, bitte.','Wie viel Uhr?','Ich bezahle nicht.'],why:'die Rechnung = the bill.'},
+  {t:'mc',q:'What does "Lecker!" mean?',o:['Delicious!','Cheers!','Enjoy your meal!','Too expensive!'],why:'lecker = tasty.'},
+  {t:'fill',jp:'＿ kostet der Salat?',en:'How much is the salad?',o:['Was','Wer','Wo','Wann'],why:'Was kostet …? = How much is …?'},
+  {t:'build',en:'I\'d like a tea, please.',tiles:['Ich','möchte','einen','Tee','bitte'],x:['ein','möchten'],why:'der Tee → einen Tee.'},
+  {t:'type',q:'Write in German: "The bill, please."',a:['Die Rechnung bitte'],why:'Die Rechnung, bitte.'}]},
+{id:'dc2',st:'d3',t:'The accusative case',sub:'den · einen · mich · dich',g:'den',kind:'gram',
+ words:W([['den','the (masc. accusative)'],['einen','a (masc. accusative)'],['für','for'],['ohne','without'],['mich','me'],['dich','you (informal)'],['ihn','him'],['der Schlüssel','key']]),
+ intro:[{h:'Subject vs object',p:['The subject (who does it) is in the <b>nominative</b>. The direct object (what or who it\'s done to) is in the <b>accusative</b>.','Only the <b>masculine</b> changes: der → <b>den</b>, ein → <b>einen</b>, kein → <b>keinen</b>. Feminine, neuter and plural stay the same.'],ex:[['Der Mann sieht den Hund.','The man sees the dog.'],['Ich habe einen Schlüssel.','I have a key.']]},
+  {h:'Accusative pronouns',tbl:[['ich → mich','me',''],['du → dich','you',''],['er → ihn','him',''],['sie → sie · es → es','her · it',''],['wir → uns · ihr → euch','us · you',''],['sie → sie · Sie → Sie','them · you','']]},
+  {h:'Prepositions with the accusative',p:['<b>für</b> (for), <b>ohne</b> (without), <b>durch</b> (through), <b>gegen</b> (against), <b>um</b> (around) are always followed by the accusative.'],ex:[['Das ist für dich.','That\'s for you.'],['Kaffee ohne Milch','coffee without milk']]}],
+ qs:[{t:'fill',jp:'Ich sehe ＿ Mann.',en:'I see the man.',o:['den','der','dem','des'],why:'der Mann as object → den.'},
+  {t:'fill',jp:'Hast du ＿ Schlüssel?',en:'Do you have a key?',o:['einen','ein','eine','einem'],why:'der Schlüssel → einen.'},
+  {t:'fill',jp:'Ich kaufe ＿ Lampe.',en:'I\'m buying the lamp.',o:['die','den','der','dem'],why:'Feminine doesn\'t change: die.'},
+  {t:'fill',jp:'Das Geschenk ist für ＿.',en:'The present is for you. (informal)',o:['dich','du','dir','dein'],why:'für + accusative: dich.'},
+  {t:'fill',jp:'Ich liebe ＿.',en:'I love him.',o:['ihn','er','ihm','sein'],why:'er → ihn.'},
+  {t:'mc',q:'Which gender changes in the accusative?',o:['Only masculine','Only feminine','All of them','Only plural'],why:'der → den, ein → einen.'},
+  {t:'build',en:'I drink coffee without milk.',tiles:['Ich','trinke','Kaffee','ohne','Milch'],x:['mit','den'],why:'ohne = without.'},
+  {t:'type',q:'Write in German: "I see the dog."',a:['Ich sehe den Hund'],why:'der Hund → den Hund.'}]},
+{id:'dc3',st:'d3',t:'Modal verbs: can, must, want',sub:'können · müssen · wollen',g:'kann',kind:'gram',drill:{t:'deverb',L:[['können','can',['kann','kannst','kann','können','könnt','können']],['müssen','must, have to',['muss','musst','muss','müssen','müsst','müssen']],['wollen','want',['will','willst','will','wollen','wollt','wollen']],['möchten','would like',['möchte','möchtest','möchte','möchten','möchtet','möchten']],['dürfen','may, be allowed',['darf','darfst','darf','dürfen','dürft','dürfen']],['sollen','should',['soll','sollst','soll','sollen','sollt','sollen']]]},
+ words:W([['können','can'],['müssen','must, have to'],['wollen','want'],['dürfen','may, be allowed'],['sollen','should'],['schwimmen','to swim'],['heute','today'],['morgen','tomorrow']]),
+ intro:[{h:'Six modal verbs',tbl:[['können','can',''],['müssen','must, have to',''],['wollen','want',''],['möchten','would like','polite'],['dürfen','may, be allowed',''],['sollen','should','']],p:['ich and er/sie/es have <b>no ending</b> and often a different vowel: ich kann, er kann; ich muss, er muss; ich will.']},
+  {h:'The sentence bracket',p:['The modal verb takes position 2. The main verb goes to the <b>end</b>, in its infinitive form.'],ex:[['Ich kann gut schwimmen.','I can swim well.'],['Ich muss morgen arbeiten.','I have to work tomorrow.'],['Hier darf man nicht rauchen.','You may not smoke here.']],tip:'This "verb at the end" pattern comes back with the past tense and separable verbs. Get used to waiting for the last word.'}],
+ qs:[{t:'fill',jp:'Ich ＿ gut schwimmen.',en:'I can swim well.',o:['kann','kannst','können','könne'],why:'ich kann.'},
+  {t:'mc',q:'Where does the main verb go in a sentence with a modal verb?',o:['At the end','Right after the modal','At the start','It is left out'],why:'Ich muss morgen arbeiten.'},
+  {t:'build',en:'I have to work tomorrow.',tiles:['Ich','muss','morgen','arbeiten'],x:['arbeite','musst'],why:'Modal second, infinitive last.'},
+  {t:'fill',jp:'Hier ＿ man nicht rauchen.',en:'You may not smoke here.',o:['darf','darfst','dürfen','dürft'],why:'man → darf.'},
+  {t:'fill',jp:'Was ＿ du heute machen?',en:'What do you want to do today?',o:['willst','will','wollt','wollen'],why:'du willst.'},
+  {t:'mc',q:'How do you say "Can you help me?"',o:['Kannst du mir helfen?','Kannst du helfen mir?','Helfen du kannst mir?','Kann du mir helfen?'],why:'Modal first, infinitive last.'},
+  {t:'type',q:'Write in German: "I want to sleep."',a:['Ich will schlafen','Ich möchte schlafen'],why:'Ich will schlafen.'},
+  {t:'mc',q:'What does "Du sollst mehr Wasser trinken." mean?',o:['You should drink more water.','You may drink more water.','You want to drink more water.','You can drink more water.'],why:'sollen = should.'}]},
+{id:'dc4',st:'d3',t:'Places and directions',sub:'links · rechts · geradeaus',g:'→',kind:'gram',
+ words:W([['der Bahnhof','train station'],['die Apotheke','pharmacy'],['der Supermarkt','supermarket'],['das Krankenhaus','hospital'],['die Haltestelle','(bus/tram) stop'],['links','left'],['rechts','right'],['geradeaus','straight ahead'],['zu Fuß','on foot']]),
+ intro:[{h:'Asking the way',ex:[['Entschuldigung, wo ist der Bahnhof?','Excuse me, where is the station?'],['Wie komme ich zum Supermarkt?','How do I get to the supermarket?'],['Gehen Sie geradeaus.','Go straight ahead.'],['Nehmen Sie die zweite Straße links.','Take the second street on the left.']]},
+  {h:'Going to: zum, zur',p:['"To" a place is usually <b>zu</b>, which merges with the article: zu dem → <b>zum</b> (der/das places), zu der → <b>zur</b> (die places).'],ex:[['Ich gehe zum Bahnhof.','I\'m going to the station.'],['Ich gehe zur Apotheke.','I\'m going to the pharmacy.']],tip:'Cities and countries take nach: Ich fahre nach Berlin.'}],
+ qs:[{t:'mc',q:'What does "Gehen Sie geradeaus." mean?',o:['Go straight ahead.','Turn left.','Turn right.','Go back.'],why:'geradeaus = straight ahead.'},
+  {t:'fill',jp:'Entschuldigung, wo ist ＿ Bahnhof?',en:'Excuse me, where is the station?',o:['der','die','das','den'],why:'der Bahnhof (subject).'},
+  {t:'fill',jp:'Ich gehe ＿ Apotheke.',en:'I\'m going to the pharmacy.',o:['zur','zum','zu','nach'],why:'die Apotheke → zur.'},
+  {t:'fill',jp:'Wir fahren ＿ Supermarkt.',en:'We\'re driving to the supermarket.',o:['zum','zur','zu','in'],why:'der Supermarkt → zum.'},
+  {t:'mc',q:'Where do you buy medicine?',o:['in der Apotheke','am Bahnhof','an der Haltestelle','in der Bäckerei'],why:'die Apotheke = pharmacy.'},
+  {t:'mc',q:'How do you say "on foot"?',o:['zu Fuß','mit Fuß','auf Fuß','bei Fuß'],why:'zu Fuß gehen = to walk.'},
+  {t:'build',en:'Take the second street on the left.',tiles:['Nehmen','Sie','die','zweite','Straße','links'],x:['zweiten','rechts'],why:'Polite command: Nehmen Sie …'},
+  {t:'type',q:'Write in German: "Where is the pharmacy?"',a:['Wo ist die Apotheke'],why:'Wo ist die Apotheke?'}]},
+{id:'dc5',st:'d3',t:'The dative case',sub:'mit dem Bus · bei mir · Wie geht es dir?',g:'dem',kind:'gram',
+ words:W([['mit','with; by (transport)'],['bei','at (someone\'s place)'],['nach','to (cities); after'],['von','from, of'],['zu','to'],['mir','(to) me'],['dir','(to) you'],['gefallen','to please (like)']]),
+ intro:[{h:'Dative articles',tbl:[['der → dem','ein → einem','masculine'],['die → der','eine → einer','feminine'],['das → dem','ein → einem','neuter'],['die → den (+n)','– → (keinen)','plural']]},
+  {h:'Dative prepositions',p:['<b>aus, bei, mit, nach, seit, von, zu</b> are always followed by the dative.'],ex:[['Ich fahre mit dem Bus.','I go by bus.'],['Er wohnt bei seinen Eltern.','He lives with his parents.'],['Ich komme von der Arbeit.','I\'m coming from work.']]},
+  {h:'Dative pronouns',tbl:[['mir · dir','(to) me · (to) you',''],['ihm · ihr · ihm','(to) him · her · it',''],['uns · euch · ihnen · Ihnen','(to) us · you · them · you (polite)','']],ex:[['Wie geht es dir?','How are you? (lit. how goes it to you)'],['Das gefällt mir.','I like that. (lit. that pleases me)'],['Kannst du mir helfen?','Can you help me?']]}],
+ qs:[{t:'fill',jp:'Ich fahre mit ＿ Bus.',en:'I go by bus.',o:['dem','den','der','die'],why:'mit + dative: der Bus → dem.'},
+  {t:'fill',jp:'Er wohnt bei ＿ Eltern.',en:'He lives with his parents.',o:['seinen','seine','seiner','sein'],why:'Plural dative: seinen Eltern.'},
+  {t:'fill',jp:'Kannst du ＿ helfen?',en:'Can you help me?',o:['mir','mich','ich','mein'],why:'helfen takes the dative: mir.'},
+  {t:'fill',jp:'Ich komme gerade von ＿ Arbeit.',en:'I\'m just coming from work.',o:['der','die','dem','den'],why:'von + dative: die Arbeit → der.'},
+  {t:'mc',q:'What does "Das gefällt mir." mean?',o:['I like that.','I want that.','That belongs to me.','That is for me.'],why:'gefallen = to please.'},
+  {t:'fill',jp:'Wie geht es ＿?',en:'How are you? (informal)',o:['dir','dich','du','dein'],why:'Wie geht es dir?'},
+  {t:'mc',q:'What is "zu dem" usually shortened to?',o:['zum','zur','zun','zem'],why:'zu + dem = zum.'},
+  {t:'build',en:'I\'m going with my friend.',tiles:['Ich','gehe','mit','meinem','Freund'],x:['meinen','mein'],why:'mit + dative: mein → meinem.'}]},
+{id:'dc6',st:'d3',t:'The past: Perfekt',sub:'Ich habe gegessen · Ich bin gefahren',g:'ge-',kind:'gram',drill:{t:'deperf',L:[['machen','do','h','gemacht','gemachen'],['kaufen','buy','h','gekauft','gekaufen'],['arbeiten','work','h','gearbeitet','gearbeiten'],['spielen','play','h','gespielt','gespielen'],['essen','eat','h','gegessen','geesst'],['trinken','drink','h','getrunken','getrinkt'],['sehen','see','h','gesehen','geseht'],['schreiben','write','h','geschrieben','geschreibt'],['lesen','read','h','gelesen','gelest'],['schlafen','sleep','h','geschlafen','geschlaft'],['gehen','go','s','gegangen','gegeht'],['fahren','drive, travel','s','gefahren','gefahrt'],['kommen','come','s','gekommen','gekommt'],['fliegen','fly','s','geflogen','gefliegt'],['bleiben','stay','s','geblieben','gebleibt'],['einkaufen','shop','h','eingekauft','geeinkauft'],['aufstehen','get up','s','aufgestanden','aufgesteht'],['telefonieren','phone','h','telefoniert','getelefoniert'],['besuchen','visit','h','besucht','gebesucht'],['sein','be','s','gewesen','geseint']]},
+ words:W([['gestern','yesterday'],['letzte Woche','last week'],['das Wochenende','weekend'],['gemacht','done, made'],['gegessen','eaten'],['gegangen','gone']]),
+ intro:[{h:'Spoken past = haben/sein + participle',p:['In conversation Germans talk about the past with the <b>Perfekt</b>: haben or sein in position 2, and the past participle at the <b>end</b>.'],ex:[['Ich habe Pizza gegessen.','I ate pizza.'],['Wir sind nach Berlin gefahren.','We went to Berlin.']]},
+  {h:'Making the participle',say:2,tbl:[['regular','ge- + stem + -t','machen → gemacht, kaufen → gekauft'],['irregular','ge- + (new vowel) + -en','essen → gegessen, trinken → getrunken'],['separable','prefix + ge + …','einkaufen → eingekauft'],['-ieren, be-, ver-','no ge-','telefonieren → telefoniert, besuchen → besucht']]},
+  {h:'haben or sein?',p:['Most verbs use <b>haben</b>. Verbs of <b>movement</b> (gehen, fahren, kommen, fliegen) and <b>change of state</b> (aufstehen) use <b>sein</b>, plus sein and bleiben themselves.'],ex:[['Ich bin früh aufgestanden.','I got up early.'],['Er ist zu Hause geblieben.','He stayed at home.']]}],
+ qs:[{t:'fill',jp:'Gestern ＿ ich Pizza gegessen.',en:'Yesterday I ate pizza.',o:['habe','bin','hat','ist'],why:'essen takes haben; verb second, so habe ich.'},
+  {t:'fill',jp:'Wir ＿ nach Berlin gefahren.',en:'We went to Berlin.',o:['sind','haben','seid','hat'],why:'Movement → sein.'},
+  {t:'mc',q:'What is the past participle of "kaufen"?',o:['gekauft','gekaufen','kaufte','gekauf'],why:'Regular: ge-kauf-t.'},
+  {t:'mc',q:'Which verbs usually take "sein" in the Perfekt?',o:['Verbs of movement or change of state','All irregular verbs','Verbs ending in -ieren','Modal verbs'],why:'gehen, fahren, kommen, aufstehen…'},
+  {t:'build',en:'I worked a lot yesterday.',tiles:['Ich','habe','gestern','viel','gearbeitet'],x:['bin','arbeitet'],why:'haben + … + participle at the end.'},
+  {t:'fill',jp:'Was hast du am Wochenende ＿?',en:'What did you do at the weekend?',o:['gemacht','machen','gemachen','macht'],why:'machen → gemacht.'},
+  {t:'mc',q:'What does "Er ist zu Hause geblieben." mean?',o:['He stayed at home.','He went home.','He is at home.','He wants to stay home.'],why:'bleiben → ist geblieben.'},
+  {t:'type',q:'Write in German: "I have seen the film."',a:['Ich habe den Film gesehen'],why:'sehen → gesehen, with haben.'}]},
+{id:'dcx',st:'d3',t:'Out and about checkpoint',sub:'Cases, modals, directions, past',g:'C',kind:'gexam',from:['dc1','dc2','dc3','dc4','dc5','dc6'],
+ intro:[{h:'Check your progress',p:['Ordering, the accusative and dative, modal verbs, directions and the Perfekt. Score 90% to unlock Practical German.']}]},
+{id:'dd1',st:'d4',t:'Work and jobs',sub:'Was sind Sie von Beruf?',g:'Job',kind:'gram',
+ words:W([['der Beruf','profession'],['das Büro','office'],['der Kollege','colleague (male)'],['die Kollegin','colleague (female)'],['der Chef','boss'],['die Besprechung','meeting'],['die Firma','company'],['Vollzeit','full-time'],['Teilzeit','part-time']]),
+ intro:[{h:'Talking about your job',ex:[['Was sind Sie von Beruf?','What do you do? (polite)'],['Ich bin Ingenieurin.','I\'m an engineer. (woman)'],['Ich arbeite als Softwareentwickler.','I work as a software developer.'],['Ich arbeite bei Bosch.','I work at Bosch.'],['Ich arbeite Teilzeit.','I work part-time.']],tip:'als + job, bei + company. And no "ein" before the job: Ich bin Arzt.'},
+  {h:'At the workplace',ex:[['Wann ist die Besprechung?','When is the meeting?'],['Mein Kollege ist heute krank.','My colleague is ill today.'],['Ich schicke Ihnen eine E-Mail.','I\'ll send you an email.']]}],
+ qs:[{t:'mc',q:'How do you ask someone\'s job politely?',o:['Was sind Sie von Beruf?','Wer arbeiten Sie?','Was ist Ihr Arbeit?','Wo ist Ihr Beruf?'],why:'Was sind Sie von Beruf?'},
+  {t:'fill',jp:'Ich arbeite ＿ Softwareentwickler.',en:'I work as a software developer.',o:['als','bei','für','mit'],why:'als + job.'},
+  {t:'fill',jp:'Sie arbeitet ＿ BMW.',en:'She works at BMW.',o:['bei','als','in','zu'],why:'bei + company.'},
+  {t:'mc',q:'A female engineer introduces herself. What does she say?',o:['Ich bin Ingenieurin.','Ich bin eine Ingenieur.','Ich habe Ingenieurin.','Ich Ingenieurin bin.'],why:'No article, and -in for women.'},
+  {t:'mc',q:'What does "die Besprechung" mean?',o:['the meeting','the break','the salary','the office'],why:'die Besprechung = meeting.'},
+  {t:'build',en:'My colleague works part-time.',tiles:['Meine','Kollegin','arbeitet','Teilzeit'],x:['Mein','arbeiten'],why:'die Kollegin → meine.'},
+  {t:'type',q:'Write in German: "I work in an office."',a:['Ich arbeite in einem Büro','Ich arbeite im Büro'],why:'in + dative: in einem Büro.'},
+  {t:'mc',q:'Which sentence is correct?',o:['Ich bin Lehrer.','Ich bin Lehrer von.','Ich Lehrer bin.','Ich habe Lehrer.'],why:'Ich bin + job.'}]},
+{id:'dd2',st:'d4',t:'Home and apartment',sub:'die Wohnung · die Miete',g:'Haus',kind:'gram',
+ words:W([['die Wohnung','apartment'],['das Zimmer','room'],['die Küche','kitchen'],['das Bad','bathroom'],['das Schlafzimmer','bedroom'],['der Balkon','balcony'],['die Miete','rent'],['möbliert','furnished'],['es gibt','there is / there are']]),
+ intro:[{h:'Rooms and rent',ex:[['eine 2-Zimmer-Wohnung','a two-room apartment (bathroom and kitchen not counted)'],['die Kaltmiete','rent without heating and bills'],['die Warmmiete','rent including heating and bills'],['die Kaution','deposit']],p:['Apartment ads are full of these words, so they\'re worth knowing early.']},
+  {h:'es gibt: there is',p:['<b>es gibt</b> + accusative = there is / there are.'],ex:[['In der Wohnung gibt es einen Balkon.','The apartment has a balcony.'],['Gibt es eine Waschmaschine?','Is there a washing machine?']]}],
+ qs:[{t:'mc',q:'What is "Kaltmiete"?',o:['Rent without heating and bills','Rent including everything','A cold room','A deposit'],why:'kalt = without extras.'},
+  {t:'fill',jp:'In der Wohnung gibt es ＿ Balkon.',en:'The apartment has a balcony.',o:['einen','ein','eine','einem'],why:'es gibt + accusative: einen.'},
+  {t:'mc',q:'Where do you cook?',o:['in der Küche','im Bad','im Schlafzimmer','auf dem Balkon'],why:'die Küche = kitchen.'},
+  {t:'mc',q:'What does "möbliert" mean?',o:['furnished','rented','expensive','quiet'],why:'möbliert = with furniture.'},
+  {t:'fill',jp:'Wie hoch ist die ＿?',en:'How much is the rent?',o:['Miete','Küche','Wohnung','Zimmer'],why:'die Miete = rent.'},
+  {t:'build',en:'The apartment has three rooms.',tiles:['Die','Wohnung','hat','drei','Zimmer'],x:['ist','gibt'],why:'haben = to have.'},
+  {t:'type',q:'Write in German: "the kitchen"',a:['die Küche'],why:'die Küche.'},
+  {t:'mc',q:'What is "das Bad"?',o:['the bathroom','the bed','the balcony','the garden'],why:'das Bad = bathroom.'}]},
+{id:'dd3',st:'d4',t:'Appointments and requests',sub:'einen Termin machen · Kommen Sie bitte!',g:'Termin',kind:'gram',
+ words:W([['der Termin','appointment'],['der Arzt','doctor (male)'],['die Ärztin','doctor (female)'],['krank','ill'],['die Kopfschmerzen','headache'],['leider','unfortunately'],['passen','to suit, fit']]),
+ intro:[{h:'Making an appointment',ex:[['Ich möchte einen Termin machen.','I\'d like to make an appointment.'],['Haben Sie am Dienstag Zeit?','Are you free on Tuesday?'],['Geht es um zehn Uhr?','Does ten o\'clock work?'],['Das passt mir gut. / Leider nicht.','That suits me. / Unfortunately not.']]},
+  {h:'At the doctor\'s',ex:[['Ich bin krank.','I\'m ill.'],['Ich habe Kopfschmerzen.','I have a headache.'],['Ich habe Fieber.','I have a fever.']]},
+  {h:'Commands and requests',p:['<b>Sie:</b> verb first, then Sie: Kommen Sie bitte!','<b>du:</b> just the stem: Komm! Mach! Stem changes e→i stay: Nimm! Gib! Lies!','<b>ihr:</b> the ihr form: Kommt!'],tip:'Add bitte to sound friendly: Warten Sie bitte!'}],
+ qs:[{t:'mc',q:'How do you say "I\'d like to make an appointment"?',o:['Ich möchte einen Termin machen.','Ich möchte ein Termin haben machen.','Ich Termin möchte.','Ich mache Termin möchten.'],why:'Modal + infinitive at the end.'},
+  {t:'mc',q:'What does "Das passt mir leider nicht." mean?',o:['Unfortunately that doesn\'t suit me.','That fits me perfectly.','I like that a lot.','I\'ll pay later.'],why:'passen = to suit; leider = unfortunately.'},
+  {t:'fill',jp:'Ich habe ＿.',en:'I have a headache.',o:['Kopfschmerzen','Kopf','Schmerz Kopf','Kopfschmerz haben'],why:'die Kopfschmerzen (usually plural).'},
+  {t:'mc',q:'Polite command: "Please wait!"',o:['Warten Sie bitte!','Sie warten bitte!','Wartet Sie bitte!','Wartest bitte!'],why:'Verb first, then Sie.'},
+  {t:'mc',q:'du-command of "nehmen":',o:['Nimm!','Nehme!','Nimmst!','Nehmen!'],why:'e → i stays: Nimm!'},
+  {t:'fill',jp:'Haben Sie ＿ Mittwoch Zeit?',en:'Are you free on Wednesday?',o:['am','um','im','an'],why:'Days take am.'},
+  {t:'build',en:'Please come at ten.',tiles:['Kommen','Sie','bitte','um','zehn'],x:['Kommst','am'],why:'Kommen Sie bitte um zehn.'},
+  {t:'type',q:'Write in German: "I am ill."',a:['Ich bin krank'],why:'Ich bin krank.'}]},
+{id:'dd4',st:'d4',t:'Shopping and clothes',sub:'zu teuer · Kann ich das anprobieren?',g:'€',kind:'gram',
+ words:W([['die Hose','trousers'],['das Hemd','shirt'],['die Jacke','jacket'],['die Schuhe','shoes'],['das Kleid','dress'],['teuer','expensive'],['billig','cheap'],['die Größe','size'],['anprobieren','to try on']]),
+ intro:[{h:'In the shop',ex:[['Haben Sie das in Größe M?','Do you have this in size M?'],['Kann ich das anprobieren?','Can I try this on?'],['Das ist zu teuer / zu groß.','That\'s too expensive / too big.'],['Ich nehme es.','I\'ll take it.'],['Kann ich mit Karte zahlen?','Can I pay by card?']]},
+  {h:'Colours',ex:[['rot · blau · grün','red · blue · green'],['schwarz · weiß · grau','black · white · grey']],p:['After sein, adjectives take no ending: Die Jacke ist schwarz.']}],
+ qs:[{t:'mc',q:'What does "Kann ich das anprobieren?" mean?',o:['Can I try this on?','Can I pay by card?','Can I return this?','Can I have a bag?'],why:'anprobieren = to try on.'},
+  {t:'fill',jp:'Die Hose ist zu ＿.',en:'The trousers are too expensive.',o:['teuer','billig','rot','klein'],why:'teuer = expensive.'},
+  {t:'mc',q:'"Haben Sie das in Größe M?" What is the customer asking?',o:['If it comes in size M','If it comes in another colour','Where the fitting room is','How much it costs'],why:'die Größe = size.'},
+  {t:'fill',jp:'Ich ＿ die Jacke.',en:'I\'ll take the jacket.',o:['nehme','nimmst','nehmen','nimmt'],why:'ich nehme.'},
+  {t:'mc',q:'What are "die Schuhe"?',o:['shoes','socks','shirts','trousers'],why:'der Schuh, die Schuhe.'},
+  {t:'build',en:'The dress is too big.',tiles:['Das','Kleid','ist','zu','groß'],x:['Der','teuer'],why:'das Kleid.'},
+  {t:'type',q:'Write in German: "That is too expensive."',a:['Das ist zu teuer'],why:'zu teuer = too expensive.'},
+  {t:'mc',q:'Which colour is "schwarz"?',o:['black','white','red','green'],why:'schwarz = black.'}]},
+{id:'dl1',st:'d4',t:'Listening: everyday phrases',sub:'Hören',g:'Ohr',kind:'gram',listen:1,words:[],
+ sents:[['Entschuldigung, wo ist der Bahnhof?','Excuse me, where is the station?'],['Ich hätte gern einen Kaffee.','I\'d like a coffee.'],['Was kostet das?','How much does that cost?'],['Können Sie das bitte wiederholen?','Could you repeat that, please?'],['Sprechen Sie bitte langsamer.','Please speak more slowly.'],['Ich verstehe das nicht.','I don\'t understand that.'],['Wann fährt der nächste Zug nach München?','When does the next train to Munich leave?'],['Kann ich mit Karte zahlen?','Can I pay by card?'],['Ich komme aus Indien und wohne in Berlin.','I come from India and live in Berlin.'],['Das Wetter ist heute schön.','The weather is nice today.'],['Ich habe am Montag einen Termin.','I have an appointment on Monday.'],['Der Zug hat zehn Minuten Verspätung.','The train is ten minutes late.'],['Wo ist die Toilette, bitte?','Where is the toilet, please?'],['Bis morgen!','See you tomorrow!']],
+ intro:[{h:'Training your ear',p:['Each question plays a sentence: pick its meaning, or the sentence you heard. Replay as often as you like, and slow the voice down in Settings → Speech speed.'],tip:'Listen for the verb in second place and for the last word: separable prefixes, infinitives and participles at the end often carry the meaning.'}]},
+{id:'dl2',st:'d4',t:'Listening: short conversations',sub:'Gespräche',g:'Hör',kind:'gram',listen:1,words:[],
+ sents:[['Ich bin morgen nicht da.','I\'m not here tomorrow.'],['Wie bitte?','Sorry, what did you say?'],['Gehen Sie hier links.','Turn left here.'],['Ich habe Fieber.','I have a fever.'],['Ich möchte einen Tisch reservieren.','I\'d like to reserve a table.'],['Wann ist der Kurs zu Ende?','When does the course end?']],
+ dlg:[{jp:'Guten Tag, was möchten Sie? Einen Tee mit Milch, bitte. Gern. Das macht zwei Euro fünfzig.',q:'How much does the tea cost?',o:['2.50 euros','2.15 euros','5.20 euros','25 euros'],why:'zwei Euro fünfzig = €2.50.'},
+  {jp:'Entschuldigung, wie komme ich zum Bahnhof? Gehen Sie geradeaus und dann die zweite Straße links.',q:'How do you get to the station?',o:['Straight on, then the second street on the left','Straight on, then the first street on the right','Take the bus','Turn left immediately'],why:'geradeaus … die zweite Straße links.'},
+  {jp:'Hast du am Samstag Zeit? Leider nicht, ich muss arbeiten. Und am Sonntag? Ja, am Sonntag geht es.',q:'When can they meet?',o:['Sunday','Saturday','Both days','Neither day'],why:'Saturday they must work; Sunday works.'},
+  {jp:'Praxis Doktor Weber, guten Morgen. Guten Morgen, ich brauche einen Termin. Ich habe Fieber. Können Sie heute um elf Uhr kommen?',q:'When can the patient come?',o:['Today at 11','Tomorrow at 11','Today at 10','Tomorrow morning'],why:'heute um elf Uhr = today at eleven.'},
+  {jp:'Wohnst du in einer Wohnung oder in einem Haus? In einer Wohnung. Sie hat zwei Zimmer und einen Balkon.',q:'What does the apartment have?',o:['Two rooms and a balcony','Three rooms and a garden','One room and a kitchen','Two rooms, no balcony'],why:'zwei Zimmer und einen Balkon.'},
+  {jp:'Was hast du gestern gemacht? Ich war im Kino. Der Film war super!',q:'What did they do yesterday?',o:['Went to the cinema','Went shopping','Stayed at home','Went to a concert'],why:'im Kino = at the cinema.'},
+  {jp:'Die Jacke ist schön. Haben Sie sie in Größe L? Ja, hier bitte. Die Umkleide ist dort hinten.',q:'What does the customer want?',o:['The jacket in size L','The jacket in another colour','A cheaper jacket','Trousers in size L'],why:'in Größe L.'},
+  {jp:'Achtung an Gleis drei. Der ICE nach Hamburg hat heute zwanzig Minuten Verspätung.',q:'What is the announcement about?',o:['The train to Hamburg is 20 minutes late','The train to Hamburg is cancelled','The train leaves from platform 2','The train arrives early'],why:'zwanzig Minuten Verspätung = 20 minutes late.'},
+  {jp:'Wie lange lernst du schon Deutsch? Seit drei Monaten. Du sprichst schon sehr gut!',q:'How long have they been learning German?',o:['Three months','Three years','Three weeks','Thirty days'],why:'seit drei Monaten = for three months.'},
+  {jp:'Möchtest du etwas trinken? Ja, gern. Ein Glas Wasser, bitte. Mit oder ohne Kohlensäure? Ohne, bitte.',q:'What does the guest want?',o:['Still water','Sparkling water','Juice','Coffee'],why:'ohne Kohlensäure = without fizz.'}],
+ intro:[{h:'Following a conversation',p:['Each question plays a short exchange. Read the question first so you know what to listen for.'],tip:'Numbers, days and times are the most common things to catch. Listen for um, am and the number after them.'}]},
+{id:'ddx',st:'d4',t:'A1 final exam',sub:'Everything in A1',g:'A1',kind:'gexam',from:['da1','da2','da3','da4','da5','db1','db2','db3','db4','db5','db6','dc1','dc2','dc3','dc4','dc5','dc6','dd1','dd2','dd3','dd4','dl1','dl2'],
+ intro:[{h:'The A1 final exam',p:['Questions from the whole A1 course, including listening. Score 90% to complete A1 and unlock the A1 mock exam.']}]}
+];
+DE_UNITS.filter(u=>u.listen).forEach(u=>{const qs=[],S2=u.sents||[];
+ S2.forEach(([jp,en],i)=>{const others=S2.filter((_,j)=>j!==i),pick=k=>[0,1,2].map(n=>others[(i+n*3+k)%others.length]);
+  if(i%2===0)qs.push({t:'mc',listen:1,jp,q:'Listen. What does it mean?',o:[en,...pick(0).map(x=>x[1])],why:`${jp} = ${en}`});
+  else qs.push({t:'mc',listen:1,jp,q:'Listen. Which sentence did you hear?',o:[jp,...pick(1).map(x=>x[0])],why:`${jp} = ${en}`})});
+ (u.dlg||[]).forEach(d=>qs.push({t:'mc',listen:1,jp:d.jp,q:d.q,o:d.o,why:d.why}));u.qs=qs});
+READING.A1=[{p:'Hallo, ich heiße Priya. Ich komme aus Indien und wohne seit einem Jahr in Köln. Ich arbeite als Krankenschwester in einem Krankenhaus. Am Wochenende lerne ich Deutsch und spiele Badminton.',qs:[['Where does Priya live?',['In Cologne','In India','In Berlin','In a hospital']],['What does she do at the weekend?',['Learns German and plays badminton','Works at the hospital','Visits India','Plays football']]]},
+ {p:'Liebe Mieter, am Donnerstag von 8 bis 12 Uhr gibt es kein Wasser. Bitte füllen Sie vorher Wasser in Flaschen. Vielen Dank! Ihre Hausverwaltung',qs:[['When is there no water?',['Thursday morning','Thursday evening','All day Wednesday','Every Thursday']],['What should the tenants do?',['Fill bottles with water beforehand','Call the landlord','Leave the building','Buy a new tap']]]},
+ {p:'Hi Tom, ich bin krank und kann heute nicht zum Kurs kommen. Kannst du mir bitte die Hausaufgaben schicken? Danke! Lena',qs:[['Why is Lena writing?',['She is ill and will miss the course','She wants to quit the course','She is late for work','She has finished her homework']],['What does she ask Tom for?',['To send her the homework','To call the teacher','To bring her medicine','To meet after the course']]]}];
+const DE_ROAD=[['A1','Beginner: introduce yourself, everyday phrases'],['A2','Elementary: routine tasks, simple conversations'],['B1','Intermediate: work, travel, explain opinions'],['B2','Upper intermediate: fluent everyday use'],['C1','Advanced: complex texts and work']];
+const DE_GRAMMAR=[['Articles',['','masc.','fem.','neut.','plural'],[['Nominative','der · ein','die · eine','das · ein','die · –'],['Accusative','den · einen','die · eine','das · ein','die · –'],['Dative','dem · einem','der · einer','dem · einem','den (+n) · –']],'kein follows ein: kein, keine, keinen, keinem… Plural: keine (nom/acc), keinen (dat).'],
+ ['Personal pronouns',['Nominative','Accusative','Dative'],[['ich','mich','mir'],['du','dich','dir'],['er','ihn','ihm'],['sie','sie','ihr'],['es','es','ihm'],['wir','uns','uns'],['ihr','euch','euch'],['sie','sie','ihnen'],['Sie','Sie','Ihnen']]],
+ ['Possessives',['Pronoun','Possessive','Meaning'],[['ich','mein','my'],['du','dein','your'],['er / es','sein','his / its'],['sie','ihr','her'],['wir','unser','our'],['ihr','euer','your (plural)'],['sie','ihr','their'],['Sie','Ihr','your (polite)']],'Endings like ein: mein Vater, meine Mutter, meinen Bruder (acc.).'],
+ ['Verbs: present tense',['','machen','sein','haben','fahren'],[['ich','mache','bin','habe','fahre'],['du','machst','bist','hast','fährst'],['er / sie / es','macht','ist','hat','fährt'],['wir','machen','sind','haben','fahren'],['ihr','macht','seid','habt','fahrt'],['sie / Sie','machen','sind','haben','fahren']]],
+ ['Modal verbs',['','können','müssen','wollen','möchten','dürfen'],[['ich','kann','muss','will','möchte','darf'],['du','kannst','musst','willst','möchtest','darfst'],['er / sie / es','kann','muss','will','möchte','darf'],['wir','können','müssen','wollen','möchten','dürfen'],['ihr','könnt','müsst','wollt','möchtet','dürft'],['sie / Sie','können','müssen','wollen','möchten','dürfen']],'The main verb goes to the end: Ich kann gut schwimmen.'],
+ ['Prepositions',['Case','Prepositions'],[['Accusative','durch, für, gegen, ohne, um'],['Dative','aus, bei, mit, nach, seit, von, zu'],['Both (where = dative, where to = accusative)','an, auf, hinter, in, neben, über, unter, vor, zwischen']]],
+ ['Question words',['German','English'],[['wer','who'],['was','what'],['wo','where'],['woher','where from'],['wohin','where to'],['wann','when'],['wie','how'],['warum','why'],['wie viel','how much']]]];
+
+JA_UNITS.forEach(u=>u.course='ja');DE_UNITS.forEach(u=>u.course='de');
+const UI={};[JA_UNITS,DE_UNITS].forEach(L=>L.forEach((u,i)=>{u.i=i;UI[u.id]=u}));
 const ROAD=[['N5','~800 words · ~100 kanji · basic grammar'],['N4','~1,500 words · ~300 kanji'],['N3','~3,750 words · ~650 kanji'],['N2','~6,000 words · ~1,000 kanji'],['N1','~10,000 words · ~2,000 kanji']];
 const NUMD=['ゼロ','いち','に','さん','よん','ご','ろく','なな','はち','きゅう'];
 const numJp=n=>n===100?'ひゃく':n<=10?(n===10?'じゅう':NUMD[n]):((n/10|0)>1?NUMD[n/10|0]:'')+'じゅう'+(n%10?NUMD[n%10]:'');
 
 /* items registry */
 const ITEMS={};const ALLWORDS=[];
-UNITS.forEach(u=>{
+[...JA_UNITS,...DE_UNITS].forEach(u=>{
  if(u.kind==='kana')u.chars.forEach(c=>{if(!ITEMS['c:'+c])ITEMS['c:'+c]={t:'c',c,u:u.id}});
  (u.words||[]).forEach(w=>{w.u=u.id;if(!ITEMS['w:'+w.jp]){ITEMS['w:'+w.jp]={t:'w',w,u:u.id};ALLWORDS.push(w)}});
  (u.qs||[]).forEach((q,i)=>{ITEMS['q:'+u.id+':'+i]={t:'q',q,u:u.id}});
@@ -1204,9 +1547,10 @@ UNITS.forEach(u=>{
 const unitIds=u=>Object.keys(ITEMS).filter(id=>ITEMS[id].u===u.id);
 
 /* ================= STATE ================= */
-const LSK='michi.v1';
+let CID=(()=>{try{return localStorage.getItem('michi.course')==='de'?'de':'ja'}catch(e){return'ja'}})();
+let LSK=CID==='de'?'michi.de.v1':'michi.v1',FKEY=CID==='de'?'d':'s',UKEY=CID==='de'?'du':'upd';
 const def=()=>({v:1,u:{},srs:{},xp:{},time:{},acc:{},miss:{},badges:{},okT:0,revs:0,streak:{n:0,best:0,last:''},goal:50,romaji:true,rate:0.9,upd:0,started:Date.now()});
-let S=def();try{const s=localStorage.getItem(LSK);if(s)S=Object.assign(def(),JSON.parse(s))}catch(e){}
+let S=def();try{const s=localStorage.getItem(LSK);if(s)S=Object.assign(def(),JSON.parse(s))}catch(e){}if(CID==='de')S.romaji=false;
 const U=id=>S.u[id]||(S.u[id]={});
 const sysDark=()=>{try{return matchMedia('(prefers-color-scheme: dark)').matches}catch(e){return false}};
 function applyTheme(){const t=S.theme||'auto',r=document.documentElement;if(t==='auto'){if(!window.claude)r.removeAttribute('data-theme')}else r.setAttribute('data-theme',t)}
@@ -1218,9 +1562,9 @@ async function flush(){if(!store.ref||writing||!dirty)return;writing=true;dirty=
  try{await store.ref.set({s:JSON.stringify(S),upd:S.upd});syncTxt='Synced to your account'}catch(e){syncTxt='Saved on this device (sync paused)'}
  writing=false;if(dirty)flush()}
 async function initStore(){try{const c=window.claude;if(!c||!c.use)return;const [db,user]=await Promise.all([c.use('db'),c.use('user')]);if(!db||!user)return;
- const uid=await user.id();if(!uid)return;const ref=db.doc('data/users/'+uid+'/progress');
+ const uid=await user.id();if(!uid)return;const ref=db.doc('data/users/'+uid+'/'+(CID==='de'?'progress_de':'progress'));
  const snap=await Promise.race([ref.get(),new Promise(r=>setTimeout(()=>r(null),10000))]);if(!snap)return;
- store.ref=ref;syncTxt='Synced to your account';
+ store.ref=ref;store.kind='claude';syncTxt='Synced to your account';
  if(snap.exists){const d=snap.data();if(d&&d.s&&(d.upd||0)>(S.upd||0)){try{S=Object.assign(def(),JSON.parse(d.s));localStorage.setItem(LSK,d.s);render()}catch(e){}}else if(S.upd>(d.upd||0)){dirty=true;flush()}}
  else if(S.upd){dirty=true;flush()}}catch(e){}}
 
@@ -1261,9 +1605,9 @@ function qKana(c,pool,type){const r=KD[c].r,id='c:'+c,o=distract(c,pool,3),why=`
  if(type==='r2k')return{id,kind:'mc',label:'Which character makes this sound?',rom:r,opts:shuffle([c,...o]),a:c,optJP:1,audio:c,why};
  if(type==='listen')return{id,kind:'mc',label:'Listen. Which character did you hear?',listen:c,opts:shuffle([c,...o]),a:c,optJP:1,audio:c,why};
  return{id,kind:'type',label:'Type the sound in romaji',big:c,a:[c],ar:/[をヲ]/.test(c)?[r,'o']:[r],mode:'rom',audio:c,why}}
-function wordPool(w){const same=ALLWORDS.filter(x=>x.u===w.u&&x!==w);const rest=ALLWORDS.filter(x=>x.u!==w.u);return[...shuffle(same),...shuffle(rest)]}
+function wordPool(w){const cr=UI[w.u].course;const same=ALLWORDS.filter(x=>x.u===w.u&&x!==w);const rest=ALLWORDS.filter(x=>x.u!==w.u&&UI[x.u].course===cr);return[...shuffle(same),...shuffle(rest)]}
 function wOpts(w,f){const seen=new Set([f(w)]);const o=[f(w)];for(const x of wordPool(w)){if(o.length>=4)break;const v=f(x);if(!seen.has(v)){seen.add(v);o.push(v)}}return shuffle(o)}
-function qWord(w,type){const id='w:'+w.jp,gram=UI[w.u].kind!=='kana',why=`<b>${esc(w.jp)}</b> · ${esc(toRomaji(w.jp))} · “${esc(w.en)}”`;
+function qWord(w,type){const id='w:'+w.jp,gram=UI[w.u].kind!=='kana',why=`<b>${esc(w.jp)}</b>${hasJP(w.jp)?' · '+esc(toRomaji(w.jp)):''} · “${esc(w.en)}”`;
  if(type==='read')return{id,kind:'type',label:'Read this word. Type it in romaji.',big:w.jp,bigW:1,a:[w.jp],ar:[toRomaji(w.jp)],mode:'rom',audio:w.jp,why};
  if(type==='en2jp')return{id,kind:'mc',label:`How do you say “${w.en}”?`,opts:wOpts(w,x=>x.jp),a:w.jp,optJP:1,optS:1,showRom:gram,audio:w.jp,why};
  if(type==='listen')return{id,kind:'mc',label:'Listen. What does it mean?',listen:w.jp,opts:wOpts(w,x=>x.en),a:w.en,audio:w.jp,why};
@@ -1273,6 +1617,7 @@ function qAuth(q,id){const why=esc(q.why||'');
  if(q.t==='mc')return{id,kind:'mc',label:q.q,sent:q.jp,opts:shuffle(q.o),a:q.o[0],optJP:hasJP(q.o[0])?1:0,optS:1,showRom:1,audio:q.jp,why};
  if(q.t==='fill')return{id,kind:'mc',label:`Fill the gap: “${q.en}”`,sent:q.jp,opts:shuffle(q.o),a:q.o[0],optJP:1,optS:1,showRom:1,audio:q.jp.replace('＿',q.o[0]),why};
  if(q.t==='build')return{id,kind:'build',label:`Build the sentence: “${q.en}”`,tiles:q.tiles,bank:shuffle([...q.tiles,...(q.x||[])]),a:q.tiles.join(' '),audio:q.tiles.join(''),why};
+ if(!hasJP(q.a[0]))return{id,kind:'type',label:q.q,a:q.a,ar:[],mode:'de',audio:q.a[0],why};
  return{id,kind:'type',label:q.q,a:q.a,ar:q.a.map(toRomaji),mode:'jp',len:1,audio:q.a[0],why}}
 function qNum(n,type,id){const jp=numJp(n),why=`<b>${n}</b> = ${esc(jp)} · ${esc(toRomaji(jp))}`;
  if(type==='n2r'){const o=new Set([jp]);while(o.size<4){const m=Math.max(0,Math.min(100,n+rnd([-11,-10,-9,-1,1,9,10,11,20,-20])));o.add(numJp(m))}return{id,kind:'mc',label:'How do you read this number?',big:String(n),bigW:1,opts:shuffle([...o]),a:jp,optJP:1,optS:1,showRom:1,audio:jp,why}}
@@ -1313,7 +1658,7 @@ const naForms=a=>({pos:a+' です',neg:a+' じゃ ありません',past:a+' で�
 function teForm(v){const[d,,g]=v;if(d==='する')return'して';if(d==='くる')return'きて';if(d==='いく')return'いって';if(g===2)return d.slice(0,-1)+'て';
  return d.slice(0,-1)+({'う':'って','つ':'って','る':'って','む':'んで','ぶ':'んで','ぬ':'んで','く':'いて','ぐ':'いで','す':'して'})[d.slice(-1)]}
 const uniq4=(a,fill)=>{const o=[];for(const x of a)if(x&&!o.includes(x))o.push(x);for(const x of shuffle(fill))if(o.length<4&&x&&!o.includes(x))o.push(x);return o.slice(0,4)};
-function qDrill(u,j,id){const D=u.drill,it=D.L[j];let label,big,a,opts,why;
+function qDrill(u,j,id){if(DEDR[u.drill.t])return DEDR[u.drill.t](u,j,id);const D=u.drill,it=D.L[j];let label,big,a,opts,why;
  if(D.t==='masu'){const F=vForms(it);if(Math.random()<.5){label='Make it negative';big=F.pos;a=F.neg;opts=uniq4([F.neg,F.past,it[1]+'ないます',it[0]+'ません'],[]);why=`${F.pos} → <b>${F.neg}</b>: swap ます for ません.`}
   else{const neg=Math.random()<.5;label=`How do you say “I ${neg?'don\'t ':''}${it[3].split(',')[0]}”?`;a=neg?F.neg:F.pos;opts=uniq4([a,neg?F.pos:F.neg,F.past],D.L.filter(x=>x!==it).map(x=>neg?vForms(x).neg:vForms(x).pos));why=`${it[3]}: <b>${F.pos}</b> / ${F.neg}`}}
  else if(D.t==='past'){const F=vForms(it),k=rnd(['neg','past','pneg']);label=`Change to the ${FN[k]}`;big=F.pos;a=F[k];opts=shuffle([F.pos,F.neg,F.past,F.pneg]);why=`${F.pos} · ${F.neg} · ${F.past} · ${F.pneg}`}
@@ -1503,11 +1848,11 @@ async function initCloud(){if(!CLOUD_OK)return;
   if(CLOUD_OK&&u&&['gate'].includes(VIEW))VIEW='home';renderTop();render()});
  document.addEventListener('visibilitychange',()=>{if(!fbUser)return;if(document.visibilityState==='visible')pullRemote();else flushNow()});
  addEventListener('pagehide',()=>{if(fbUser)flushNow()})}
-function parseRemote(d){try{return d&&d.s?JSON.parse(d.s):null}catch(e){return null}}
+function parseRemote(d){try{return d&&d[FKEY]?JSON.parse(d[FKEY]):null}catch(e){return null}}
 function applyRemote(r,uid){setTimeout(applyTheme,0);try{localStorage.setItem('michi.prev',JSON.stringify(S))}catch(e){}S=Object.assign(def(),r);S.owner=uid;try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}lastSync=Date.now()}
 async function linkAccount(u){syncTxt='Connecting to your account…';const ref=FB.doc(FB.db,'users',u.uid);let snap;
  try{snap=await FB.getDoc(ref)}catch(e){syncTxt='Signed in, but sync is unavailable right now';return}
- store.kind='fb';store.ref={set:o=>FB.setDoc(ref,{s:o.s,upd:o.upd,at:FB.serverTimestamp()})};
+ store.kind='fb';store.ref={set:o=>FB.setDoc(ref,{[FKEY]:o.s,[UKEY]:o.upd,at:FB.serverTimestamp()},{merge:true})};
  const remote=snap.exists()?parseRemote(snap.data()):null;syncTxt='Synced to your account';lastSync=Date.now();
  if(!remote||!hasProgress(remote)){S.owner=u.uid;if(hasProgress(S)){S.upd=Date.now();try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}dirty=true;flushNow()}return}
  if(S.owner===u.uid){if((remote.upd||0)>(S.upd||0)){applyRemote(remote,u.uid);render()}else if((S.upd||0)>(remote.upd||0)){dirty=true;flushNow()}return}
@@ -1552,7 +1897,7 @@ async function doGoogle(){const pr=new FB.GoogleAuthProvider();try{await FB.sign
 async function doForgot(){const em=(($('#em')||{}).value||'').trim();if(!em){authErrTxt='Type your email above first, then tap "Forgot password?"';authModal();return}
  try{await FB.sendPasswordResetEmail(FB.auth,em);authErrTxt='';toast('Password reset email sent. Check your inbox.')}catch(e){authErrTxt=authErr(e);authModal();const a=$('#em');if(a)a.value=em}}
 async function doSignOut(){flushNow();try{await new Promise(r=>setTimeout(r,400));await FB.signOut(FB.auth)}catch(e){}
- store.ref=null;store.kind=null;S=def();try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}$('#modal').innerHTML='';go('home');toast('Signed out. Your progress is safe in your account.')}
+ store.ref=null;store.kind=null;S=def();try{localStorage.removeItem('michi.v1');localStorage.removeItem('michi.de.v1');localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}if(CID==='de')S.romaji=false;$('#modal').innerHTML='';go('home');toast('Signed out. Your progress is safe in your account.')}
 
 /* ===== N4 CONJUGATION ===== */
 const RW={'う':['わ','え','お'],'く':['か','け','こ'],'ぐ':['が','げ','ご'],'す':['さ','せ','そ'],'つ':['た','て','と'],'ぬ':['な','ね','の'],'ぶ':['ば','べ','ぼ'],'む':['ま','め','も'],'る':['ら','れ','ろ']};
@@ -1581,7 +1926,7 @@ const MOCKS={N5:{lv:'N5',unlock:'kjx',min:40,pass:.44,stages:['s3','s4','s5'],su
 const mockOpen=lv=>passed(UI[MOCKS[lv].unlock]);
 function buildMock(lv){const M=MOCKS[lv],us=UNITS.filter(u=>M.stages.includes(u.st)),tag=(a,sec)=>a.filter(Boolean).map(q=>Object.assign(q,{sec}));
  const ks=us.filter(u=>u.kind==='kanji').flatMap(u=>u.ks),gr=us.filter(u=>u.kind==='gram'&&!u.listen),ws=gr.flatMap(u=>u.words||[]);
- const voc=tag([...shuffle(ks).slice(0,14).map(k=>qKanji(k,ks,rnd(['read','wmean','m2k']))),...shuffle(ws).slice(0,6).map(w=>qWord(w,rnd(['mean','en2jp'])))],'Vocabulary');
+ const voc=tag([...shuffle(ks).slice(0,14).map(k=>qKanji(k,ks,rnd(['read','wmean','m2k']))),...shuffle(ws).slice(0,ks.length?6:18).map(w=>qWord(w,rnd(['mean','en2jp'])))],'Vocabulary');
  const aq=shuffle(gr.flatMap(u=>u.qs.map((q,i)=>[u,q,i])).filter(([,q])=>q.t!=='type')).slice(0,12).map(([u,q,i])=>qAuth(q,'q:'+u.id+':'+i));
  const dq=shuffle(gr.filter(u=>u.drill).flatMap(u=>u.drill.L.map((_,j)=>[u,j]))).slice(0,4).map(([u,j])=>qDrill(u,j,'dr:'+u.id+':'+j));
  const gram=tag(shuffle([...aq,...dq]),'Grammar');
@@ -1594,21 +1939,21 @@ function buildMock(lv){const M=MOCKS[lv],us=UNITS.filter(u=>M.stages.includes(u.
 function startMock(lv){if(!mockOpen(lv)){toast('Pass the '+lv+' stages first');return}$('#modal').innerHTML='';const qs=buildMock(lv),M=MOCKS[lv];
  SES={mode:'mock',lv,u:null,qs,i:0,ok:0,bad:0,first:{},missed:new Set(),xp:0,ans:null,built:[],total:qs.length,end:Date.now()+M.min*60e3,secs:{}};go('ses')}
 function mockIntro(lv){const M=MOCKS[lv],h=(S.mocks||{})[lv]||[];
- $('#modal').innerHTML=`<div class="ov" data-act="close"><div class="dlg st-${lv==='N5'?'s5':'s6'}" role="dialog" aria-modal="true" aria-label="${lv} mock test"><h2>JLPT ${lv} mock test</h2>
- <p>A timed practice exam in the JLPT's order: <b>vocabulary, grammar, reading, listening</b>. You get no feedback until the end, just like the real test.</p>
- <table class="tbl"><tbody><tr><td>Time</td><td><b>${M.min} minutes</b></td></tr><tr><td>Questions</td><td><b>about 50</b></td></tr><tr><td>Estimated pass</td><td><b>${Math.round(M.pass*100)}% overall</b>, and at least 32% in each part</td></tr></tbody></table>
- <p class="fine">Turn your sound on for the listening part. Each clip plays automatically, and you can replay it. The pass mark is an estimate based on the official JLPT pass lines, not an official score.</p>
+ $('#modal').innerHTML=`<div class="ov" data-act="close"><div class="dlg st-${M.st}" role="dialog" aria-modal="true" aria-label="${lv} mock test"><h2>${CFG[CID].exam} ${lv} mock test</h2>
+ <p>A timed practice exam in the real exam's order: <b>vocabulary, grammar, reading, listening</b>. You get no feedback until the end, just like the real test.</p>
+ <table class="tbl"><tbody><tr><td>Time</td><td><b>${M.min} minutes</b></td></tr><tr><td>Questions</td><td><b>about 50</b></td></tr><tr><td>Estimated pass</td><td><b>${Math.round(M.pass*100)}% overall</b>, and at least ${Math.round((M.secMin||.32)*100)}% in each part</td></tr></tbody></table>
+ <p class="fine">Turn your sound on for the listening part. Each clip plays automatically, and you can replay it. The pass mark is an estimate based on the official pass lines, not an official score.</p>
  ${h.length?`<p class="fine">Best so far: <b>${Math.round(Math.max(...h.map(x=>x.sc))*100)}%</b> over ${h.length} attempt${h.length>1?'s':''}.</p>`:''}
  <div class="pbtn" style="justify-content:flex-end"><button class="btn" data-act="close">Not now</button><button class="btn pri" data-act="mock-go:${lv}">Start the test</button></div></div></div>`}
 const fmtClock=ms=>{const s=Math.max(0,Math.ceil(ms/1000));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
 setInterval(()=>{if(VIEW!=='ses'||!SES||SES.mode!=='mock')return;const left=SES.end-Date.now();if(left<=0){toast('Time is up');finish();return}const el=$('#tmr');if(el){el.textContent=fmtClock(left);el.classList.toggle('low',left<5*60e3)}},1000);
 function mockResult(){const M=MOCKS[SES.lv],sec={};SES.qs.forEach(q=>{const s=sec[q.sec]||(sec[q.sec]=[0,0]);s[1]++});Object.keys(SES.secs).forEach(k=>{sec[k][0]=SES.secs[k][0]});
  const sum=ks=>ks.reduce((a,k)=>[a[0]+(sec[k]?sec[k][0]:0),a[1]+(sec[k]?sec[k][1]:0)],[0,0]),lang=sum(['Vocabulary','Grammar','Reading']),lis=sum(['Listening']),tot=sum(Object.keys(sec));
- const r=x=>x[1]?x[0]/x[1]:0,sc=r(tot),pass=sc>=M.pass&&r(lang)>=.32&&r(lis)>=.32;
+ const r=x=>x[1]?x[0]/x[1]:0,sc=r(tot),pass=sc>=M.pass&&r(lang)>=(M.secMin||.32)&&r(lis)>=(M.secMin||.32);
  S.mocks=S.mocks||{};const a=S.mocks[SES.lv]||(S.mocks[SES.lv]=[]);a.push({at:Date.now(),sc,pass:pass?1:0,secs:sec});while(a.length>10)a.shift();
  return{lv:SES.lv,sc,pass,secs:sec,lang:r(lang),lis:r(lis)}}
-function mockHome(){return`<section class="sec"><h2>JLPT mock tests</h2><p>Timed practice exams that copy the real JLPT. Each unlocks when you finish that level's stages.</p><div class="refs">${Object.values(MOCKS).map(M=>{const o=mockOpen(M.lv),h=(S.mocks||{})[M.lv]||[],best=h.length?Math.round(Math.max(...h.map(x=>x.sc))*100):null;
-  return`<button class="ref st-${M.lv==='N5'?'s5':'s6'} ${o?'':'lock'}" ${o?`data-act="mock:${M.lv}"`:'disabled aria-disabled="true"'}><span class="g">${o?M.lv:IC.lock}</span><span><b>${M.lv} mock test</b><span>${o?(best!=null?`Best ${best}% · ${h.length} attempt${h.length>1?'s':''}`:`${M.min} minutes · ${M.sub}`):`Unlocks after ${esc(UI[M.unlock].t)}`}</span></span></button>`}).join('')}</div></section>`}
+function mockHome(){return`<section class="sec"><h2>${CID==='ja'?'JLPT mock tests':'Mock exam'}</h2><p>Timed practice exams that copy the real ${CID==='ja'?'JLPT':'exam'}. Each unlocks when you finish that level's stages.</p><div class="refs">${Object.values(MOCKS).map(M=>{const o=mockOpen(M.lv),h=(S.mocks||{})[M.lv]||[],best=h.length?Math.round(Math.max(...h.map(x=>x.sc))*100):null;
+  return`<button class="ref st-${M.st} ${o?'':'lock'}" ${o?`data-act="mock:${M.lv}"`:'disabled aria-disabled="true"'}><span class="g">${o?M.lv:IC.lock}</span><span><b>${M.lv} mock test</b><span>${o?(best!=null?`Best ${best}% · ${h.length} attempt${h.length>1?'s':''}`:`${M.min} minutes · ${M.sub}`):`Unlocks after ${esc(UI[M.unlock].t)}`}</span></span></button>`}).join('')}</div></section>`}
 
 /* ===== DAILY REMINDERS ===== */
 const FB_VAPID='';
@@ -1634,26 +1979,27 @@ function remRow(){if(!CLOUD_OK||!fbUser)return'';const r=S.rem||{h:19},on=!!r.on
 /* ================= AUDIO ================= */
 let ttsP=null,ttsOff=false;
 const getTTS=()=>ttsP||(ttsP=(window.claude&&window.claude.use)?Promise.resolve(window.claude.use('tts')).catch(()=>null):Promise.resolve(null));
-async function say(t){t=String(t).replace(/[\s＿+→\/a-zA-Z]+/g,'');if(!t)return;const tts=ttsOff?null:await getTTS();
- if(tts){try{await tts.speak(t,{language:'ja',rate:S.rate||0.9});return}catch(e){if(e&&e.code==='busy')return;if(e&&(e.code==='not_granted'||e.code==='invalid_argument'))ttsOff=true}}
- try{if('speechSynthesis' in window){const s=window.speechSynthesis;const u=new SpeechSynthesisUtterance(t);u.lang='ja-JP';u.rate=S.rate||0.9;const v=s.getVoices().find(v=>/^ja/i.test(v.lang));if(v)u.voice=v;s.cancel();s.speak(u)}}catch(e){}}
+async function say(t){const de=CID==='de';t=String(t);t=de?t.replace(/[＿…→·]/g,', ').replace(/\s*,\s*(,\s*)+/g,', ').replace(/\s+/g,' ').replace(/^[,\s]+|[,\s]+$/g,''):t.replace(/[\s＿+→\/a-zA-Z]+/g,'');if(!t)return;const tts=ttsOff?null:await getTTS();
+ if(tts){try{await tts.speak(t,{language:de?'de':'ja',rate:S.rate||0.9});return}catch(e){if(e&&e.code==='busy')return;if(e&&(e.code==='not_granted'||e.code==='invalid_argument'))ttsOff=true}}
+ try{if('speechSynthesis' in window){const s=window.speechSynthesis;const u=new SpeechSynthesisUtterance(t);u.lang=de?'de-DE':'ja-JP';u.rate=S.rate||0.9;const v=s.getVoices().find(v=>(de?/^de/i:/^ja/i).test(v.lang));if(v)u.voice=v;s.cancel();s.speak(u)}}catch(e){}}
 
 /* ================= RENDER ================= */
 let VIEW='home',VU=null,LS=null,SES=null,RES=null,CTAB='h';
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2600)}
 function renderTop(){if(GATED()){$('#top').innerHTML=`<span class="brand"><span class="seal">道</span><span class="nm">Michi</span></span><button class="chip ico" data-act="theme-toggle" aria-label="Switch theme">${curTheme()==='dark'?IC.sun:IC.moon}</button>`;return}const x=xpToday(),g=S.goal,p=Math.min(1,x/g),C2=2*Math.PI*10,d=dueIds().length,sn=streakNow();
  $('#top').innerHTML=`<button class="brand" data-act="home" aria-label="Home"><span class="seal">道</span><span class="nm">Michi</span></button>
+ <button class="chip crs" data-act="courses" aria-label="Switch course" title="Switch course"><span class="tx">${CFG[CID].native}</span><span class="sc2">${CID.toUpperCase()}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 10l5 5 5-5"/></svg></button>
  <span class="chip ${sn?'hot':''}" title="Day streak${S.freeze?` · ${S.freeze} streak freeze${S.freeze>1?'s':''}`:''}">${IC.flame}<b>${sn}</b><span class="tx">day${sn===1?'':'s'}</span>${S.freeze?`<span class="frz" aria-label="${S.freeze} streak freezes">${IC.ice}${S.freeze}</span>`:''}</span>
  <span class="chip xpc" title="Today's XP"><svg class="ring" viewBox="0 0 26 26"><circle cx="13" cy="13" r="10" fill="none" stroke="var(--sf2)" stroke-width="4"/><circle cx="13" cy="13" r="10" fill="none" stroke="var(--shu)" stroke-width="4" stroke-linecap="round" stroke-dasharray="${C2*p} ${C2}" transform="rotate(-90 13 13)"/></svg><b>${x}</b><span class="tx">/ ${g} XP</span></span>
  <button class="chip ${d?'due':''}" data-act="review" title="Reviews due">${IC.cards}<b>${d}</b><span class="tx">review${d===1?'':'s'}</span></button>
  <button class="chip ${VIEW==='prog'?'due':''}" data-act="progress" aria-label="Progress" title="Progress">${IC.chart}<span class="tx">Progress</span></button>
- <button class="chip" data-act="chart" aria-label="Charts" title="Charts">${IC.grid}<span class="tx">Charts</span></button>
+ <button class="chip" data-act="chart" aria-label="Charts" title="Charts">${IC.grid}<span class="tx">${CID==='de'?'Grammar':'Charts'}</span></button>
  ${FB?(fbUser?`<button class="chip ico" data-act="account" aria-label="Account" title="${esc(fbUser.email||'Account')}"><span class="av">${esc((fbUser.displayName||fbUser.email||'?')[0].toUpperCase())}</span></button>`:`<button class="chip si" data-act="signin">Sign in</button>`):''}
  <button class="chip ico thb" data-act="theme-toggle" aria-label="Switch to ${curTheme()==='dark'?'light':'dark'} mode" title="Switch to ${curTheme()==='dark'?'light':'dark'} mode">${curTheme()==='dark'?IC.sun:IC.moon}</button>
  <button class="chip ico" data-act="settings" aria-label="Settings" title="Settings">${IC.cog}</button>`}
 function gateV(){if(!fbReady||!FB)return fbFail?`<div class="gate-wrap"><div class="gcard" style="text-align:center"><span class="seal" style="margin:0 auto 14px">道</span><h2>Can't reach the sign-in service</h2><p class="fine">Check your internet connection, then try again.</p><button class="btn pri" data-act="reload">Try again</button></div></div>`:`<div class="gate-wrap"><p class="fine" style="text-align:center;padding:60px 0">Loading Michi…</p></div>`;
- return`<div class="gate-wrap"><section class="gintro st-s1">${WAVES}<div><span class="lbl">Michi 道</span><h1>Learn Japanese, step by step</h1><p>From your first hiragana through JLPT N4, with lessons that explain, tests that check, and reviews that make it stick.</p>
- <ul class="gl3"><li><b>${UNITS.length} units</b> unlocked one at a time</li><li><b>Stroke-order</b> writing practice</li><li><b>Spaced reviews</b>, mock tests and progress tracking</li></ul></div></section><div class="gcard">${authCard()}</div></div>`}
+ return`<div class="gate-wrap"><section class="gintro st-s1">${WAVES}<div><span class="lbl">Michi 道</span><h1>Learn Japanese and German, step by step</h1><p>From your very first words to real exams, with lessons that explain, tests that check, and reviews that make it stick.</p>
+ <ul class="gl3"><li><b>Japanese</b> (JLPT N5–N4) and <b>German</b> (A1)</li><li><b>Units</b> unlocked one at a time</li><li><b>Spaced reviews</b>, mock tests and progress tracking</li></ul></div></section><div class="gcard">${authCard()}</div></div>`}
 function render(){applyTheme();renderTop();const a=$('#app');if(GATED()){a.innerHTML=gateV();const em=$('#em');if(em&&!$('.aerr'))em.focus({preventScroll:true});return}
  if(VIEW==='home')a.innerHTML=home();else if(VIEW==='unit')a.innerHTML=unitPage(VU);else if(VIEW==='lesson')a.innerHTML=lessonV();else if(VIEW==='ses')a.innerHTML=sesV();else if(VIEW==='res')a.innerHTML=resV();else if(VIEW==='chart')a.innerHTML=chartV();else if(VIEW==='prog')a.innerHTML=progV();
  if(VIEW==='ses'){const i=$('.tin');if(i&&!SES.ans)i.focus();const q=cur();if(q&&q.listen&&!SES.ans&&SES.pl!==SES.i){SES.pl=SES.i;setTimeout(()=>say(q.listen),300)}}
@@ -1663,7 +2009,7 @@ function go(v){VIEW=v;render();window.scrollTo(0,0)}
 function heroPic(u){if(!u)return`<div class="sq"><span>道</span></div><p class="cap"><b>みち</b> means "the way". Phase 1 complete!</p>`;
  if(u.kind==='kana'){const c=u.chars[0];return`<div class="sq ${c.length>1?'sm':''}"><span>${esc(c)}</span></div><p class="cap"><b>${esc(KD[c].r)}</b> · ${esc(mn(c))}</p>`}
  if(u.kind==='kanji'){const k=u.ks[0];return`<div class="sq"><span>${esc(k.c)}</span></div><p class="cap"><b>${esc(k.m)}</b> · ${esc(k.h)}</p>`}
- return`<div class="sq ${u.g.length>1?'sm':''}"><span>${esc(u.g)}</span></div><p class="cap"><b>${esc(u.sub)}</b></p>`}
+ return`<div class="sq ${u.g.length>2?'wd':u.g.length>1?'sm':''}"><span>${esc(u.g)}</span></div><p class="cap"><b>${esc(u.sub)}</b></p>`}
 function stepsHTML(u){const s=U(u.id),st=nextStep(u);const L=[['lesson','Learn',s.l],...(isExam(u)?[]:[['practice','Practice',s.p]]),['test','Test',s.pass]];
  return`<ol class="steps">${L.map(([k,n,d],i)=>`<li class="${d?'done':(st===k||(st==='fix'&&k==='test'))?'cur':''}"><i>${d?'✓':i+1}</i>${n}</li>`).join('')}</ol>`}
 const stepLabel={lesson:'Start the lesson',practice:'Practise',fix:'Fix weak spots',test:'Take the test'};
@@ -1679,9 +2025,9 @@ function home(){const u=curUnit(),d=dueIds().length,x=xpToday(),g=S.goal;let her
  <div class="tile"><span class="ic">${IC.flame}</span><span class="lbl">This week</span><div class="week">${days.map(([k,l])=>{const v=S.xp[k]||0;return`<div><b class="${v>=S.goal?'on':''}" style="height:${Math.max(3,v/mx*26)}px"></b>${l}</div>`}).join('')}</div></div>
  <div class="tile"><span class="ic">${IC.cards}</span><span class="lbl">Reviews due</span><div class="n">${d}</div>${d?`<button class="btn lk" data-act="review">Review now</button>`:`<p class="fine" style="margin:6px 0 0">All caught up.</p>`}</div>
  <div class="tile"><span class="ic">${IC.chart}</span><span class="lbl">Strong items</span><div class="n">${mastered()}<small> / ${Object.keys(S.srs).length} learned</small></div><a href="#" class="plink" data-act="progress">See full progress →</a></div></section>`;
- const refs=`<section class="sec"><h2>Reference charts</h2><p>Every character with stroke-order animations, audio and a writing pad.</p><div class="refs"><button class="ref st-s1" data-act="chart:h"><span class="g">あ</span><span><b>Hiragana chart</b><span>46 basic + voiced + combinations</span></span></button><button class="ref st-s2" data-act="chart:k"><span class="g">ア</span><span><b>Katakana chart</b><span>Including foreign sounds</span></span></button><button class="ref st-s5" data-act="chart:j"><span class="g">字</span><span><b>Kanji chart</b><span>N5 and N4 kanji</span></span></button></div></section>`;
+ const refs=CID==='de'?`<section class="sec"><h2>Reference</h2><p>Articles, cases, pronouns and verb tables on one page, with audio.</p><div class="refs"><button class="ref st-d2" data-act="chart"><span class="g">der</span><span><b>Grammar tables</b><span>Everything you need for A1</span></span></button></div></section>`:`<section class="sec"><h2>Reference charts</h2><p>Every character with stroke-order animations, audio and a writing pad.</p><div class="refs"><button class="ref st-s1" data-act="chart:h"><span class="g">あ</span><span><b>Hiragana chart</b><span>46 basic + voiced + combinations</span></span></button><button class="ref st-s2" data-act="chart:k"><span class="g">ア</span><span><b>Katakana chart</b><span>Including foreign sounds</span></span></button><button class="ref st-s5" data-act="chart:j"><span class="g">字</span><span><b>Kanji chart</b><span>N5 and N4 kanji</span></span></button></div></section>`;
  const path=`<section class="sec"><h2>Your path</h2><p>Each unit unlocks only when you pass the one before it.</p>${STAGES.map(s=>{const su=UNITS.filter(x=>x.st===s.id),sp=su.filter(passed).length;return`<div class="stage st-${s.id}"><div class="sh"><h3>${esc(s.name)}</h3><span class="jp">${esc(s.jp)}</span><span class="tag">${esc(s.lvl)}</span><span class="sp">${sp}/${su.length}<i><b style="width:${sp/su.length*100}%"></b></i></span></div><div class="units">${su.map(unitCard).join('')}</div></div>`}).join('')}</section>`;
- const road=`<section class="sec"><h2>The road to N1</h2><p>The JLPT has five levels. Michi now covers N5 and N4: the scripts, all N5 and N4 grammar, listening, and about 270 kanji. N3 and beyond are added stage by stage.</p><div class="road">${ROAD.map(([l,t],i)=>`<div class="lv ${i<2?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div><p class="fine">Word and kanji counts are common estimates; the JLPT does not publish official lists.</p></section>`;
+ const road=CID==='de'?`<section class="sec"><h2>The road to B1 and beyond</h2><p>German levels follow the CEFR, from A1 to C2, which the Goethe exams use. Michi starts with A1; A2 and B1 are added next.</p><div class="road">${DE_ROAD.map(([l,t],i)=>`<div class="lv ${i<1?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div></section>`:`<section class="sec"><h2>The road to N1</h2><p>The JLPT has five levels. Michi now covers N5 and N4: the scripts, all N5 and N4 grammar, listening, and about 270 kanji. N3 and beyond are added stage by stage.</p><div class="road">${ROAD.map(([l,t],i)=>`<div class="lv ${i<2?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div><p class="fine">Word and kanji counts are common estimates; the JLPT does not publish official lists.</p></section>`;
  const sib=FB&&fbReady&&!fbUser&&!S.noSignin&&!CLOUD_OK?`<div class="sib"><span><b>Save your progress to an account</b> so it follows you to any device, and never gets lost.</span><button class="btn pri" data-act="signin">Sign in</button><button class="spk" data-act="sib-x" aria-label="Dismiss">${IC.x}</button></div>`:'';
  return sib+hero+strip+path+mockHome()+refs+road}
 function unitCard(u){const p=passed(u),a=avail(u),c=curUnit()===u;
@@ -1707,9 +2053,9 @@ function startLesson(u){if(!U(u.id).l&&dueIds().length>=GATE){toast('Clear your 
 function lessonV(){const {u,i,cards}=LS,c=cards[i];let body='';
  if(c.char){const k=KD[c.char];body=`<div class="charc">${padHTML('lp',c.char,'trace',{auto:1,onDone:lpDone})}<div><span class="lbl">New character${STK[c.char]?` · ${STK[c.char].length} stroke${STK[c.char].length>1?'s':''}`:''}</span><div class="big" style="margin:6px 0 12px">${esc(k.r)}</div><p>${esc(mn(c.char))}</p>${spk(c.char)}${STK[c.char]?'<p class="fine">Trace over the grey strokes in order.</p>':''}</div></div>${STK[c.char]?padBtns('lp'):''}`}
  else if(c.kanji){const k=c.kanji;body=`<div class="charc">${padHTML('lp',k.c,'trace',{auto:1,onDone:lpDone})}<div><span class="lbl">New kanji · ${(STK[k.c]||[]).length} stroke${(STK[k.c]||[]).length>1?'s':''}</span><div class="big" style="margin:6px 0 8px;font-size:40px">${esc(k.m)}</div><p style="margin:0 0 8px"><b>On:</b> ${esc(k.on||'none')}<br><b>Kun:</b> ${esc(k.kun||'none')}</p><p>${esc(k.h)}</p></div></div>${padBtns('lp')}<div class="exs">${k.w.map(x=>`<div class="ex">${spk(x.r)}<span><span class="j">${esc(x.w)}</span><span class="r" style="display:block">${esc(x.r)}${S.romaji?' · '+esc(toRomaji(x.r)):''}</span></span><span class="e">${esc(x.e)}</span></div>`).join('')}</div>`}
- else if(c.words){const gram=u.kind!=='kana';body=`<h2>Words in this unit</h2><p>Tap the speaker to hear each one. ${gram?'':'Try reading them before you look at the romaji.'}</p><div class="exs">${c.words.map(w=>`<div class="ex">${spk(w.jp)}<span><span class="j">${esc(w.jp)}</span><span class="r" style="display:block">${esc(toRomaji(w.jp))}</span></span><span class="e">${esc(w.en)}</span></div>`).join('')}</div>`}
+ else if(c.words){const gram=u.kind!=='kana';body=`<h2>Words in this unit</h2><p>Tap the speaker to hear each one. ${gram?'':'Try reading them before you look at the romaji.'}</p><div class="exs">${c.words.map(w=>`<div class="ex">${spk(w.jp)}<span><span class="j">${artc(w.jp)}</span>${CID==='ja'?`<span class="r" style="display:block">${esc(toRomaji(w.jp))}</span>`:''}</span><span class="e">${esc(w.en)}</span></div>`).join('')}</div>`}
  else if(c.end){body=`<h2>${isExam(u)?'Ready for the exam?':'Lesson complete'}</h2><p>${isExam(u)?'You need 90% to pass. Go when you are ready.':'Now lock it in. In practice, anything you miss comes straight back until you get it right.'}</p><button class="btn pri big" data-act="${isExam(u)?'test':'practice'}:${u.id}">${isExam(u)?'Start the exam':'Start practice'}</button>`}
- else{body=`<h2>${esc(c.h)}</h2>${(c.p||[]).map(p=>`<p>${p}</p>`).join('')}${c.tbl?`<table class="tbl"><tbody>${c.tbl.map(r=>`<tr><td class="jj">${esc(r[0])}</td><td><b>${esc(r[1])}</b></td><td style="color:var(--mut)">${esc(r[2])}</td><td style="width:52px">${spk(sp(r))}</td></tr>`).join('')}</tbody></table>`:''}${c.ex?`<div class="exs">${c.ex.map(([j,e])=>`<div class="ex">${spk(j)}<span><span class="j">${esc(j)}</span>${S.romaji?`<span class="r" style="display:block">${esc(toRomaji(j))}</span>`:''}</span><span class="e">${esc(e)}</span></div>`).join('')}</div>`:''}${c.tip?`<div class="tip">${c.tip}</div>`:''}`}
+ else{body=`<h2>${esc(c.h)}</h2>${(c.p||[]).map(p=>`<p>${p}</p>`).join('')}${c.tbl?`<table class="tbl"><tbody>${c.tbl.map(r=>`<tr><td class="jj">${esc(r[0])}</td><td><b>${esc(r[1])}</b></td><td style="color:var(--mut)">${esc(r[2])}</td><td style="width:52px">${spk(c.say!=null?r[c.say]:CID==='de'?r[0]:sp(r))}</td></tr>`).join('')}</tbody></table>`:''}${c.ex?`<div class="exs">${c.ex.map(([j,e])=>`<div class="ex">${spk(j)}<span><span class="j">${esc(j)}</span>${S.romaji?`<span class="r" style="display:block">${esc(toRomaji(j))}</span>`:''}</span><span class="e">${esc(e)}</span></div>`).join('')}</div>`:''}${c.tip?`<div class="tip">${c.tip}</div>`:''}`}
  return`<div class="lesson st-${u.st}"><div class="lbar"><button class="spk" data-act="unit:${u.id}" aria-label="Close lesson">${IC.x}</button><div class="dots">${cards.map((_,k)=>`<i class="${k<=i?'on':''}"></i>`).join('')}</div><span class="lbl">${i+1}/${cards.length}</span></div><div class="card">${body}</div>
  <div class="lnav"><button class="btn" data-act="lprev" ${i===0?'disabled':''}>Back</button>${c.end?'':`<button class="btn ai" data-act="lnext">Next</button>`}</div></div>`}
 
@@ -1734,8 +2080,8 @@ function sesV(){const q=cur(),T=SES.mode==='test'||SES.mode==='mock',ans=SES.ans
  let ansH='';
  if(q.kind==='mc'){ansH=`<div class="opts">${q.opts.map((o,k)=>{let cl='';if(ans){if(o===q.a)cl='right';else if(o===ans.given)cl='wrong'}
    return`<button class="opt ${q.optJP?(q.optS?'jps':'jp'):''} ${cl}" data-act="opt:${k}" ${ans?'disabled':''}><span class="k">${k+1}</span>${esc(o)}${q.optJP&&q.showRom&&ROM?`<span class="rom">${esc(toRomaji(o))}</span>`:''}</button>`}).join('')}</div>`}
- else if(q.kind==='type'){const ph=q.mode==='rom'?'Type in romaji…':q.mode==='num'?'Type digits…':'Type in romaji or kana…';
-  ansH=`<input class="tin ${ans?(ans.ok?'right':'wrong'):''}" id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" ${q.mode==='num'?'inputmode="numeric"':''} placeholder="${ph}" value="${ans?esc(ans.given):''}" ${ans?'disabled':''} aria-label="Your answer">${q.mode==='jp'?`<div class="prev" id="prev">${ans?esc(toKana(ans.given)):''}</div>`:''}${ans?'':`<div class="act"><button class="btn ai big" data-act="check">Check</button></div>`}`}
+ else if(q.kind==='type'){const ph=q.mode==='rom'?'Type in romaji…':q.mode==='num'?'Type digits…':q.mode==='de'?'Type in German…':'Type in romaji or kana…';
+  ansH=`<input class="tin ${ans?(ans.ok?'right':'wrong'):''}" id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" ${q.mode==='num'?'inputmode="numeric"':''} placeholder="${ph}" value="${ans?esc(ans.given):''}" ${ans?'disabled':''} aria-label="Your answer">${q.mode==='de'&&!ans?`<div class="uml">${['ä','ö','ü','ß'].map(c=>`<button class="tl" data-act="ins:${c}" aria-label="Insert ${c}">${c}</button>`).join('')}</div>`:''}${q.mode==='jp'?`<div class="prev" id="prev">${ans?esc(toKana(ans.given)):''}</div>`:''}${ans?'':`<div class="act"><button class="btn ai big" data-act="check">Check</button></div>`}`}
  else if(q.kind==='build'){const used=new Set(SES.built);
   ansH=`<div class="slot">${SES.built.map((bi,k)=>`<button class="tl" data-act="untile:${k}" ${ans?'disabled':''}>${esc(q.bank[bi])}${ROM?`<small>${esc(toRomaji(q.bank[bi]))}</small>`:''}</button>`).join('')||'<span class="lbl">Tap the words below in order</span>'}</div><div class="bank">${q.bank.map((t,k)=>`<button class="tl ${used.has(k)?'used':''}" data-act="tile:${k}" ${ans||used.has(k)?'disabled':''}>${esc(t)}${ROM?`<small>${esc(toRomaji(t))}</small>`:''}</button>`).join('')}</div>${ans?'':`<div class="act"><button class="btn ai big" data-act="check" ${SES.built.length?'':'disabled'}>Check</button></div>`}`}
  else if(q.kind==='write'){const md=ans?'show':(q.trace?'trace':'recall');ansH=padHTML('sp',q.ch,md,{onDone:m=>{if(!SES.ans)grade(m<=allowMiss(q.ch),m?m+' slips':'clean')}})+(ans?'':`<div class="pbtn"><button class="btn" data-act="phint:sp">Hint</button><button class="btn" data-act="pclear:sp">Clear</button><button class="btn ghost" data-act="giveup">Show me</button></div><p class="fine">Write each stroke in the right order and direction. ${q.trace?'Trace the grey guide.':'From memory: no guide this time.'}</p>`)}
@@ -1756,6 +2102,7 @@ function grade(ok,given){const q=cur();
 function check(){const q=cur();if(SES.ans)return;
  if(q.kind==='type'){const raw=($('#tin').value||'').trim();if(!raw)return;let ok=false;
   if(q.mode==='num')ok=raw.replace(/\s/g,'')===q.a[0];
+  else if(q.mode==='de')ok=q.a.some(a=>normDE(a)===normDE(raw));
   else{const uk=normK(/[a-z]/i.test(raw)?toKana(raw):raw,q.len);const acc=new Set([...q.a.map(a=>normK(a,q.len)),...(q.ar||[]).map(r=>normK(toKana(r),q.len))]);
    ok=acc.has(uk)||(q.mode==='rom'&&(q.ar||[]).some(r=>r.replace(/\s/g,'')===raw.toLowerCase().replace(/\s/g,'')))}
   grade(ok,raw)}
@@ -1777,7 +2124,7 @@ function resV(){const r=RES;let h='',acts='';
  else if(r.mode==='practice'){h=`<h1>Practice complete</h1><p>${r.added?`${r.added} new items were added to your reviews. `:''}Now prove it: score 90% on the test to unlock the next unit.</p>`;acts=`<button class="btn pri big" data-act="test:${r.u.id}">Take the test</button><button class="btn big" data-act="practice:${r.u.id}">Practise again</button>`}
  else if(r.mode==='fix'){h=`<h1>Weak spots fixed</h1><p>The test is unlocked again. Go while it is fresh.</p>`;acts=`<button class="btn pri big" data-act="test:${r.u.id}">Retake the test</button>`}
  else if(r.mode==='review'){const d=dueIds().length;h=`<h1>Reviews done</h1><p>${d?`${d} more due. Keep going while you're warm.`:'All caught up. Your memory thanks you.'}</p>`;acts=d?`<button class="btn ai big" data-act="review">Next ${Math.min(d,20)}</button><button class="btn big" data-act="home">Home</button>`:`<button class="btn pri big" data-act="home">Back to path</button>`}
- if(r.mode==='mock'){const m=r.mock,pc=x=>Math.round(x*100);h=`<div class="bigstamp ${m.pass?'':'fail'}">${m.pass?'合格':'再挑戦'}</div><h1>${m.lv} mock: ${pc(m.sc)}%</h1><p>${m.pass?'Estimated result: <b>pass</b>. You would likely pass this level of the JLPT.':`Estimated result: <b>not yet</b>. You need about ${pc(MOCKS[m.lv].pass)}% overall and 32% in each part.`}</p>
+ if(r.mode==='mock'){const m=r.mock,pc=x=>Math.round(x*100);h=`<div class="bigstamp ${m.pass?'':'fail'}">${m.pass?'合格':'再挑戦'}</div><h1>${m.lv} mock: ${pc(m.sc)}%</h1><p>${m.pass?'Estimated result: <b>pass</b>. You would likely pass this level of the real exam.':`Estimated result: <b>not yet</b>. You need about ${pc(MOCKS[m.lv].pass)}% overall and ${pc(MOCKS[m.lv].secMin||.32)}% in each part.`}</p>
   <div class="msecs">${['Vocabulary','Grammar','Reading','Listening'].filter(k=>m.secs[k]).map(k=>{const v=m.secs[k];return`<div><span>${k}</span><div class="sb"><i class="m3" style="width:${v[0]/v[1]*100}%"></i></div><b>${v[0]}/${v[1]}</b></div>`}).join('')}</div>`;
   acts=`<button class="btn pri big" data-act="mock:${m.lv}">Try another</button><button class="btn big" data-act="home">Home</button>`}
  const fz=r.froze?`<div class="gate"><b>${IC.ice} A streak freeze saved your streak!</b> You missed ${r.froze===1?'a day':r.froze+' days'}, so ${r.froze===1?'one freeze was':'freezes were'} used up.</div>`:r.freezeEarned?`<div class="gate"><b>You earned a streak freeze.</b> If you miss a day, it protects your streak automatically. You can hold up to 2.</div>`:'';
@@ -1789,16 +2136,16 @@ function resV(){const r=RES;let h='',acts='';
  return`<div class="res ${r.u?'st-'+r.u.st:''}">${h}${nb}<div class="sc"><div><b>+${r.xp}</b>XP</div><div><b>${acc}%</b>accuracy</div><div><b>${xpToday()}/${S.goal}</b>today</div></div>${miss}<div class="ra">${acts}</div></div>`}
 function itemLabel(id){const it=ITEMS[id];if(!it)return'';
  if(it.t==='c')return`<b style="font-size:20px">${esc(it.c)}</b> = ${esc(KD[it.c].r)}`;
- if(it.t==='w')return`<b>${esc(it.w.jp)}</b> (${esc(toRomaji(it.w.jp))}) = ${esc(it.w.en)}`;
+ if(it.t==='w')return`<b>${esc(it.w.jp)}</b>${hasJP(it.w.jp)?` (${esc(toRomaji(it.w.jp))})`:''} = ${esc(it.w.en)}`;
  if(it.t==='n')return`<b>${it.n}</b> = ${esc(numJp(it.n))}`;
  if(it.t==='k')return`<b style="font-size:20px">${esc(it.k.c)}</b> = ${esc(it.k.m)} (${esc(it.k.kun||it.k.on)})`;
- if(it.t==='d'){const L=UI[it.u].drill.L[it.j];return`Conjugating <b>${esc(Array.isArray(L)?L[0]:L)}</b>`}
+ if(it.t==='d'){const D=UI[it.u].drill,L=D.L[it.j];if(D.t==='gender')return`<b class="g-${L[0]}">${L[0]}</b> ${esc(L[1])} (${esc(L[2])})`;if(D.t==='denum')return`<b>${L}</b> = ${deNum(L)}`;return`Conjugating <b>${esc(Array.isArray(L)?L[0]:L)}</b>`}
  const q=it.q;return esc(q.listen?q.jp:(q.q||q.en||q.jp||''))}
 
 /* chart */
 const GRID=['あいうえお','かきくけこ','さしすせそ','たちつてと','なにぬねの','はひふへほ','まみむめも','や・ゆ・よ','らりるれろ','わ・・・を','ん・・・・'];
 const GRID2=['がぎぐげご','ざじずぜぞ','だぢづでど','ばびぶべぼ','ぱぴぷぺぽ'];
-function chartV(){const k=CTAB==='k',j=CTAB==='j',f=c=>k?toKata(c):c;
+function chartV(){if(CID==='de')return deTablesV();const k=CTAB==='k',j=CTAB==='j',f=c=>k?toKata(c):c;
  const cell=c=>{if(c==='・')return'<span class="kc e"></span>';const ch=f(c);const l=lvl('c:'+ch);return`<button class="kc l${l}" data-act="char:${esc(ch)}" aria-label="${esc(ch)} ${esc(KD[ch].r)}"><b>${esc(ch)}</b><span>${esc(KD[ch].r)}</span></button>`};
  const g=rows=>`<div class="kg">${rows.map(r=>[...r].map(cell).join('')).join('')}</div>`;
  const leg=`<div class="leg"><span><i></i>Not learned</span><span><i style="background:var(--m1)"></i>Learning</span><span><i style="background:var(--m2)"></i>Familiar</span><span><i style="background:var(--m3)"></i>Strong</span><span><i style="background:var(--m4)"></i>Mastered</span></div>`;
@@ -1816,7 +2163,7 @@ function settings(){const G=[[30,'Light','about 15 min'],[50,'Regular','about 30
  <div class="row"><b>Daily goal</b><div class="seg">${G.map(([n,t,s])=>`<button class="${S.goal===n?'on':''}" data-act="goal:${n}">${t} · ${n} XP<span>${s}</span></button>`).join('')}</div></div>
  <div class="row"><b>Theme</b><div class="seg" style="grid-template-columns:repeat(3,minmax(0,1fr))">${[['auto','Auto','Follows your device'],['light','Light','Always light'],['dark','Dark','Always dark']].map(([k,t,d])=>`<button class="${(S.theme||'auto')===k?'on':''}" data-act="theme:${k}"><span class="thi">${IC[k==='light'?'sun':k==='dark'?'moon':'auto']}</span>${t}<span>${d}</span></button>`).join('')}</div></div>
  ${remRow()}
- <div class="row sw"><span><b style="margin:0">Show romaji</b><span class="fine" style="display:block;margin:2px 0 0">Helpful at first. Turn it off once you read kana comfortably.</span></span><button class="tog ${S.romaji?'on':''}" data-act="romaji" role="switch" aria-checked="${S.romaji}" aria-label="Show romaji"></button></div>
+ ${CID==='ja'?`<div class="row sw"><span><b style="margin:0">Show romaji</b><span class="fine" style="display:block;margin:2px 0 0">Helpful at first. Turn it off once you read kana comfortably.</span></span><button class="tog ${S.romaji?'on':''}" data-act="romaji" role="switch" aria-checked="${S.romaji}" aria-label="Show romaji"></button></div>`:''}
  <div class="row"><b>Speech speed</b><input type="range" id="rate" min="0.7" max="1.2" step="0.05" value="${S.rate}" aria-label="Speech speed"><button class="btn" style="margin-top:8px" data-say="こんにちは">Test voice</button></div>
  <div class="row"><b>Progress</b><p class="fine" style="margin:0 0 10px">${esc(syncTxt)}.</p><button class="btn" data-act="reset" id="rst">Reset all progress</button></div>
  <p class="credit">Stroke order data: KanjiVG by Ulrich Apel (CC BY-SA 3.0). Lessons and exercises written for Michi.</p><div style="text-align:right;margin-top:10px"><button class="btn ai" data-act="close">Done</button></div></div></div>`}
@@ -1836,6 +2183,9 @@ document.addEventListener('click',e=>{
  case'review':startSes('review');break;
  case'chart':if(arg)CTAB=arg;go('chart');break;
  case'mock':mockIntro(arg);break;
+ case'courses':coursesModal();break;
+ case'course':setCourse(arg);break;
+ case'ins':{const i=$('#tin');if(i){const a=i.selectionStart??i.value.length,b=i.selectionEnd??a;i.value=i.value.slice(0,a)+arg+i.value.slice(b);i.focus();i.setSelectionRange(a+1,a+1)}break}
  case'mock-go':startMock(arg);break;
  case'rem-toggle':(S.rem&&S.rem.on&&typeof Notification!=='undefined'&&Notification.permission==='granted')?remDisable():remEnable();break;
  case'progress':e.preventDefault();go('prog');break;
@@ -1888,7 +2238,56 @@ document.addEventListener('keydown',e=>{if($('#modal').innerHTML&&e.key==='Escap
   if(!SES.ans&&q.listen&&e.key===' '&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='BUTTON'){e.preventDefault();say(q.listen)}}
  if(VIEW==='lesson'&&LS){if(e.key==='ArrowRight'&&LS.i<LS.cards.length-1)$('[data-act="lnext"]').click();if(e.key==='ArrowLeft'&&LS.i>0)$('[data-act="lprev"]').click()}});
 
-checkBadges();render();initStore();initCloud();
+/* ===== GERMAN DRILLS ===== */
+const DEPR=['ich','du','er / sie / es','wir','ihr','sie / Sie'],DEPS=['ich','du','er','wir','ihr','sie'];
+function deForms(v){if(v[2])return v[2];const inf=v[0],st=inf.replace(/e?n$/,''),ins=/[td]$/.test(st)||/[^lrhmnaeiouäöü][mn]$/.test(st),sz=/[sßzx]$/.test(st);
+ return[st+'e',st+(ins?'est':sz?'t':'st'),st+(ins?'et':'t'),inf,st+(ins?'et':'t'),inf]}
+function deNum(n){const o=['null','eins','zwei','drei','vier','fünf','sechs','sieben','acht','neun','zehn','elf','zwölf'];if(n<=12)return o[n];if(n===100)return'hundert';
+ const t={13:'dreizehn',14:'vierzehn',15:'fünfzehn',16:'sechzehn',17:'siebzehn',18:'achtzehn',19:'neunzehn'};if(t[n])return t[n];
+ const T=['','','zwanzig','dreißig','vierzig','fünfzig','sechzig','siebzig','achtzig','neunzig'],u=n%10,d=n/10|0;return u?(u===1?'ein':o[u])+'und'+T[d]:T[d]}
+const normDE=s=>String(s).toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss').replace(/[.,!?;:"'„“”‚‘]/g,'').replace(/\s+/g,' ').trim();
+const artc=s=>esc(s).replace(/^(der|die|das) /,(m,a)=>`<b class="g-${a}">${a}</b> `);
+const DEDR={
+ gender:(u,j,id)=>{const[a,n,en]=u.drill.L[j];return{id,kind:'mc',label:'der, die or das?',big:n,bigW:1,opts:['der','die','das'],a,optS:1,gend:1,audio:a+' '+n,why:`<b class="g-${a}">${a}</b> ${esc(n)} = the ${esc(en)}`}},
+ deverb:(u,j,id)=>{const v=u.drill.L[j],f=deForms(v),p=Math.random()*6|0,a=f[p];const reg=v[2]?deForms([v[0],v[1]]):[];
+  const opts=uniq4([a,...(reg[p]&&reg[p]!==a?[reg[p]]:[]),...shuffle(f.filter(x=>x!==a))],[v[0].replace(/e?n$/,'')+'est',v[0].replace(/e?n$/,'')+'e']);
+  return{id,kind:'mc',label:`Conjugate “${v[0]}” (${v[1]})`,sent:`${DEPR[p]} ＿`,opts:shuffle(opts),a,optJP:1,optS:1,audio:`${DEPS[p]} ${a}`,why:`${esc(v[0])}: ${DEPS.map((x,i)=>i===p?`<b>${x} ${f[i]}</b>`:`${x} ${f[i]}`).join(' · ')}`}},
+ denum:(u,j,id)=>{const n=u.drill.L[j],w=deNum(n);const c=[];if(n>20&&n<100&&n%10&&(n%10)!==(n/10|0))c.push((n%10)*10+(n/10|0));c.push(n+1,n-1,n+10,n-10,n+20,n-20);
+  const ns=[n,...c.filter(x=>x>=0&&x<=100&&x!==n)].filter((x,i,a)=>a.indexOf(x)===i).slice(0,4);
+  if(Math.random()<.5)return{id,kind:'mc',label:'How do you say this number?',big:String(n),bigW:1,opts:shuffle(ns.map(deNum)),a:w,optJP:1,optS:1,audio:w,why:`<b>${n}</b> = ${w}`};
+  return{id,kind:'mc',label:'Listen. Which number did you hear?',listen:w,opts:shuffle(ns.map(String)),a:String(n),audio:w,why:`${w} = <b>${n}</b>`}},
+ deperf:(u,j,id)=>{const[inf,en,aux,pp,wr]=u.drill.L[j],p=Math.random()*4|0,H=['habe','hast','hat','haben'],Sx=['bin','bist','ist','sind'],A=(aux==='s'?Sx:H)[p],W2=(aux==='s'?H:Sx)[p],sub=['Ich','Du','Er','Wir'][p];
+  const a=`${A} … ${pp}`;return{id,kind:'mc',label:`Perfekt of “${inf}” (${en})`,sent:`${sub} ＿`,opts:shuffle([a,`${W2} … ${pp}`,`${A} … ${wr}`,`${W2} … ${wr}`]),a,optJP:1,optS:1,audio:`${sub} ${A} ${pp}`,why:`${esc(inf)} → ${aux==='s'?'sein':'haben'} + <b>${esc(pp)}</b>`}}};
+
+/* ===== COURSES ===== */
+const BADGES_JA=BADGES.slice(),MOCKS_JA=Object.assign({},MOCKS);MOCKS_JA.N5.st='s5';MOCKS_JA.N4.st='s6';
+const GENB=['first','perfect','s3','s7','s30','i100','i500','m100','h10','c1000','freeze'];
+const BADGES_DE=[...BADGES_JA.filter(b=>GENB.includes(b[0])),
+ ['de1','Erste Schritte','Finish the First steps stage','A','d1',()=>passed(UI.dax)],
+ ['de2','Alltag','Finish the Everyday life stage','B','d2',()=>passed(UI.dbx)],
+ ['de3','Unterwegs','Finish the Out and about stage','C','d3',()=>passed(UI.dcx)],
+ ['a1','A1 complete','Pass the A1 final exam','A1','d4',()=>passed(UI.ddx)],
+ ['mockA1','A1 mock passed','Pass the A1 mock exam','Ok','d4',()=>((S.mocks||{}).A1||[]).some(x=>x.pass)]];
+const MOCKS_DE={A1:{lv:'A1',unlock:'ddx',min:40,pass:.6,secMin:.45,stages:['d1','d2','d3','d4'],st:'d4',sub:'Goethe-style A1 practice exam'}};
+const CFG={ja:{id:'ja',name:'Japanese',native:'日本語',sub:'Kana, kanji and grammar · JLPT N5–N4',units:JA_UNITS,stages:JA_STAGES,badges:BADGES_JA,mocks:MOCKS_JA,exam:'JLPT'},
+ de:{id:'de',name:'German',native:'Deutsch',sub:'Everyday, travel and work German · CEFR A1',units:DE_UNITS,stages:DE_STAGES,badges:BADGES_DE,mocks:MOCKS_DE,exam:'Goethe-style'}};
+function applyCourse(){const C=CFG[CID];UNITS.length=0;UNITS.push(...C.units);STAGES.length=0;STAGES.push(...C.stages);BADGES.length=0;BADGES.push(...C.badges);
+ for(const k in MOCKS)delete MOCKS[k];Object.assign(MOCKS,C.mocks);document.documentElement.dataset.course=CID;if(CID==='de')S.romaji=false}
+function courseSummary(c){let st=c===CID?S:null;if(!st){try{st=JSON.parse(localStorage.getItem(c==='de'?'michi.de.v1':'michi.v1')||'null')}catch(e){}}
+ const us=CFG[c].units,p=st&&st.u?us.filter(u=>st.u[u.id]&&st.u[u.id].pass).length:0;return{p,n:us.length}}
+function coursesModal(){$('#modal').innerHTML=`<div class="ov" data-act="close"><div class="dlg" role="dialog" aria-modal="true" aria-label="Choose a course"><h2>Your courses</h2><div class="crsl">${Object.values(CFG).map(C=>{const s=courseSummary(C.id);
+ return`<button class="crsc ${C.id===CID?'on':''} st-${C.id==='ja'?'s1':'d1'}" data-act="course:${C.id}"><span class="g">${C.native}</span><span><b>${C.name}${C.id===CID?' · current':''}</b><span>${C.sub}</span><span class="cp"><i><b style="width:${s.p/s.n*100}%"></b></i>${s.p} of ${s.n} units</span></span></button>`}).join('')}</div>
+ <p class="fine">Each course keeps its own path, reviews, streak and progress, all saved to your account.</p><div style="text-align:right;margin-top:8px"><button class="btn" data-act="close">Close</button></div></div></div>`}
+async function setCourse(c){$('#modal').innerHTML='';if(!CFG[c]||c===CID)return;flushNow();const keep={theme:S.theme,goal:S.goal,rate:S.rate};
+ CID=c;try{localStorage.setItem('michi.course',c)}catch(e){}LSK=c==='de'?'michi.de.v1':'michi.v1';FKEY=c==='de'?'d':'s';UKEY=c==='de'?'du':'upd';
+ let n=def();try{const v=localStorage.getItem(LSK);if(v)n=Object.assign(def(),JSON.parse(v))}catch(e){}if(!n.upd)Object.assign(n,keep);
+ S=n;dirty=false;SES=null;LS=null;applyCourse();VIEW='home';render();window.scrollTo(0,0);toast(`Switched to ${CFG[c].name}`);
+ if(fbUser&&FB){store.ref=null;await linkAccount(fbUser);render()}else if(store.kind==='claude'){store.ref=null;initStore()}}
+function deTablesV(){const SKIP={Articles:[0],Possessives:[2],Prepositions:[0],'Question words':[1]};
+ return`<button class="back" data-act="home">${IC.back} Back to path</button><div class="ch"><h1 style="font-size:clamp(30px,4.4vw,44px);margin:4px 0 6px">Grammar tables</h1><p class="fine">Everything you need for A1 on one page. Tap any German word to hear it.</p>
+ <div class="gtw">${DE_GRAMMAR.map(([t,h,rows,note])=>`<section class="pc"><h2>${t}</h2><div class="scroll"><table class="tbl gt"><thead><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>(SKIP[t]||[]).includes(i)||!c||c==='–'?`<td>${esc(c)}</td>`:`<td><button class="gsay" data-say="${esc(c)}">${esc(c)}</button></td>`).join('')}</tr>`).join('')}</tbody></table></div>${note?`<p class="fine" style="margin:10px 0 0">${esc(note)}</p>`:''}</section>`).join('')}</div></div>`}
+
+applyCourse();checkBadges();render();initStore();initCloud();
 }
 </script>
 

@@ -1,8 +1,8 @@
-# Michi 道 — learn Japanese, step by step
+# Michi 道 — learn Japanese and German, step by step
 
 **Live app:** https://rootkitexe.github.io/michi/
 
-Michi is a free, single-page app that teaches Japanese from absolute zero through JLPT N5 and N4, and on to higher levels as new stages are added. Every unit unlocks only when you pass the one before it, so you build a real foundation instead of skipping ahead.
+Michi is a free, single-page app with two courses. The **Japanese** course teaches from absolute zero through JLPT N5 and N4, and on to higher levels as new stages are added. Every unit unlocks only when you pass the one before it, so you build a real foundation instead of skipping ahead.
 
 ## What's inside
 
@@ -15,6 +15,8 @@ Michi is a free, single-page app that teaches Japanese from absolute zero throug
 | Kanji I (N5) | 10 | All 102 N5 kanji with meanings, readings and example words + mastery exam |
 | N4 grammar | 14 | Plain forms, wants and invitations, permission and rules, comparisons, potential, experiences, giving and receiving, conditionals, passive and causative, two listening units + checkpoint |
 | Kanji II (N4) | 14 | 168 N4 kanji (about 270 in total) + mastery exam |
+
+The **German** course (switch with the course button in the header) teaches CEFR A1 from zero in 27 units: pronunciation, greetings, numbers, articles and gender, present tense and stem-changing verbs, questions, negation, possessives, time and separable verbs, ordering food, the accusative and dative, modal verbs, directions, the Perfekt, work, housing, appointments and shopping, plus listening units, an A1 final exam, a Goethe-style A1 mock exam and grammar tables with audio. Each course keeps its own progress.
 
 ## How it teaches
 

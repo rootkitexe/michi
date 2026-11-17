@@ -41,8 +41,16 @@ for (const doc of snap.docs) {
     // Send in the chosen hour, or up to 2 hours late if GitHub's scheduler was delayed.
     if (hour < h || hour > h + 2 || r.lastSent === day) { skipped++; continue; }
     const u = await db.collection('users').doc(doc.id).get();
-    let S = {};
-    try { S = u.exists ? JSON.parse(u.data().s || '{}') : {}; } catch { S = {}; }
+    const parse = k => { try { return u.exists && u.data()[k] ? JSON.parse(u.data()[k]) : null; } catch { return null; } };
+    // A learner may study Japanese (s) and/or German (d): combine both courses.
+    const states = [parse('s'), parse('d')].filter(Boolean);
+    const S = states.length ? {
+      goal: states[0].goal || 50,
+      xp: { [day]: states.reduce((a, x) => a + ((x.xp || {})[day] || 0), 0) },
+      srs: Object.assign({}, ...states.map((x, i) => Object.fromEntries(Object.entries(x.srs || {}).map(([k, v]) => [i + ':' + k, v])))),
+      streak: states.map(x => x.streak || {}).sort((a, b) => (b.n || 0) - (a.n || 0))[0],
+      freeze: Math.max(...states.map(x => x.freeze || 0))
+    } : {};
     const m = message(S, day, nowMs);
     if (m) {
       await fcm.send({ token: r.token, data: { title: m.title, body: m.body, url: APP_URL }, webpush: { headers: { Urgency: 'high', TTL: '21600' } } });

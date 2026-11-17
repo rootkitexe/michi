@@ -4,11 +4,13 @@ service cloud.firestore {
     // Each learner's progress: users/{their uid}, readable and writable only by them.
     match /users/{uid} {
       allow read, delete: if request.auth != null && request.auth.uid == uid;
+      // s/upd = Japanese course, d/du = German course
       allow create, update: if request.auth != null && request.auth.uid == uid
-        && request.resource.data.keys().hasOnly(['s', 'upd', 'at'])
-        && request.resource.data.s is string
-        && request.resource.data.s.size() < 900000
-        && request.resource.data.upd is number;
+        && request.resource.data.keys().hasOnly(['s', 'upd', 'd', 'du', 'at'])
+        && (!('s' in request.resource.data) || (request.resource.data.s is string && request.resource.data.s.size() < 900000))
+        && (!('d' in request.resource.data) || (request.resource.data.d is string && request.resource.data.d.size() < 900000))
+        && (!('upd' in request.resource.data) || request.resource.data.upd is number)
+        && (!('du' in request.resource.data) || request.resource.data.du is number);
     }
     // Each learner's reminder settings: reminders/{their uid}. lastSent is written only by the server job.
     match /reminders/{uid} {
