@@ -1956,7 +1956,7 @@ function mockHome(){return`<section class="sec"><h2>${CID==='ja'?'JLPT mock test
   return`<button class="ref st-${M.st} ${o?'':'lock'}" ${o?`data-act="mock:${M.lv}"`:'disabled aria-disabled="true"'}><span class="g">${o?M.lv:IC.lock}</span><span><b>${M.lv} mock test</b><span>${o?(best!=null?`Best ${best}% · ${h.length} attempt${h.length>1?'s':''}`:`${M.min} minutes · ${M.sub}`):`Unlocks after ${esc(UI[M.unlock].t)}`}</span></span></button>`}).join('')}</div></section>`}
 
 /* ===== DAILY REMINDERS ===== */
-const FB_VAPID='';
+const FB_VAPID='BHlktOPBXKAxjEwJkvZg_aVMXLUHCLr14oOK-JuJZjE6z9q8_8K8CU_A00ReSNjO-3NE-I3BQag5wl64ZAib8r0';
 const isIOS=()=>/iPhone|iPad|iPod/.test(navigator.userAgent);
 const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
 async function remToken(){const reg=await navigator.serviceWorker.ready;if(!(await FB.isSupported()))throw{msg:'This browser doesn\'t support notifications from websites.'};
