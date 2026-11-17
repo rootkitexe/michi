@@ -1,7 +1,7 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Each learner has one document, users/{their uid}, that only they can read or write.
+    // Each learner's progress: users/{their uid}, readable and writable only by them.
     match /users/{uid} {
       allow read, delete: if request.auth != null && request.auth.uid == uid;
       allow create, update: if request.auth != null && request.auth.uid == uid
@@ -10,7 +10,16 @@ service cloud.firestore {
         && request.resource.data.s.size() < 900000
         && request.resource.data.upd is number;
     }
-    // Everything else is closed.
+    // Each learner's reminder settings: reminders/{their uid}. lastSent is written only by the server job.
+    match /reminders/{uid} {
+      allow read, delete: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['token', 'tz', 'hour', 'on', 'at', 'lastSent'])
+        && request.resource.data.token is string && request.resource.data.token.size() < 4096
+        && request.resource.data.tz is string && request.resource.data.tz.size() < 64
+        && request.resource.data.hour is int && request.resource.data.hour >= 0 && request.resource.data.hour <= 23
+        && request.resource.data.on is bool;
+    }
     match /{document=**} {
       allow read, write: if false;
     }

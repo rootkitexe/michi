@@ -2,7 +2,7 @@
 
 **Live app:** https://rootkitexe.github.io/michi/
 
-Michi is a free, single-page app that teaches Japanese from absolute zero towards JLPT N5, and on to higher levels as new stages are added. Every unit unlocks only when you pass the one before it, so you build a real foundation instead of skipping ahead.
+Michi is a free, single-page app that teaches Japanese from absolute zero through JLPT N5 and N4, and on to higher levels as new stages are added. Every unit unlocks only when you pass the one before it, so you build a real foundation instead of skipping ahead.
 
 ## What's inside
 
@@ -13,6 +13,8 @@ Michi is a free, single-page app that teaches Japanese from absolute zero toward
 | First steps (N5) | 5 | Greetings, A は B です, questions and negatives, これ/それ/あれ, numbers |
 | Verbs and adjectives (N5) | 9 | ます forms, particles, past tense, both adjective types, あります/います, verb groups, て-form + checkpoint |
 | Kanji I (N5) | 10 | All 102 N5 kanji with meanings, readings and example words + mastery exam |
+| N4 grammar | 14 | Plain forms, wants and invitations, permission and rules, comparisons, potential, experiences, giving and receiving, conditionals, passive and causative, two listening units + checkpoint |
+| Kanji II (N4) | 14 | 168 N4 kanji (about 270 in total) + mastery exam |
 
 ## How it teaches
 
@@ -20,6 +22,9 @@ Michi is a free, single-page app that teaches Japanese from absolute zero toward
 - **Spaced reviews** bring items back just before you'd forget them. New lessons stay locked while too many reviews are waiting.
 - **Stroke-order animations and handwriting practice** for every kana and kanji. The writing pad checks each stroke's order and direction.
 - **Many question types:** multiple choice, typing (romaji converts to kana), listening, sentence building, conjugation drills and writing from memory.
+- **JLPT mock tests** for N5 and N4: timed, in the real exam's order (vocabulary, grammar, reading, listening), with an estimated pass or fail.
+- **Streak freezes:** earn one for every 7-day streak (hold up to 2); a freeze is used automatically if you miss a day.
+- **Daily reminders:** an optional push notification at your chosen time if you haven't hit your goal yet (sent by the scheduled GitHub Action in `.github/workflows/reminders.yml`).
 - **Progress tracking:** study time, activity calendar, mastery by stage, review forecast, weakest items, test history and milestones.
 - **Accounts and sync:** sign in with Google or email and your progress follows you to any device.
 - **Backup and restore** of your progress as a file or code.
