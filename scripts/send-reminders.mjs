@@ -42,8 +42,8 @@ for (const doc of snap.docs) {
     if (hour < h || hour > h + 2 || r.lastSent === day) { skipped++; continue; }
     const u = await db.collection('users').doc(doc.id).get();
     const parse = k => { try { return u.exists && u.data()[k] ? JSON.parse(u.data()[k]) : null; } catch { return null; } };
-    // A learner may study Japanese (s) and/or German (d): combine both courses.
-    const states = [parse('s'), parse('d')].filter(Boolean);
+    // A learner may study Japanese (s), German (d) and/or Marathi (m): combine the courses.
+    const states = [parse('s'), parse('d'), parse('m')].filter(Boolean);
     const S = states.length ? {
       goal: states[0].goal || 50,
       xp: { [day]: states.reduce((a, x) => a + ((x.xp || {})[day] || 0), 0) },

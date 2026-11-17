@@ -1,7 +1,7 @@
 // Michi offline support.
 // Pages: network first (so updates show immediately), cached copy when offline.
 // Other files (icons, fonts, the bundled Firebase SDK): cached copy first, refreshed in the background.
-const CACHE = 'michi-v4';
+const CACHE = 'michi-v5';
 const SHELL = ['./', './index.html', './fb.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));

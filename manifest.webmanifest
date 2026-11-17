@@ -1,7 +1,7 @@
 {
-  "name": "Michi — Learn Japanese",
+  "name": "Michi — Learn languages",
   "short_name": "Michi",
-  "description": "Learn Japanese from zero: kana, grammar, kanji, writing practice and spaced reviews.",
+  "description": "Learn Japanese, German and spoken Marathi from zero, with lessons, tests and spaced reviews.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

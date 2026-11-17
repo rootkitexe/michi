@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Michi — Learn Japanese</title>
+<title>Michi — Learn languages</title>
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Learn Japanese from zero: kana, grammar, kanji, stroke-order writing practice and spaced reviews.">
+<meta name="description" content="Learn Japanese, German and spoken Marathi from zero, with lessons, tests and spaced reviews.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Mukta:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 /* VOICE: calm, serious, encouraging — a good teacher, not a game show
    IDEA: a calligraphy practice notebook; passing a unit earns a vermilion 合格 seal
@@ -25,7 +25,7 @@
 --shu:light-dark(#d23a25,#ff6c56);--shuS:light-dark(#fcebe7,#3a1e1a);--ai:light-dark(#213f78,#a3bcff);--aiS:light-dark(#e9eef8,#1a2742);
 --ok:light-dark(#1b7a4f,#62d49d);--okS:light-dark(#e4f4eb,#15302a);--bad:light-dark(#c2321e,#ff7c68);--badS:light-dark(#fdebe7,#3b1f1c);
 --m1:light-dark(#dfe7f6,#22355c);--m2:light-dark(#b7c9ee,#2f4d86);--m3:light-dark(#6f8fd6,#5577c4);--m4:light-dark(#213f78,#a3bcff);
---sh:0 1px 2px rgba(10,15,30,.05),0 10px 30px rgba(10,15,30,.07);--jp:"Zen Kaku Gothic New",system-ui,sans-serif;--hand:"Klee One","Zen Kaku Gothic New",serif}
+--sh:0 1px 2px rgba(10,15,30,.05),0 10px 30px rgba(10,15,30,.07);--jp:"Zen Kaku Gothic New","Mukta",system-ui,sans-serif;--hand:"Klee One","Zen Kaku Gothic New","Mukta",serif}
 :root{--c:var(--ai);--cS:var(--aiS);--cM:var(--m2);--fl:light-dark(#ea6a1c,#ff9b55)}
 .st-s1{--c:light-dark(#d23c74,#ff8fb4);--cS:light-dark(#fdedf3,color-mix(in srgb,#ff8fb4 8%,#151c28));--cM:light-dark(#f6c3d6,color-mix(in srgb,#ff8fb4 35%,#151c28))}
 .st-s2{--c:light-dark(#1a7cbd,#74c3f6);--cS:light-dark(#e6f3fc,color-mix(in srgb,#74c3f6 8%,#151c28));--cM:light-dark(#b9dcf3,color-mix(in srgb,#74c3f6 35%,#151c28))}
@@ -331,11 +331,17 @@ select.tin2{appearance:auto}
 .st-d2{--c:light-dark(#2f855a,#7ed3a3);--cS:light-dark(#e6f4ec,color-mix(in srgb,#7ed3a3 8%,#151c28));--cM:light-dark(#bfe3cf,color-mix(in srgb,#7ed3a3 35%,#151c28))}
 .st-d3{--c:light-dark(#b7791f,#f2c46d);--cS:light-dark(#fbf1df,color-mix(in srgb,#f2c46d 8%,#151c28));--cM:light-dark(#f0d6a6,color-mix(in srgb,#f2c46d 35%,#151c28))}
 .st-d4{--c:light-dark(#b83280,#f497c9);--cS:light-dark(#fbe8f2,color-mix(in srgb,#f497c9 8%,#151c28));--cM:light-dark(#f1c1db,color-mix(in srgb,#f497c9 35%,#151c28))}
+.st-m1{--c:light-dark(#c2410c,#fdba74);--cS:light-dark(color-mix(in srgb,#c2410c 9%,#fff),color-mix(in srgb,#fdba74 8%,#151c28));--cM:light-dark(color-mix(in srgb,#c2410c 28%,#fff),color-mix(in srgb,#fdba74 35%,#151c28))}
+.st-m2{--c:light-dark(#0f766e,#5eead4);--cS:light-dark(color-mix(in srgb,#0f766e 9%,#fff),color-mix(in srgb,#5eead4 8%,#151c28));--cM:light-dark(color-mix(in srgb,#0f766e 28%,#fff),color-mix(in srgb,#5eead4 35%,#151c28))}
+.st-m3{--c:light-dark(#4338ca,#a5b4fc);--cS:light-dark(color-mix(in srgb,#4338ca 9%,#fff),color-mix(in srgb,#a5b4fc 8%,#151c28));--cM:light-dark(color-mix(in srgb,#4338ca 28%,#fff),color-mix(in srgb,#a5b4fc 35%,#151c28))}
+.st-m4{--c:light-dark(#be123c,#fda4af);--cS:light-dark(color-mix(in srgb,#be123c 9%,#fff),color-mix(in srgb,#fda4af 8%,#151c28));--cM:light-dark(color-mix(in srgb,#be123c 28%,#fff),color-mix(in srgb,#fda4af 35%,#151c28))}
 .g-der{color:light-dark(#2563eb,#7aa7ff)}.g-die{color:light-dark(#dc2626,#ff8a8a)}.g-das{color:light-dark(#16a34a,#6ee7a0)}
 .chip.crs{gap:4px;padding:0 8px 0 12px;font-weight:700}.chip.crs svg{width:16px;height:16px}.chip.crs .sc2{display:none}
 @media (max-width:600px){.chip.crs .sc2{display:inline}}
 .sq.wd span{font:700 clamp(40px,7vw,72px)/1.1 var(--jp);text-align:center;padding:0 10px;word-break:break-word}
-[data-course=de] .qbig,[data-course=de] .opt.jp,[data-course=de] .unit .g,[data-course=de] .sq span,[data-course=de] .ref .g,[data-course=de] .bdg .bi{font-family:var(--jp);font-weight:700}
+[data-course=de] .qbig,[data-course=de] .opt.jp,[data-course=de] .unit .g,[data-course=de] .sq span,[data-course=de] .ref .g,[data-course=de] .bdg .bi,[data-course=mr] .qbig,[data-course=mr] .opt.jp,[data-course=mr] .unit .g,[data-course=mr] .sq span,[data-course=mr] .ref .g,[data-course=mr] .bdg .bi{font-family:"Mukta",var(--jp);font-weight:700}
+[data-course=mr] .unit .g{font-size:20px}[data-course=mr] .ref .g{font-size:22px}[data-course=mr] .sh .jp,[data-course=mr] .pkn,[data-course=mr] .crsc .g{font-family:"Mukta",var(--jp);font-weight:600}[data-course=mr] .jj{white-space:nowrap}[data-course=mr] .j,[data-course=mr] .jj,[data-course=mr] .tl,[data-course=mr] .opt{font-family:"Mukta",var(--jp)}
+.pkc .pkn,.crsc .g{font-family:var(--jp)}
 [data-course=de] .unit .g{font-size:18px}[data-course=de] .ref .g{font-size:20px}[data-course=de] .qbig:not(.w):not(.s){font-size:clamp(48px,9vw,72px)}
 .uml{display:flex;gap:8px;justify-content:center;margin-top:10px}.uml .tl{min-width:48px}
 .crsl{display:grid;gap:10px}.crsc{display:flex;gap:14px;align-items:center;text-align:left;padding:14px;border-radius:16px;border:2px solid var(--line);background:var(--bg)}
@@ -367,11 +373,11 @@ select.tin2{appearance:auto}
 .sil{margin:0 0 16px;padding-left:20px;display:grid;gap:6px}
 @media (max-width:600px){.rsm{flex-wrap:wrap;position:relative;padding-right:52px}.rsm .btn{width:100%}.rsm .spk{position:absolute;top:10px;right:10px}}
 .pick{max-width:880px;margin:36px auto 0}.pick h1{font-size:clamp(32px,5vw,48px);margin:8px 0 10px}.pick .lbl{color:var(--shu);font-weight:700}
-.pkg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pkg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .pkc{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;padding:22px;border-radius:22px;border:2px solid var(--line);background:var(--cS);transition:border-color .15s,transform .15s}
 .pkc:hover{border-color:var(--c);transform:translateY(-2px)}.pkn{font-size:28px;font-weight:700;color:var(--c)}.pkc>b{font-size:22px}.pks{color:var(--mut)}
-.dlg.pkd{width:min(560px,100%)}.pkd .pkc{padding:18px}
-@media (max-width:520px){.pkg{grid-template-columns:minmax(0,1fr)}}
+.dlg.pkd{width:min(720px,100%)}.pkd .pkc{padding:18px}
+@media (max-width:620px){.pkg{grid-template-columns:minmax(0,1fr)}}
 .chip.si{background:var(--ink);border-color:var(--ink);color:var(--bg);font-weight:700}
 .av{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--shu);color:#fff;font-weight:700;font-size:14px}.av.big{width:52px;height:52px;font-size:22px}
 .dlg.auth{width:min(420px,100%)}.dlg.auth h2{margin-bottom:10px}
@@ -737,7 +743,7 @@ function romTok(t){if(PART[t])return PART[t];const h=toHira(t);let o='';
   if(c==='を'){o+='o';continue}
   o+=H2R[c]!==undefined?H2R[c]:c}
  return o}
-const toRomaji=s=>s.split(/(\s+)/).map(t=>/\s/.test(t)?' ':romTok(t)).join('').replace(/[。、]/g,m=>m==='。'?'.':',');
+const toRomajiJA=s=>s.split(/(\s+)/).map(t=>/\s/.test(t)?' ':romTok(t)).join('').replace(/[。、]/g,m=>m==='。'?'.':',');
 const normK=(s,len)=>{s=toHira(s).replace(/[\s。、？！?!.,]/g,'');if(len)s=s.replace(/は/g,'わ').replace(/を/g,'お').replace(/へ/g,'え');return s};
 
 /* ================= HELPERS ================= */
@@ -745,7 +751,8 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const rnd=a=>a[Math.random()*a.length|0];
-const hasJP=s=>/[぀-ヿ一-龯]/.test(s);
+const hasJP=s=>/[぀-ヿ一-龯\u0900-\u097f]/.test(s);
+const toRomaji=s=>CID==='mr'?mrRom(s):toRomajiJA(s);
 const dkey=(d=new Date())=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 const yest=()=>{const d=new Date();d.setDate(d.getDate()-1);return dkey(d)};
 const IC={play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>',home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',ice:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M4 7l16 10M20 7L4 17M9 3l3 3 3-3M9 21l3-3 3 3"/></svg>',sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',auto:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>',target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>',chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-6 1-9.5z"/></svg>',spk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>',grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',cog:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',cards:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg>',lock:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',x:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',back:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>'};
@@ -1556,15 +1563,471 @@ const DE_GRAMMAR=[['Articles',['','masc.','fem.','neut.','plural'],[['Nominative
  ['Prepositions',['Case','Prepositions'],[['Accusative','durch, für, gegen, ohne, um'],['Dative','aus, bei, mit, nach, seit, von, zu'],['Both (where = dative, where to = accusative)','an, auf, hinter, in, neben, über, unter, vor, zwischen']]],
  ['Question words',['German','English'],[['wer','who'],['was','what'],['wo','where'],['woher','where from'],['wohin','where to'],['wann','when'],['wie','how'],['warum','why'],['wie viel','how much']]]];
 
-JA_UNITS.forEach(u=>u.course='ja');DE_UNITS.forEach(u=>u.course='de');
-const UI={};[JA_UNITS,DE_UNITS].forEach(L=>L.forEach((u,i)=>{u.i=i;UI[u.id]=u}));
+/* ===== MARATHI COURSE: SPOKEN ===== */
+/* Marathi strings are written 'देवनागरी=transliteration'. mrPrep keeps the Devanagari and records the transliteration in MR_TR. */
+const MR_TR={};
+const MR_PUN=/[?!.,।…]+/g;
+function mrReg(dv,rom){dv=String(dv).trim();rom=String(rom).trim();if(!dv||!rom)return;if(!MR_TR[dv])MR_TR[dv]=rom;
+ const a=dv.replace(MR_PUN,' ').split(/\s+/).filter(Boolean),b=rom.replace(MR_PUN,' ').split(/\s+/).filter(Boolean);
+ if(a.length===b.length&&a.length>1)a.forEach((t,i)=>{if(!MR_TR[t])MR_TR[t]=b[i]})}
+const mrS=s=>{if(typeof s!=='string'||!s.includes('='))return s;const k=s.indexOf('='),dv=s.slice(0,k),rom=s.slice(k+1);mrReg(dv,rom);return dv.trim()};
+const WM=arr=>arr.map(([dv,rom,en])=>{mrReg(dv,rom);return{jp:dv,en}});
+/* fallback transliteration for anything not recorded (keeps the display from ever going blank) */
+const MR_C={'क':'k','ख':'kh','ग':'g','घ':'gh','ङ':'n','च':'ch','छ':'chh','ज':'j','झ':'z','ञ':'n','ट':'ṭ','ठ':'ṭh','ड':'ḍ','ढ':'ḍh','ण':'ṇ','त':'t','थ':'th','द':'d','ध':'dh','न':'n','प':'p','फ':'ph','ब':'b','भ':'bh','म':'m','य':'y','र':'r','ल':'l','ळ':'ḷ','व':'v','श':'sh','ष':'sh','स':'s','ह':'h'};
+const MR_V={'अ':'a','आ':'ā','इ':'i','ई':'ī','उ':'u','ऊ':'ū','ऋ':'ru','ए':'e','ऐ':'ai','ओ':'o','औ':'au','ॲ':'a','ऑ':'o'};
+const MR_M={'ा':'ā','ि':'i','ी':'ī','ु':'u','ू':'ū','ृ':'ru','े':'e','ै':'ai','ो':'o','ौ':'au','ॅ':'e','ॉ':'o'};
+const MR_D='०१२३४५६७८९';
+function mrAuto(w){let o='',pend=false;const ch=[...w];
+ for(let i=0;i<ch.length;i++){const c=ch[i];
+  if(MR_C[c]){if(pend)o+='a';o+=MR_C[c];pend=true;continue}
+  if(c==='्'){pend=false;continue}if(c==='़')continue;
+  if(MR_M[c]){o+=MR_M[c];pend=false;continue}
+  if(c==='ं'){if(pend){o+='a';pend=false}o+=(i===ch.length-1)?'̃':'n';continue}
+  if(c==='ँ'){if(pend){o+='a';pend=false}o+='̃';continue}
+  if(c==='ः'){if(pend){o+='a';pend=false}o+='h';continue}
+  if(MR_V[c]){if(pend)o+='a';o+=MR_V[c];pend=false;continue}
+  if(MR_D.includes(c)){if(pend)o+='a';o+=MR_D.indexOf(c);pend=false;continue}
+  if(pend)o+='a';pend=false;o+=c}
+ return o.normalize('NFC')}
+const MR_MISS=new Set();
+/* present-tense endings: m-I/he/we, f-I/she, you m, you f, polite you, they */
+const MR_E=[['तो','to'],['ते','te'],['तोस','tos'],['तेस','tes'],['ता','tā'],['तात','tāt']];
+const MR_P=[['मी','mī',0,'the speaker is a man'],['मी','mī',1,'the speaker is a woman'],['तू','tū',2,'talking to a man'],['तू','tū',3,'talking to a woman'],['तो','to',0],['ती','tī',1],['आम्ही','āmhī',0],['तुम्ही','tumhī',4],['ते','te',5]];
+function mrRom(s){s=String(s);const t=s.trim();if(/[a-zA-Z]/.test(t)&&!MR_TR[t])return'';if(MR_TR[t])return MR_TR[t];
+ return s.split(/(\s+)/).map(tok=>{if(!tok)return'';if(/^\s+$/.test(tok))return' ';
+  const m=tok.match(/^([("“'‘]*)(.*?)([?!.,।…)"”'’]*)$/);const core=m[2];if(!core)return tok;
+  if(!/[ऀ-ॿ]/.test(core))return tok;
+  let r=MR_TR[core];if(!r){const ps=core.split(/([\-–\/])/);r=ps.map(p=>/[ऀ-ॿ]/.test(p)?(MR_TR[p]||(MR_MISS.add(p),mrAuto(p))):p).join('')}
+  return m[1]+r+m[3].replace('।','.')}).join('')}
+const normMR=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z]/g,'')
+ .replace(/ee/g,'i').replace(/oo/g,'u').replace(/w/g,'v').replace(/z/g,'j').replace(/f/g,'ph').replace(/([bcdgjkpts])h/g,'$1').replace(/(.)\1+/g,'$1');
+
+const MR_STAGES=[
+ {id:'m1',name:'First words',jp:'पहिले शब्द',lvl:'Spoken basics',link:[['Omniglot: Marathi language and script','https://www.omniglot.com/writing/marathi.htm'],['Wikipedia: Marathi language','https://en.wikipedia.org/wiki/Marathi_language']]},
+ {id:'m2',name:'Daily conversation',jp:'रोजचं बोलणं',lvl:'Conversation',link:[['Omniglot: useful Marathi phrases','https://www.omniglot.com/language/phrases/marathi.php'],['Wikipedia: Marathi grammar','https://en.wikipedia.org/wiki/Marathi_grammar']]},
+ {id:'m3',name:'Out and about',jp:'बाहेर',lvl:'Getting around',link:[['Omniglot: useful Marathi phrases','https://www.omniglot.com/language/phrases/marathi.php'],['Marathi Wikipedia (मराठी विकिपीडिया)','https://mr.wikipedia.org/']]},
+ {id:'m4',name:'Real-life Marathi',jp:'खरं मराठी',lvl:'Real life',link:[['Loksatta (Marathi news)','https://www.loksatta.com/'],['Marathi Wikipedia (मराठी विकिपीडिया)','https://mr.wikipedia.org/']]}];
+
+const MR_UNITS=[
+/* ---------- STAGE 1 ---------- */
+{id:'ma1',st:'m1',t:'Sounds of Marathi',sub:'ā ī ū · ṭ ḍ ṇ ḷ · the soft ending',g:'अ',kind:'gram',
+ words:WM([['पाणी','pāṇī','water'],['घर','ghar','house, home'],['हात','hāt','hand'],['शाळा','shāḷā','school'],['डोळा','ḍoḷā','eye'],['दूध','dūdh','milk'],['फूल','phūl','flower'],['कान','kān','ear']]),
+ intro:[{h:'Speak first, read later',p:['Marathi is the language of Maharashtra, home to Mumbai and Pune, and is spoken by more than 80 million people. It is written in Devanagari, the same script as Hindi.','In Michi, every Marathi word is shown in Devanagari with an English-letter version underneath, so you can start speaking before you can read the script. When you type an answer, plain English letters are fine.']},
+  {h:'Reading the English letters',say:0,tbl:[['आ','ā','long "aa", as in "father"'],['ई','ī','long "ee", as in "see"'],['ऊ','ū','long "oo", as in "food"'],['ए','e','like the "ay" in "day"'],['ओ','o','like the "o" in "go"'],['ऐ','ai','like the "ai" in "aisle"'],['अ','a','short, like the u in "but"']],p:['A line over a vowel (ā, ī, ū) means it is long. A plain a is short and soft: नाव (nāv) has a long ā, घर (ghar) a short a.']},
+  {h:'Sounds English doesn’t have',say:0,tbl:[['ट ड ण','ṭ ḍ ṇ','tongue curled back: डोळा (ḍoḷā)'],['त द न','t d n','tongue touching the teeth: दूध (dūdh)'],['ळ','ḷ','a curled-back l: शाळा (shāḷā)'],['ख घ फ','kh gh ph','with a puff of air: घर (ghar)'],['च ज','ch j','often "ts" and "dz" before a, o, u: चार, जा'],['झ','z','usually like z: झोप (zop), sleep']],tip:'A dot under a letter (ṭ ḍ ṇ ḷ) means curl your tongue back. Don’t worry about getting it perfect; people will understand you either way.'},
+  {h:'Two habits of spoken Marathi',ex:[['घर=ghar','house (not "ghara")'],['बरं=barã','OK, fine'],['झालं=zālã','done, it happened'],['मी=mī','I']],p:['The short a at the end of a word is dropped: घर is "ghar", not "ghara".','An ending written ं, as in बरं, is a light nasal a. We write it ã. You will hear it everywhere in casual speech.']}],
+ qs:[{t:'mc',listen:1,jp:'पाणी=pāṇī',q:'Listen. Which word did you hear?',o:['पाणी=pāṇī','पान=pān','पण=paṇ','पेन=pen'],why:'पाणी (pāṇī) = water, with a long ā and a curled-back ṇ.'},
+  {t:'mc',q:'In the transliteration, what does the line in ā mean?',o:['The vowel is long','The vowel is silent','The vowel is nasal','The word is stressed here'],why:'ā, ī, ū are long vowels.'},
+  {t:'mc',q:'How is घर (house) pronounced?',o:['ghar','ghara','gar','ghur'],why:'The final short a is dropped: ghar.'},
+  {t:'mc',listen:1,jp:'शाळा=shāḷā',q:'Listen. Which word did you hear?',o:['शाळा=shāḷā','शेळी=sheḷī','शाल=shāl','शहर=shahar'],why:'शाळा (shāḷā) = school.'},
+  {t:'mc',q:'What does a dot under a letter (ṭ, ḍ, ṇ, ḷ) tell you?',o:['Curl your tongue back','Add a puff of air','Make it nasal','Don’t pronounce it'],why:'The dot marks a retroflex sound: the tongue curls back.'},
+  {t:'mc',q:'What does बरं (barã) mean?',o:['OK, fine','No','Thank you','Where?'],why:'बरं = OK, fine. The ending ं is a light nasal a.'},
+  {t:'mc',listen:1,jp:'दूध=dūdh',q:'Listen. Which word did you hear?',o:['दूध=dūdh','दोन=don','दिवस=divas','दार=dār'],why:'दूध (dūdh) = milk.'},
+  {t:'mc',q:'Which script is Marathi written in?',o:['Devanagari','Gurmukhi','Roman','Tamil'],why:'Marathi uses Devanagari, like Hindi and Sanskrit.'},
+  {t:'mc',q:'What does the h in "gh" or "kh" mean?',o:['Add a puff of air','Make the letter silent','Make it longer','Turn it into a w'],why:'kh, gh, ph, th are said with a puff of air.'},
+  {t:'mc',listen:1,jp:'फूल=phūl',q:'Listen. Which word did you hear?',o:['फूल=phūl','फळ=phaḷ','पूल=pūl','फोन=phone'],why:'फूल (phūl) = flower.'}]},
+
+{id:'ma2',st:'m1',t:'Greetings and politeness',sub:'नमस्कार · हो · धन्यवाद',g:'हो',kind:'gram',
+ words:WM([['नमस्कार','namaskār','hello (polite)'],['हो','ho','yes'],['नाही','nāhī','no, not'],['धन्यवाद','dhanyavād','thank you'],['माफ करा','māph karā','sorry, excuse me (polite)'],['ठीक आहे','ṭhīk āhe','okay'],['कसे आहात?','kase āhāt?','how are you? (polite)'],['बरा आहे','barā āhe','I’m fine (man)'],['बरी आहे','barī āhe','I’m fine (woman)'],['येतो','yeto','bye (said by a man; lit. "I’ll come")']]),
+ intro:[{h:'Hello and goodbye',ex:[['नमस्कार!=namaskār!','Hello! (polite, any time of day)'],['हाय! / हॅलो!=hāy! / hello!','Hi! (casual, very common)'],['येतो. / येते.=yeto. / yete.','Bye! (man / woman; lit. "I’ll come back")'],['चल, भेटू!=chal, bheṭū!','OK, see you! (casual)'],['शुभ रात्री.=shubh rātrī.','Good night.']],tip:'When leaving, Marathi speakers say येतो, "I’ll come (back)", rather than "I’m going". Saying जातो (I’m going) can sound final.'},
+  {h:'Polite and casual "you"',ex:[['तुम्ही कसे आहात?=tumhī kase āhāt?','How are you? (polite)'],['तू कसा आहेस?=tū kasā āhes?','How are you? (to a man you know well)'],['तू कशी आहेस?=tū kashī āhes?','How are you? (to a woman you know well)'],['मी बरा आहे. / मी बरी आहे.=mī barā āhe. / mī barī āhe.','I’m fine. (man / woman)'],['मजेत!=majet!','All good! Great!']],p:['Use तुम्ही (tumhī) with elders, strangers and at work, and तू (tū) with friends, children and family your own age.','Many words change for men and women: a man says बरा, a woman says बरी. You will see this pattern all through Marathi.']},
+  {h:'Small polite words',ex:[['धन्यवाद.=dhanyavād.','Thank you. (Many people simply say "thank you" in English.)'],['माफ करा.=māph karā.','Sorry. / Excuse me.'],['हो. / नाही.=ho. / nāhī.','Yes. / No.'],['ठीक आहे.=ṭhīk āhe.','OK.'],['काही हरकत नाही.=kāhī harkat nāhī.','No problem.']],tip:'हो (ho) is the everyday Marathi "yes". Don’t mix it up with Hindi हाँ.'}],
+ qs:[{t:'mc',q:'You meet an older neighbour in the morning. What do you say?',o:['नमस्कार!=namaskār!','येतो!=yeto!','चल, भेटू!=chal, bheṭū!','नाही!=nāhī!'],why:'नमस्कार is the polite hello for any time of day.'},
+  {t:'mc',q:'How do you say "yes" in Marathi?',o:['हो=ho','नाही=nāhī','नको=nako','बरं=barã'],why:'हो = yes. नाही = no.'},
+  {t:'fill',jp:'तुम्ही कसे ＿?=tumhī kase ＿?',en:'How are you? (polite)',o:['आहात=āhāt','आहेस=āhes','आहे=āhe','आहोत=āhot'],why:'तुम्ही goes with आहात.'},
+  {t:'mc',q:'A woman says she’s fine. Which is right?',o:['मी बरी आहे.=mī barī āhe.','मी बरा आहे.=mī barā āhe.','मी बरे आहे.=mī bare āhe.','मी बरं आहे.=mī barã āhe.'],why:'A woman says बरी; a man says बरा.'},
+  {t:'mc',q:'You’re a man leaving a friend’s house. How do you say bye the Marathi way?',o:['येतो.=yeto.','येते.=yete.','कसा आहेस?=kasā āhes?','माफ करा.=māph karā.'],why:'A man says येतो, a woman येते: "I’ll come (back)".'},
+  {t:'mc',listen:1,jp:'माफ करा.=māph karā.',q:'Listen. What does it mean?',o:['Sorry. / Excuse me.','Thank you.','Good night.','How are you?'],why:'माफ करा = sorry, excuse me.'},
+  {t:'build',en:'How are you? (to a male friend)',tiles:['तू=tū','कसा=kasā','आहेस?=āhes?'],x:['कशी=kashī','आहात=āhāt'],why:'तू कसा आहेस? To a woman: तू कशी आहेस?'},
+  {t:'type',mr:1,q:'Write in Marathi: "thank you"',a:['dhanyavād'],dv:['धन्यवाद'],why:'धन्यवाद (dhanyavād) = thank you.'},
+  {t:'mc',q:'When do you use तू (tū)?',o:['With close friends and family your age','With your boss','With elders you’ve just met','With shop staff, always'],why:'तू is casual. Use तुम्ही with elders, strangers and at work.'},
+  {t:'mc',listen:1,jp:'मजेत!=majet!',q:'Listen. What does it mean?',o:['All good! Great!','Not well.','See you!','No problem.'],why:'मजेत = having fun, all good.'}]},
+
+{id:'ma3',st:'m1',t:'Introducing yourself',sub:'माझं नाव … · मी … चा आहे',g:'नाव',kind:'gram',
+ words:WM([['नाव','nāv','name'],['भेटून आनंद झाला','bheṭūn ānand zālā','nice to meet you'],['मराठी','marāṭhī','Marathi'],['थोडं','thoḍã','a little'],['समजलं','samajlã','understood, got it'],['भारत','bhārat','India'],['शहर','shahar','city'],['विद्यार्थी','vidyārthī','student']]),
+ intro:[{h:'What’s your name?',ex:[['तुमचं नाव काय?=tumchã nāv kāy?','What’s your name? (polite)'],['तुझं नाव काय?=tuzã nāv kāy?','What’s your name? (casual)'],['माझं नाव अनन्या आहे.=māzã nāv ananyā āhe.','My name is Ananya.'],['भेटून आनंद झाला.=bheṭūn ānand zālā.','Nice to meet you.']],p:['The verb comes last in Marathi. माझं नाव अनन्या आहे is literally "my name Ananya is".']},
+  {h:'Where are you from?',ex:[['तुम्ही कुठले आहात?=tumhī kuṭhle āhāt?','Where are you from? (polite)'],['मी मुंबईचा आहे.=mī mumbaīchā āhe.','I’m from Mumbai. (man)'],['मी पुण्याची आहे.=mī puṇyāchī āhe.','I’m from Pune. (woman)'],['मी दिल्लीला राहतो.=mī dillīlā rāhto.','I live in Delhi. (man)'],['मी बंगळुरूमध्ये राहते.=mī bangaḷurūmadhye rāhte.','I live in Bengaluru. (woman)']],tip:'Add -चा (man) or -ची (woman) to a place to say where you’re from: मुंबईचा, पुण्याची. Pune changes to पुण्या- before an ending.'},
+  {h:'Talking about your Marathi',ex:[['मला थोडं थोडं मराठी येते.=malā thoḍã thoḍã marāṭhī yete.','I know a little Marathi.'],['मी मराठी शिकतोय. / शिकतेय.=mī marāṭhī shiktoy. / shiktey.','I’m learning Marathi. (man / woman)'],['हळू बोला, प्लीज.=haḷū bolā, please.','Please speak slowly.'],['समजलं. / समजलं नाही.=samajlã. / samajlã nāhī.','Got it. / I didn’t understand.']],tip:'Marathi speakers love it when you try. Even मला थोडं मराठी येते will get you smiles.'}],
+ qs:[{t:'fill',jp:'माझं नाव राहुल ＿.=māzã nāv rāhul ＿.',en:'My name is Rahul.',o:['आहे=āhe','आहेस=āhes','आहात=āhāt','नाही=nāhī'],why:'माझं नाव राहुल आहे.'},
+  {t:'mc',q:'How do you ask a stranger their name?',o:['तुमचं नाव काय?=tumchã nāv kāy?','तुझं नाव काय?=tuzã nāv kāy?','माझं नाव काय?=māzã nāv kāy?','तुम्ही कसे आहात?=tumhī kase āhāt?'],why:'With a stranger use the polite तुमचं.'},
+  {t:'mc',q:'Priya (a woman) says she’s from Pune. Which is right?',o:['मी पुण्याची आहे.=mī puṇyāchī āhe.','मी पुण्याचा आहे.=mī puṇyāchā āhe.','मी पुणेची आहे.=mī puṇechī āhe.','मी पुण्याचं आहे.=mī puṇyāchã āhe.'],why:'A woman says पुण्याची: Pune → पुण्या- + ची.'},
+  {t:'mc',listen:1,jp:'भेटून आनंद झाला.=bheṭūn ānand zālā.',q:'Listen. What does it mean?',o:['Nice to meet you.','See you tomorrow.','I didn’t understand.','What’s your name?'],why:'भेटून आनंद झाला = nice to meet you.'},
+  {t:'build',en:'My name is Sameer.',tiles:['माझं=māzã','नाव=nāv','समीर=samīr','आहे=āhe'],x:['तुझं=tuzã','आहेस=āhes'],why:'माझं नाव समीर आहे. The verb comes last.'},
+  {t:'mc',q:'Where does the verb usually go in a Marathi sentence?',o:['At the end','At the start','Second','Anywhere'],why:'Marathi is verb-final: subject, object, verb.'},
+  {t:'type',mr:1,q:'Write in Marathi: "I didn’t understand."',a:['samajlã nāhī'],dv:['समजलं नाही'],why:'समजलं नाही (samajlã nāhī).'},
+  {t:'mc',listen:1,jp:'हळू बोला, प्लीज.=haḷū bolā, please.',q:'Listen. What does it mean?',o:['Please speak slowly.','Please come in.','Please sit down.','Please say it again.'],why:'हळू = slowly, बोला = speak.'},
+  {t:'fill',jp:'मला थोडं थोडं मराठी ＿.=malā thoḍã thoḍã marāṭhī ＿.',en:'I know a little Marathi.',o:['येते=yete','आहे=āhe','जाते=jāte','करते=karte'],why:'मला … येते: "to me … comes" = I know (a language or skill).'},
+  {t:'mc',q:'What does "मी मराठी शिकतोय" mean?',o:['I’m learning Marathi.','I speak Marathi well.','I don’t know Marathi.','I’m from Maharashtra.'],why:'शिकतोय = am learning (man).'}]},
+
+{id:'ma4',st:'m1',t:'Numbers and money',sub:'एक, दोन, तीन · दीडशे · किती?',g:'१२',kind:'gram',drill:{t:'mrnum',L:[[1,'एक','ek'],[2,'दोन','don'],[3,'तीन','tīn'],[4,'चार','chār'],[5,'पाच','pāch'],[6,'सहा','sahā'],[7,'सात','sāt'],[8,'आठ','āṭh'],[9,'नऊ','naū'],[10,'दहा','dahā'],[11,'अकरा','akrā'],[12,'बारा','bārā'],[15,'पंधरा','pandhrā'],[20,'वीस','vīs'],[25,'पंचवीस','panchvīs'],[30,'तीस','tīs'],[40,'चाळीस','chāḷīs'],[50,'पन्नास','pannās'],[100,'शंभर','shambhar'],[1000,'हजार','hajār']]},
+ words:WM([['रुपये','rupaye','rupees'],['पैसे','paise','money'],['किती','kitī','how much, how many'],['दीडशे','dīḍshe','one hundred and fifty'],['अडीचशे','aḍīchshe','two hundred and fifty'],['सुट्टे पैसे','suṭṭe paise','change, small notes'],['अर्धा','ardhā','half'],['दोनशे','donshe','two hundred']]),
+ intro:[{h:'1 to 10',say:0,tbl:[['एक','ek','1'],['दोन','don','2'],['तीन','tīn','3'],['चार','chār','4'],['पाच','pāch','5'],['सहा','sahā','6'],['सात','sāt','7'],['आठ','āṭh','8'],['नऊ','naū','9'],['दहा','dahā','10']]},
+  {h:'Teens, tens and hundreds',say:0,tbl:[['अकरा','akrā','11'],['बारा','bārā','12'],['पंधरा','pandhrā','15'],['वीस','vīs','20'],['पंचवीस','panchvīs','25'],['तीस','tīs','30'],['चाळीस','chāḷīs','40'],['पन्नास','pannās','50'],['शंभर','shambhar','100'],['हजार','hajār','1,000']],p:['Every number from 11 to 99 has its own word in Marathi, so take them slowly. Learn 1 to 20 and the tens first; for the rest you can always say the digits or show your phone.']},
+  {h:'Money talk',ex:[['हे किती रुपयांना?=he kitī rupayānnā?','How much is this?'],['हे कितीला?=he kitīlā?','How much is this? (casual)'],['पन्नास रुपये.=pannās rupaye.','Fifty rupees.'],['दीडशे रुपये.=dīḍshe rupaye.','A hundred and fifty rupees.'],['सुट्टे पैसे आहेत का?=suṭṭe paise āhet kā?','Do you have change?'],['किती झाले?=kitī zāle?','How much is it altogether?']],tip:'Marathi has handy words for halves: दीड (1½) and अडीच (2½). So दीडशे is 150 and अडीचशे is 250. You’ll hear them all the time for prices and times.'}],
+ qs:[{t:'mc',q:'Which number is तीन (tīn)?',o:['3','2','30','13'],why:'तीन = 3. तीस = 30.'},
+  {t:'mc',listen:1,jp:'पन्नास रुपये.=pannās rupaye.',q:'Listen. How much?',o:['₹50','₹15','₹5','₹500'],why:'पन्नास = 50.'},
+  {t:'mc',q:'What is दीडशे (dīḍshe)?',o:['150','250','1½','15'],why:'दीड = 1½, so दीडशे = 1½ hundred = 150.'},
+  {t:'fill',jp:'हे ＿ रुपयांना?=he ＿ rupayānnā?',en:'How much is this?',o:['किती=kitī','कुठे=kuṭhe','कोण=koṇ','काय=kāy'],why:'किती = how much.'},
+  {t:'mc',listen:1,jp:'सुट्टे पैसे आहेत का?=suṭṭe paise āhet kā?',q:'Listen. What does it mean?',o:['Do you have change?','Is it expensive?','How much altogether?','Can I pay later?'],why:'सुट्टे पैसे = change, small notes.'},
+  {t:'type',mr:1,q:'Write the Marathi word for 10.',a:['dahā'],dv:['दहा'],why:'दहा (dahā) = 10.'},
+  {t:'mc',q:'How do you say 2½ in Marathi?',o:['अडीच=aḍīch','दीड=dīḍ','अर्धा=ardhā','दोन=don'],why:'अडीच = 2½. दीड = 1½.'},
+  {t:'build',en:'Do you have change?',tiles:['सुट्टे=suṭṭe','पैसे=paise','आहेत=āhet','का?=kā?'],x:['किती=kitī','आहे=āhe'],why:'सुट्टे पैसे आहेत का? का at the end makes it a question.'},
+  {t:'type',mr:1,q:'Write in Marathi: "how much?"',a:['kitī'],dv:['किती'],why:'किती (kitī) = how much, how many.'},
+  {t:'mc',listen:1,jp:'शंभर=shambhar',q:'Listen. Which number did you hear?',o:['100','1000','50','10'],why:'शंभर = 100. हजार = 1,000.'}]},
+
+{id:'ma5',st:'m1',t:'I am, you are: आहे',sub:'मी आहे · तू आहेस · ते आहेत',g:'मी',kind:'gram',
+ words:WM([['तो','to','he; that (masc.)'],['ती','tī','she; that (fem.)'],['आम्ही','āmhī','we (not including you)'],['आपण','āpaṇ','we (including you)'],['ते','te','they; he (respectful)'],['आहे','āhe','is, am'],['आहोत','āhot','are (we)'],['आहेत','āhet','are (they)'],['घरी','gharī','at home'],['इथे','ithe','here']]),
+ intro:[{h:'I am, you are…',say:0,tbl:[['मी आहे','mī āhe','I am'],['तू आहेस','tū āhes','you are (casual)'],['तो / ती आहे','to / tī āhe','he / she is'],['आम्ही / आपण आहोत','āmhī / āpaṇ āhot','we are'],['तुम्ही आहात','tumhī āhāt','you are (polite or plural)'],['ते आहेत','te āhet','they are']],p:['आहे means "is". It goes at the end: मी घरी आहे is literally "I at-home am".']},
+  {h:'Two words for "we"',ex:[['आपण चहा घेऊया.=āpaṇ chahā gheūyā.','Let’s have tea. (you and me)'],['आम्ही पुण्याला राहतो.=āmhī puṇyālā rāhto.','We live in Pune. (my family, not you)']],p:['आपण includes the person you’re talking to; आम्ही does not. In formal speech आपण is also a very respectful "you".']},
+  {h:'Is not: नाही',ex:[['मी घरी नाही.=mī gharī nāhī.','I’m not at home.'],['तो इथे नाही.=to ithe nāhī.','He isn’t here.'],['ते घरी नाहीत.=te gharī nāhīt.','They aren’t at home.'],['ती इथे नाहीये.=tī ithe nāhīye.','She isn’t here. (everyday speech)']],tip:'नाही replaces आहे, so you never say "आहे नाही". In everyday speech you’ll also hear नाहीये.'},
+  {h:'This and that',ex:[['हे काय आहे?=he kāy āhe?','What is this?'],['ते माझं घर आहे.=te māzã ghar āhe.','That is my house.'],['हा माझा मित्र आहे.=hā māzā mitra āhe.','This is my friend. (male)'],['ही माझी मैत्रीण आहे.=hī māzī maitrīṇ āhe.','This is my friend. (female)']],p:['हा, ही and हे all mean "this": हा for a man or masculine thing, ही for a woman or feminine thing, हे for a neuter thing.']}],
+ qs:[{t:'fill',jp:'तुम्ही कुठे ＿?=tumhī kuṭhe ＿?',en:'Where are you? (polite)',o:['आहात=āhāt','आहे=āhe','आहेस=āhes','आहेत=āhet'],why:'तुम्ही आहात.'},
+  {t:'fill',jp:'आम्ही घरी ＿.=āmhī gharī ＿.',en:'We are at home.',o:['आहोत=āhot','आहात=āhāt','आहे=āhe','आहेस=āhes'],why:'आम्ही आहोत.'},
+  {t:'fill',jp:'तू इथे ＿ का?=tū ithe ＿ kā?',en:'Are you here?',o:['आहेस=āhes','आहे=āhe','आहात=āhāt','आहोत=āhot'],why:'तू आहेस.'},
+  {t:'mc',q:'You and a friend are going for tea together. Which "we" do you use?',o:['आपण=āpaṇ','आम्ही=āmhī','ते=te','तुम्ही=tumhī'],why:'आपण includes the listener.'},
+  {t:'mc',q:'How do you say "He isn’t here"?',o:['तो इथे नाही.=to ithe nāhī.','तो इथे आहे नाही.=to ithe āhe nāhī.','तो नाही इथे आहे.=to nāhī ithe āhe.','ती इथे आहे.=tī ithe āhe.'],why:'नाही replaces आहे.'},
+  {t:'build',en:'This is my friend. (female)',tiles:['ही=hī','माझी=māzī','मैत्रीण=maitrīṇ','आहे=āhe'],x:['हा=hā','माझा=māzā'],why:'ही (this, fem.) माझी (my, fem.) मैत्रीण आहे.'},
+  {t:'mc',listen:1,jp:'हे काय आहे?=he kāy āhe?',q:'Listen. What does it mean?',o:['What is this?','Where is it?','Who is this?','Is this yours?'],why:'हे = this, काय = what.'},
+  {t:'type',mr:1,q:'Write in Marathi: "I am at home."',a:['mī gharī āhe'],dv:['मी घरी आहे'],why:'मी घरी आहे (mī gharī āhe).'},
+  {t:'fill',jp:'ते घरी ＿.=te gharī ＿.',en:'They aren’t at home.',o:['नाहीत=nāhīt','नाही=nāhī','आहेत=āhet','नको=nako'],why:'ते आहेत → ते नाहीत.'},
+  {t:'mc',q:'हा, ही, हे all mean "this". When do you use ही?',o:['For a woman or feminine thing','For a man or masculine thing','For a neuter thing','For plurals only'],why:'ही is feminine.'}]},
+
+{id:'max',st:'m1',t:'First words checkpoint',sub:'Sounds, greetings, numbers, आहे',g:'१',kind:'gexam',from:['ma1','ma2','ma3','ma4','ma5'],
+ intro:[{h:'Check your first words',p:['A mixed exam on sounds, greetings, introductions, numbers and आहे. Score 90% to unlock Daily conversation.']}]},
+
+/* ---------- STAGE 2 ---------- */
+{id:'mb1',st:'m2',t:'Present tense',sub:'मी करतो · ती करते · ते करतात',g:'कर',kind:'gram',drill:{t:'mrverb',L:[['कर','kar','do'],['जा','jā','go'],['ये','ye','come'],['खा','khā','eat'],['पि','pi','drink'],['बोल','bol','speak'],['राह','rāh','live, stay'],['शिक','shik','learn'],['बघ','bagh','watch, look'],['ऐक','aik','listen'],['वाच','vāch','read'],['झोप','zop','sleep']]},
+ words:WM([['करणे','karṇe','to do'],['जाणे','jāṇe','to go'],['येणे','yeṇe','to come'],['खाणे','khāṇe','to eat'],['पिणे','piṇe','to drink'],['बोलणे','bolṇe','to speak'],['शिकणे','shikṇe','to learn'],['रोज','roj','every day'],['नेहमी','nehmī','always'],['कधी कधी','kadhī kadhī','sometimes']]),
+ intro:[{h:'One pattern for almost every verb',p:['Verbs are listed with -णे (-ṇe): करणे, "to do". Drop -णे to get the stem कर (kar), then add -त- and an ending.','The ending depends on who is doing it, and for I, you, he and she, on whether that person is a man or a woman.'],say:0,tbl:[['मी करतो / करते','mī karto / karte','I do (man / woman)'],['तू करतोस / करतेस','tū kartos / kartes','you do (to a man / woman)'],['तो करतो','to karto','he does'],['ती करते','tī karte','she does'],['आम्ही करतो','āmhī karto','we do'],['तुम्ही करता','tumhī kartā','you do (polite)'],['ते करतात','te kartāt','they do']]},
+  {h:'Using it',ex:[['मी रोज चहा पितो.=mī roj chahā pito.','I drink tea every day. (man)'],['ती ऑफिसला जाते.=tī officelā jāte.','She goes to the office.'],['तुम्ही मराठी बोलता का?=tumhī marāṭhī boltā kā?','Do you speak Marathi?'],['आम्ही पुण्यात राहतो.=āmhī puṇyāt rāhto.','We live in Pune.'],['ते घरी जेवतात.=te gharī jevtāt.','They eat at home.']],tip:'This tense is for habits and facts: what you do every day, where you live, what you like.'},
+  {h:'Right now: -तोय / -तेय',ex:[['मी येतोय. / मी येतेय.=mī yetoy. / mī yetey.','I’m coming. (man / woman)'],['तू काय करतोयस?=tū kāy kartoys?','What are you doing? (to a man)'],['ती जेवतेय.=tī jevtey.','She’s eating.']],p:['For something happening right now, spoken Marathi adds -य: करतो → करतोय. You’ll hear it constantly on the phone: मी येतोय! "I’m on my way!"']}],
+ qs:[{t:'fill',jp:'मी रोज चहा ＿.=mī roj chahā ＿.',en:'I drink tea every day. (man)',o:['पितो=pito','पिते=pite','पितात=pitāt','पितोस=pitos'],why:'A man says मी पितो; a woman मी पिते.'},
+  {t:'fill',jp:'ती ऑफिसला ＿.=tī officelā ＿.',en:'She goes to the office.',o:['जाते=jāte','जातो=jāto','जातात=jātāt','जातेस=jātes'],why:'ती → -ते: ती जाते.'},
+  {t:'fill',jp:'तुम्ही मराठी ＿ का?=tumhī marāṭhī ＿ kā?',en:'Do you speak Marathi?',o:['बोलता=boltā','बोलतो=bolto','बोलतेस=boltes','बोलतात=boltāt'],why:'तुम्ही → -ता: तुम्ही बोलता.'},
+  {t:'mc',q:'Which ending goes with ते (they)?',o:['-तात (-tāt)','-ता (-tā)','-तो (-to)','-तेस (-tes)'],why:'ते करतात, ते जातात.'},
+  {t:'mc',listen:1,jp:'मी येतोय!=mī yetoy!',q:'Listen. What does it mean?',o:['I’m on my way!','I’m not coming.','I came yesterday.','Come here!'],why:'येतोय = am coming (right now).'},
+  {t:'build',en:'We live in Pune.',tiles:['आम्ही=āmhī','पुण्यात=puṇyāt','राहतो=rāhto'],x:['राहतात=rāhtāt','पुणे=puṇe'],why:'आम्ही पुण्यात राहतो. पुणे → पुण्यात (in Pune).'},
+  {t:'type',mr:1,q:'A man says: "I go." Write it in Marathi.',a:['mī jāto'],dv:['मी जातो'],why:'मी जातो (mī jāto). A woman says मी जाते.'},
+  {t:'mc',q:'Neha asks Rohan "तू काय करतोयस?" What does she want to know?',o:['What he’s doing right now','What he does for a living','What he did yesterday','What he wants to eat'],why:'-तोय = happening right now.'},
+  {t:'fill',jp:'ते घरी ＿.=te gharī ＿.',en:'They eat at home.',o:['जेवतात=jevtāt','जेवतो=jevto','जेवता=jevtā','जेवते=jevte'],why:'ते → -तात.'},
+  {t:'type',mr:1,q:'A woman says: "I speak Marathi." Write it.',a:['mī marāṭhī bolte'],dv:['मी मराठी बोलते'],why:'मी मराठी बोलते (mī marāṭhī bolte).'}]},
+
+{id:'mb2',st:'m2',t:'Asking questions',sub:'काय · कोण · कुठे · कधी · का',g:'का?',kind:'gram',
+ words:WM([['काय','kāy','what'],['कोण','koṇ','who'],['कुठे','kuṭhe','where'],['कधी','kadhī','when'],['का','kā','why; (yes/no question marker)'],['कसं','kasã','how'],['कोणता','koṇtā','which'],['कशाला','kashālā','what for']]),
+ intro:[{h:'Yes/no questions: just add का',ex:[['तुम्ही मराठी बोलता.=tumhī marāṭhī boltā.','You speak Marathi.'],['तुम्ही मराठी बोलता का?=tumhī marāṭhī boltā kā?','Do you speak Marathi?'],['चहा घेणार का?=chahā gheṇār kā?','Will you have some tea?'],['हे चालेल का?=he chālel kā?','Will this do?']],p:['Put का at the end of a sentence and it becomes a yes/no question. The word order stays the same.']},
+  {h:'Question words',say:0,tbl:[['काय','kāy','what'],['कोण','koṇ','who'],['कुठे','kuṭhe','where'],['कधी','kadhī','when'],['का','kā','why'],['कसं','kasã','how'],['किती','kitī','how much / how many'],['कोणता','koṇtā','which']],p:['Question words usually go just before the verb, not at the start: तुम्ही कुठे राहता? is "you where live?"']},
+  {h:'Everyday questions',ex:[['काय झालं?=kāy zālã?','What happened?'],['तुम्ही कुठे राहता?=tumhī kuṭhe rāhtā?','Where do you live?'],['हा कोण आहे?=hā koṇ āhe?','Who is this (man)?'],['तू कधी येणार?=tū kadhī yeṇār?','When will you come?'],['हे कसं करायचं?=he kasã karāychã?','How do I do this?'],['तू का हसतोयस?=tū kā hastoys?','Why are you laughing?']],tip:'का at the end = a yes/no question. का before the verb = why. तू येतोस का? "Do you come?" but तू का येतोस? "Why do you come?"'}],
+ qs:[{t:'fill',jp:'तुम्ही ＿ राहता?=tumhī ＿ rāhtā?',en:'Where do you live?',o:['कुठे=kuṭhe','कोण=koṇ','किती=kitī','काय=kāy'],why:'कुठे = where.'},
+  {t:'mc',q:'How do you turn "तुम्ही मराठी बोलता" into a yes/no question?',o:['तुम्ही मराठी बोलता का?=tumhī marāṭhī boltā kā?','तुम्ही मराठी बोलता कोण?=tumhī marāṭhī boltā koṇ?','तुम्ही का मराठी बोलता?=tumhī kā marāṭhī boltā?','तुम्ही मराठी काय बोलता?=tumhī marāṭhī kāy boltā?'],why:'Add का at the end. का before the verb would mean "why".'},
+  {t:'mc',listen:1,jp:'काय झालं?=kāy zālã?',q:'Listen. What does it mean?',o:['What happened?','What is this?','Who came?','Where are you?'],why:'काय झालं? = What happened?'},
+  {t:'fill',jp:'हा ＿ आहे?=hā ＿ āhe?',en:'Who is this (man)?',o:['कोण=koṇ','कधी=kadhī','कुठे=kuṭhe','किती=kitī'],why:'कोण = who.'},
+  {t:'mc',q:'What does "तू का हसतोयस?" ask?',o:['Why are you laughing?','Are you laughing?','When do you laugh?','Who is laughing?'],why:'का before the verb = why.'},
+  {t:'build',en:'When will you come?',tiles:['तू=tū','कधी=kadhī','येणार?=yeṇār?'],x:['कोण=koṇ','येतो=yeto'],why:'तू कधी येणार? The question word goes before the verb.'},
+  {t:'type',mr:1,q:'Write in Marathi: "what?"',a:['kāy'],dv:['काय'],why:'काय (kāy) = what.'},
+  {t:'fill',jp:'हे ＿ करायचं?=he ＿ karāychã?',en:'How do I do this?',o:['कसं=kasã','कोण=koṇ','कधी=kadhī','कोणता=koṇtā'],why:'कसं = how.'},
+  {t:'mc',listen:1,jp:'तुम्ही कुठे राहता?=tumhī kuṭhe rāhtā?',q:'Listen. What does it mean?',o:['Where do you live?','Where are you going?','When do you come?','What do you do?'],why:'कुठे राहता = where do you live.'},
+  {t:'mc',q:'There are three buses. How do you ask "Which bus?"',o:['कोणती बस?=koṇtī bas?','कोण बस?=koṇ bas?','कुठे बस?=kuṭhe bas?','कधी बस?=kadhī bas?'],why:'बस is feminine, so कोणता becomes कोणती.'}]},
+
+{id:'mb3',st:'m2',t:'Saying no: नाही and नको',sub:'खात नाही · मला नको · करू नको',g:'नको',kind:'gram',
+ words:WM([['नको','nako','don’t want; don’t'],['नाहीये','nāhīye','isn’t (everyday speech)'],['अजिबात','ajibāt','at all'],['काही नाही','kāhī nāhī','nothing; never mind'],['कोणी नाही','koṇī nāhī','nobody'],['कधीच नाही','kadhīch nāhī','never'],['मांस','māns','meat'],['आता','ātā','now']]),
+ intro:[{h:'Not doing: stem + त + नाही',ex:[['मी मांस खात नाही.=mī māns khāt nāhī.','I don’t eat meat.'],['ती चहा पीत नाही.=tī chahā pīt nāhī.','She doesn’t drink tea.'],['आम्ही रविवारी काम करत नाही.=āmhī ravivārī kām karat nāhī.','We don’t work on Sundays.']],p:['For "don’t" in the present, take the stem, add -त and then नाही. Good news: it’s the same for everyone, man or woman, I or they.']},
+  {h:'नको: "don’t want" and "don’t"',ex:[['मला नको.=malā nako.','I don’t want it. / No, thanks.'],['साखर नको.=sākhar nako.','No sugar.'],['काळजी करू नको.=kāḷjī karū nako.','Don’t worry. (casual)'],['इथे बसू नका.=ithe basū nakā.','Please don’t sit here. (polite)']],p:['नको turns something down, or tells someone not to do something. For "don’t do", use the stem + -ऊ and then नको (to a friend) or नका (polite).'],tip:'Being offered more food in a Marathi home? पुरे, नको, धन्यवाद! (Enough, no, thanks!) Expect more to land on your plate anyway.'},
+  {h:'Nothing, nobody, never',ex:[['काही नाही.=kāhī nāhī.','Nothing. / Never mind.'],['इथे कोणी नाही.=ithe koṇī nāhī.','There’s nobody here.'],['मी कधीच उशिरा येत नाही.=mī kadhīch ushirā yet nāhī.','I’m never late.'],['मला अजिबात वेळ नाही.=malā ajibāt veḷ nāhī.','I have no time at all.']]}],
+ qs:[{t:'fill',jp:'मी मांस खात ＿.=mī māns khāt ＿.',en:'I don’t eat meat.',o:['नाही=nāhī','नको=nako','आहे=āhe','नाहीत=nāhīt'],why:'stem + त + नाही: खात नाही.'},
+  {t:'mc',q:'Someone offers you sugar in your tea. How do you say "No sugar"?',o:['साखर नको.=sākhar nako.','साखर नाही आहे.=sākhar nāhī āhe.','साखर कधीच.=sākhar kadhīch.','साखर पाहिजे.=sākhar pāhije.'],why:'नको turns down an offer.'},
+  {t:'fill',jp:'काळजी करू ＿.=kāḷjī karū ＿.',en:'Don’t worry. (casual)',o:['नको=nako','नाही=nāhī','आहे=āhe','नाहीत=nāhīt'],why:'करू नको (casual), करू नका (polite).'},
+  {t:'mc',listen:1,jp:'इथे कोणी नाही.=ithe koṇī nāhī.',q:'Listen. What does it mean?',o:['There’s nobody here.','Nothing is here.','Nobody is coming.','He isn’t here.'],why:'कोणी नाही = nobody.'},
+  {t:'build',en:'She doesn’t drink tea.',tiles:['ती=tī','चहा=chahā','पीत=pīt','नाही=nāhī'],x:['पिते=pite','नको=nako'],why:'ती चहा पीत नाही.'},
+  {t:'type',mr:1,q:'Write in Marathi: "I don’t want it." (lit. "to me, don’t want")',a:['malā nako'],dv:['मला नको'],why:'मला नको (malā nako).'},
+  {t:'mc',q:'Which is the polite way to say "please don’t sit here"?',o:['इथे बसू नका.=ithe basū nakā.','इथे बसू नको.=ithe basū nako.','इथे बसत नाही.=ithe basat nāhī.','इथे बसा.=ithe basā.'],why:'नका is polite; नको is casual.'},
+  {t:'mc',listen:1,jp:'काही नाही.=kāhī nāhī.',q:'Listen. What does it mean?',o:['Nothing. / Never mind.','Nobody.','Never.','Not at all.'],why:'काही नाही = nothing, never mind.'},
+  {t:'fill',jp:'आम्ही रविवारी काम करत ＿.=āmhī ravivārī kām karat ＿.',en:'We don’t work on Sundays.',o:['नाही=nāhī','नको=nako','आहोत=āhot','आहे=āhe'],why:'करत नाही is the same for everyone.'},
+  {t:'mc',q:'Does stem + त + नाही change for a woman speaker?',o:['No, it’s the same for everyone','Yes, it becomes नाहीस','Yes, the verb ends in -ते','Only in the past'],why:'मी करत नाही works for anyone.'}]},
+
+{id:'mb4',st:'m2',t:'"To me": likes, wants, knowing',sub:'मला आवडतं · मला पाहिजे · मला माहीत आहे',g:'मला',kind:'gram',
+ words:WM([['मला','malā','to me'],['तुला','tulā','to you (casual)'],['तुम्हाला','tumhālā','to you (polite)'],['आवडतं','āvaḍtã','is liked, (I) like'],['पाहिजे','pāhije','(I) want, need'],['माहीत','māhīt','known'],['भूक','bhūk','hunger'],['तहान','tahān','thirst'],['वेळ','veḷ','time'],['मदत','madat','help']]),
+ intro:[{h:'"I like" is "to me, it’s pleasing"',ex:[['मला चहा आवडतो.=malā chahā āvaḍto.','I like tea. (चहा is masculine)'],['मला कॉफी आवडते.=malā coffee āvaḍte.','I like coffee. (कॉफी is feminine)'],['मला पुणे आवडतं.=malā puṇe āvaḍtã.','I like Pune. (neuter)'],['तुला काय आवडतं?=tulā kāy āvaḍtã?','What do you like?']],p:['For likes, wants, knowing and many feelings, Marathi says "to me" (मला) instead of "I". The verb agrees with the thing you like, not with you.'],tip:'Not sure of a word’s gender? आवडतं is the everyday choice for activities and when you’re talking generally.'},
+  {h:'Wanting and needing: पाहिजे',ex:[['मला पाणी पाहिजे.=malā pāṇī pāhije.','I want some water.'],['तुम्हाला काय पाहिजे?=tumhālā kāy pāhije?','What would you like?'],['मला मदत पाहिजे.=malā madat pāhije.','I need help.'],['मला चहा हवा.=malā chahā havā.','I want tea. (हवा / हवी / हवं also mean "want")']],p:['पाहिजे never changes, which makes it the easiest way to ask for things. हवा, हवी and हवं mean the same but agree with the thing.']},
+  {h:'Knowing, hunger and time',ex:[['मला माहीत आहे.=malā māhīt āhe.','I know.'],['मला माहीत नाही.=malā māhīt nāhī.','I don’t know.'],['मला भूक लागलीये.=malā bhūk lāglīye.','I’m hungry.'],['मला तहान लागलीये.=malā tahān lāglīye.','I’m thirsty.'],['मला वेळ नाही.=malā veḷ nāhī.','I don’t have time.'],['तुम्हाला मराठी येते का?=tumhālā marāṭhī yete kā?','Do you know Marathi?']]}],
+ qs:[{t:'fill',jp:'＿ चहा आवडतो.=＿ chahā āvaḍto.',en:'I like tea.',o:['मला=malā','मी=mī','माझा=māzā','तू=tū'],why:'Likes use मला: मला चहा आवडतो.'},
+  {t:'fill',jp:'मला कॉफी ＿.=malā coffee ＿.',en:'I like coffee.',o:['आवडते=āvaḍte','आवडतो=āvaḍto','आवडतात=āvaḍtāt','आवडतोस=āvaḍtos'],why:'कॉफी is feminine, so आवडते.'},
+  {t:'mc',q:'In a shop: "What would you like?" (polite)',o:['तुम्हाला काय पाहिजे?=tumhālā kāy pāhije?','तुम्ही काय पाहिजे?=tumhī kāy pāhije?','मला काय पाहिजे?=malā kāy pāhije?','तुम्हाला कुठे पाहिजे?=tumhālā kuṭhe pāhije?'],why:'पाहिजे needs the "to" form: तुम्हाला.'},
+  {t:'mc',listen:1,jp:'मला माहीत नाही.=malā māhīt nāhī.',q:'Listen. What does it mean?',o:['I don’t know.','I know.','I don’t want it.','I don’t have time.'],why:'माहीत नाही = not known.'},
+  {t:'build',en:'I need help.',tiles:['मला=malā','मदत=madat','पाहिजे=pāhije'],x:['मी=mī','आहे=āhe'],why:'मला मदत पाहिजे.'},
+  {t:'type',mr:1,q:'Write in Marathi: "I know." (lit. "to me known is")',a:['malā māhīt āhe'],dv:['मला माहीत आहे'],why:'मला माहीत आहे (malā māhīt āhe).'},
+  {t:'mc',q:'Why is पाहिजे so useful?',o:['It never changes for gender or person','Only women use it','It means both yes and no','It replaces every verb'],why:'मला / तुला / त्यांना … पाहिजे: always the same.'},
+  {t:'mc',listen:1,jp:'मला भूक लागलीये.=malā bhūk lāglīye.',q:'Listen. What does it mean?',o:['I’m hungry.','I’m thirsty.','I’m tired.','I’m late.'],why:'भूक = hunger.'},
+  {t:'fill',jp:'तुम्हाला मराठी ＿ का?=tumhālā marāṭhī ＿ kā?',en:'Do you know Marathi?',o:['येते=yete','आहात=āhāt','बोलता=boltā','करता=kartā'],why:'Knowing a language: तुम्हाला मराठी येते.'},
+  {t:'mc',q:'In "मला चहा आवडतो", what does आवडतो agree with?',o:['चहा, the thing liked','मला, the person','Nothing; it never changes','The time of day'],why:'चहा is masculine, so आवडतो.'}]},
+
+{id:'mb5',st:'m2',t:'Family and "my"',sub:'आई · माझा, माझी, माझं',g:'आई',kind:'gram',
+ words:WM([['आई','āī','mother'],['बाबा','bābā','father, dad'],['भाऊ','bhāū','brother'],['बहीण','bahīṇ','sister'],['नवरा','navrā','husband'],['बायको','bāyko','wife'],['मुलगा','mulgā','son, boy'],['मुलगी','mulgī','daughter, girl'],['आजी','ājī','grandmother'],['आजोबा','ājobā','grandfather']]),
+ intro:[{h:'My: माझा, माझी, माझं',say:0,tbl:[['माझा भाऊ','māzā bhāū','my brother (masc.)'],['माझी बहीण','māzī bahīṇ','my sister (fem.)'],['माझं घर','māzã ghar','my house (neuter)'],['माझे आई-वडील','māze āī-vaḍīl','my parents (plural)']],p:['"My" agrees with the person or thing owned, not with the owner. A woman also says माझा भाऊ.']},
+  {h:'Your, his, her, our',say:0,tbl:[['तुझा / तुझी / तुझं','tuzā / tuzī / tuzã','your (casual)'],['तुमचा / तुमची / तुमचं','tumchā / tumchī / tumchã','your (polite)'],['त्याचा / त्याची / त्याचं','tyāchā / tyāchī / tyāchã','his'],['तिचा / तिची / तिचं','tichā / tichī / tichã','her'],['आमचा / आमची / आमचं','āmchā / āmchī / āmchã','our']]},
+  {h:'Family words you’ll hear',ex:[['दादा=dādā','elder brother (also a friendly "bro")'],['ताई=tāī','elder sister (also for women around your age)'],['काका / काकू=kākā / kākū','uncle / aunt (also any older man / woman)'],['मावशी=māvshī','mother’s sister (also a friendly "auntie")'],['तुमच्या घरी कोण कोण असतं?=tumchyā gharī koṇ koṇ astã?','Who all is at your home?']],tip:'Marathi speakers call strangers by family words: the rickshaw driver is दादा or काका, the vegetable seller मावशी or ताई. Use them too; it’s polite and friendly.'}],
+ qs:[{t:'fill',jp:'＿ भाऊ पुण्यात राहतो.=＿ bhāū puṇyāt rāhto.',en:'My brother lives in Pune.',o:['माझा=māzā','माझी=māzī','माझं=māzã','माझे=māze'],why:'भाऊ is masculine: माझा भाऊ.'},
+  {t:'fill',jp:'ही ＿ बहीण आहे.=hī ＿ bahīṇ āhe.',en:'This is my sister.',o:['माझी=māzī','माझा=māzā','माझं=māzã','मला=malā'],why:'बहीण is feminine: माझी बहीण.'},
+  {t:'mc',q:'A woman talks about her brother. Which is right?',o:['माझा भाऊ=māzā bhāū','माझी भाऊ=māzī bhāū','माझं भाऊ=māzã bhāū','मी भाऊ=mī bhāū'],why:'"My" agrees with भाऊ, not with the speaker.'},
+  {t:'mc',listen:1,jp:'तुमच्या घरी कोण कोण असतं?=tumchyā gharī koṇ koṇ astã?',q:'Listen. What does it mean?',o:['Who all is at your home?','Where is your home?','Is your mother at home?','Whose house is this?'],why:'कोण कोण = who all.'},
+  {t:'mc',q:'You need a rickshaw driver’s attention. What do you call him?',o:['दादा / काका=dādā / kākā','आजी=ājī','बायको=bāyko','मुलगी=mulgī'],why:'दादा or काका are friendly, polite ways to address a man.'},
+  {t:'build',en:'Her daughter is a doctor.',tiles:['तिची=tichī','मुलगी=mulgī','डॉक्टर=doctor','आहे=āhe'],x:['तिचा=tichā','त्याची=tyāchī'],why:'तिची (her, agreeing with मुलगी) मुलगी डॉक्टर आहे.'},
+  {t:'type',mr:1,q:'Write in Marathi: "my house"',a:['māzã ghar','majha ghar'],dv:['माझं घर'],why:'घर is neuter: माझं घर (māzã ghar).'},
+  {t:'fill',jp:'हे ＿ घर आहे का?=he ＿ ghar āhe kā?',en:'Is this your house? (polite)',o:['तुमचं=tumchã','तुमचा=tumchā','तुमची=tumchī','तुम्ही=tumhī'],why:'घर is neuter: तुमचं घर.'},
+  {t:'mc',listen:1,jp:'माझे आई-वडील मुंबईत असतात.=māze āī-vaḍīl mumbaīt astāt.',q:'Listen. What does it mean?',o:['My parents live in Mumbai.','My parents are visiting Mumbai.','My brother lives in Mumbai.','My grandparents like Mumbai.'],why:'आई-वडील = parents; मुंबईत असतात = are (live) in Mumbai.'},
+  {t:'mc',q:'What does माझा / माझी / माझं agree with?',o:['The person or thing owned','The speaker','The listener','Nothing'],why:'माझा भाऊ, माझी बहीण, माझं घर.'}]},
+
+{id:'mb6',st:'m2',t:'Time and days',sub:'आज · उद्या · किती वाजले?',g:'वेळ',kind:'gram',
+ words:WM([['आज','āj','today'],['उद्या','udyā','tomorrow'],['काल','kāl','yesterday'],['सकाळी','sakāḷī','in the morning'],['दुपारी','dupārī','in the afternoon'],['संध्याकाळी','sandhyākāḷī','in the evening'],['रात्री','rātrī','at night'],['आठवडा','āṭhavḍā','week'],['रविवार','ravivār','Sunday'],['सोमवार','somvār','Monday']]),
+ intro:[{h:'Days of the week',say:0,tbl:[['सोमवार','somvār','Monday'],['मंगळवार','mangaḷvār','Tuesday'],['बुधवार','budhvār','Wednesday'],['गुरुवार','guruvār','Thursday'],['शुक्रवार','shukravār','Friday'],['शनिवार','shanivār','Saturday'],['रविवार','ravivār','Sunday']],p:['To say "on Monday", add -ई: सोमवारी (somvārī), रविवारी (ravivārī).']},
+  {h:'What time is it?',ex:[['किती वाजले?=kitī vājle?','What time is it?'],['तीन वाजले.=tīn vājle.','It’s three o’clock.'],['एक वाजला.=ek vājlā.','It’s one o’clock.'],['पाच वाजता=pāch vājtā','at five o’clock'],['सकाळी नऊ वाजता=sakāḷī naū vājtā','at nine in the morning']]},
+  {h:'Quarter past, half past',say:0,tbl:[['सव्वा तीन','savvā tīn','3:15 (quarter past three)'],['साडेतीन','sāḍetīn','3:30 (half past three)'],['पावणे चार','pāvṇe chār','3:45 (quarter to four)'],['दीड','dīḍ','1:30'],['अडीच','aḍīch','2:30']],tip:'Half past one and half past two have their own words: दीड and अडीच. For every other half hour, use साडे + the hour: साडेनऊ = 9:30.'},
+  {h:'Today, tomorrow, yesterday',ex:[['आज काय आहे?=āj kāy āhe?','What’s on today?'],['उद्या भेटू.=udyā bheṭū.','See you tomorrow.'],['काल मी घरी होतो.=kāl mī gharī hoto.','Yesterday I was at home. (man)'],['परवा=parvā','the day after tomorrow, or the day before yesterday']],tip:'परवा works in both directions; the verb tells you which.'}],
+ qs:[{t:'mc',listen:1,jp:'किती वाजले?=kitī vājle?',q:'Listen. What does it mean?',o:['What time is it?','How much is it?','When are you coming?','What day is it?'],why:'किती वाजले? = what time is it?'},
+  {t:'mc',q:'How do you say 9:30 in Marathi?',o:['साडेनऊ=sāḍenaū','सव्वा नऊ=savvā naū','पावणे नऊ=pāvṇe naū','नऊ वाजले=naū vājle'],why:'साडे + hour = half past.'},
+  {t:'mc',q:'What time is दीड (dīḍ)?',o:['1:30','2:30','1:15','12:30'],why:'दीड = one and a half: 1:30.'},
+  {t:'fill',jp:'उद्या ＿.=udyā ＿.',en:'See you tomorrow.',o:['भेटू=bheṭū','भेटलो=bheṭlo','भेटतात=bheṭtāt','भेटला=bheṭlā'],why:'उद्या भेटू = let’s meet tomorrow, see you tomorrow.'},
+  {t:'fill',jp:'आपण ＿ भेटूया.=āpaṇ ＿ bheṭūyā.',en:'Let’s meet on Sunday.',o:['रविवारी=ravivārī','रविवार=ravivār','रविवारचा=ravivārchā','रविवारची=ravivārchī'],why:'"On Sunday" = रविवारी.'},
+  {t:'mc',listen:1,jp:'सकाळी नऊ वाजता=sakāḷī naū vājtā',q:'Listen. When?',o:['At nine in the morning','At nine at night','At half past nine','At nine tomorrow'],why:'सकाळी = in the morning, नऊ वाजता = at nine.'},
+  {t:'type',mr:1,q:'Write in Marathi: "today"',a:['āj'],dv:['आज'],why:'आज (āj) = today.'},
+  {t:'build',en:'It’s three o’clock.',tiles:['तीन=tīn','वाजले=vājle'],x:['वाजता=vājtā','किती=kitī'],why:'तीन वाजले. वाजता means "at" a time.'},
+  {t:'mc',q:'What can परवा (parvā) mean?',o:['The day after tomorrow or the day before yesterday','Only yesterday','Next week','Tonight'],why:'परवा = two days away, in either direction.'},
+  {t:'type',mr:1,q:'Write in Marathi: "tomorrow"',a:['udyā'],dv:['उद्या'],why:'उद्या (udyā) = tomorrow.'}]},
+
+{id:'mbx',st:'m2',t:'Daily conversation checkpoint',sub:'Verbs, questions, नको, मला, family, time',g:'२',kind:'gexam',from:['mb1','mb2','mb3','mb4','mb5','mb6'],
+ intro:[{h:'Check your daily conversation',p:['A mixed exam on the present tense, questions, saying no, मला phrases, family and time. Score 90% to unlock Out and about.']}]},
+
+/* ---------- STAGE 3 ---------- */
+{id:'mc1',st:'m3',t:'Food and ordering',sub:'एक कटिंग द्या · कमी तिखट',g:'चहा',kind:'gram',
+ words:WM([['चहा','chahā','tea'],['कॉफी','coffee','coffee'],['जेवण','jevaṇ','meal, food'],['भात','bhāt','rice'],['पोळी','poḷī','chapati, flatbread'],['भाजी','bhājī','vegetable dish'],['वरण','varaṇ','plain dal'],['तिखट','tikhaṭ','spicy'],['गोड','goḍ','sweet'],['साखर','sākhar','sugar']]),
+ intro:[{h:'At a tea stall',ex:[['एक कटिंग द्या.=ek kaṭing dyā.','One cutting chai, please. (a half glass)'],['दोन चहा, साखर कमी.=don chahā, sākhar kamī.','Two teas, less sugar.'],['बिनसाखरेचा चहा=binsākharechā chahā','tea without sugar'],['एक वडापाव पण.=ek vaḍāpāv paṇ.','And one vada pav too.']],p:['द्या (dyā) means "give". It’s the polite way to order: एक चहा द्या. With friends: दे (de).']},
+  {h:'At a restaurant',ex:[['मेनू दाखवा.=menu dākhvā.','Show me the menu, please.'],['काय काय आहे?=kāy kāy āhe?','What all do you have?'],['मी शाकाहारी आहे.=mī shākāhārī āhe.','I’m vegetarian.'],['कमी तिखट करा.=kamī tikhaṭ karā.','Make it less spicy.'],['बिल द्या.=bill dyā.','The bill, please.']]},
+  {h:'Eating at someone’s home',ex:[['जेवण झालं का?=jevaṇ zālã kā?','Have you eaten? (a common hello)'],['खूप छान झालंय!=khūp chhān zālãy!','It’s turned out lovely!'],['पुरे, धन्यवाद.=pure, dhanyavād.','That’s enough, thank you.'],['अजून थोडं घ्या.=ajūn thoḍã ghyā.','Have a little more.']],tip:'Around lunch or dinner, many people say जेवण झालं का? instead of hello. Answer हो, झालं (yes) or नाही, अजून (not yet).'}],
+ qs:[{t:'fill',jp:'एक चहा ＿.=ek chahā ＿.',en:'One tea, please.',o:['द्या=dyā','घ्या=ghyā','आहे=āhe','करा=karā'],why:'द्या = give (polite): एक चहा द्या.'},
+  {t:'mc',q:'You want your food less spicy. What do you say?',o:['कमी तिखट करा.=kamī tikhaṭ karā.','जास्त तिखट करा.=jāsta tikhaṭ karā.','गोड नको.=goḍ nako.','बिल द्या.=bill dyā.'],why:'कमी = less, तिखट = spicy.'},
+  {t:'mc',listen:1,jp:'जेवण झालं का?=jevaṇ zālã kā?',q:'Listen. What does it mean?',o:['Have you eaten?','Is the food ready?','Do you want food?','Where is the food?'],why:'जेवण झालं का? Literally "has the meal happened?"'},
+  {t:'mc',q:'How do you ask for tea without sugar?',o:['बिनसाखरेचा चहा=binsākharechā chahā','साखरेचा चहा=sākharechā chahā','गोड चहा=goḍ chahā','कटिंग चहा=kaṭing chahā'],why:'बिन- = without.'},
+  {t:'build',en:'I’m vegetarian.',tiles:['मी=mī','शाकाहारी=shākāhārī','आहे=āhe'],x:['मला=malā','आहेत=āhet'],why:'मी शाकाहारी आहे.'},
+  {t:'type',mr:1,q:'Write in Marathi: "The bill, please."',a:['bill dyā'],dv:['बिल द्या'],why:'बिल द्या (bill dyā).'},
+  {t:'mc',listen:1,jp:'पुरे, धन्यवाद.=pure, dhanyavād.',q:'Listen. What does it mean?',o:['That’s enough, thank you.','Have some more.','It’s delicious.','Not spicy, please.'],why:'पुरे = enough.'},
+  {t:'fill',jp:'अजून थोडं ＿.=ajūn thoḍã ＿.',en:'Have a little more.',o:['घ्या=ghyā','आहे=āhe','जा=jā','या=yā'],why:'घ्या = take, have.'},
+  {t:'mc',q:'What does "खूप छान झालंय!" mean?',o:['It’s turned out lovely!','It’s very spicy!','I’m full!','It’s too sweet!'],why:'छान = nice, lovely.'},
+  {t:'mc',listen:1,jp:'दोन चहा, साखर कमी.=don chahā, sākhar kamī.',q:'Listen. What was ordered?',o:['Two teas, less sugar','Two teas, no sugar','One tea, more sugar','Two coffees, less sugar'],why:'दोन चहा = two teas, साखर कमी = less sugar.'}]},
+
+{id:'mc2',st:'m3',t:'Shopping and bargaining',sub:'कितीला? · थोडं कमी करा ना',g:'₹',kind:'gram',
+ words:WM([['महाग','mahāg','expensive'],['स्वस्त','svasta','cheap'],['कमी','kamī','less, low'],['जास्त','jāsta','more, too much'],['मोठा','moṭhā','big'],['लहान','lahān','small'],['रंग','rang','colour'],['पिशवी','pishvī','bag'],['चालेल','chālel','that works, OK'],['दुकान','dukān','shop']]),
+ intro:[{h:'Asking prices',ex:[['हे कितीला?=he kitīlā?','How much is this?'],['एक किलो टोमॅटो किती?=ek kilo tomato kitī?','How much for a kilo of tomatoes?'],['सगळं मिळून किती?=sagḷã miḷūn kitī?','How much for everything together?'],['खूप महाग आहे!=khūp mahāg āhe!','That’s really expensive!']]},
+  {h:'Bargaining (politely)',ex:[['थोडं कमी करा ना.=thoḍã kamī karā nā.','Come on, bring it down a bit.'],['शंभरला द्या.=shambharlā dyā.','Give it to me for a hundred.'],['शेवटचं किती?=shevaṭchã kitī?','What’s your final price?'],['चालेल, द्या.=chālel, dyā.','OK, I’ll take it.'],['राहू दे.=rāhū de.','Leave it, never mind.']],tip:'ना at the end softens a request, like "come on" or "please". Bargain at markets and street stalls, not in shops with price tags.'},
+  {h:'Choosing things',ex:[['दुसरा रंग आहे का?=dusrā rang āhe kā?','Do you have another colour?'],['मोठा आहे का?=moṭhā āhe kā?','Is there a bigger one?'],['हे दाखवा.=he dākhvā.','Show me this.'],['पिशवी मिळेल का?=pishvī miḷel kā?','Can I get a bag?'],['ऑनलाइन पेमेंट चालेल का?=online payment chālel kā?','Can I pay online?']]}],
+ qs:[{t:'mc',listen:1,jp:'हे कितीला?=he kitīlā?',q:'Listen. What does it mean?',o:['How much is this?','What is this?','Is this good?','Whose is this?'],why:'कितीला = for how much.'},
+  {t:'fill',jp:'खूप ＿ आहे!=khūp ＿ āhe!',en:'That’s really expensive!',o:['महाग=mahāg','स्वस्त=svasta','लहान=lahān','गोड=goḍ'],why:'महाग = expensive; स्वस्त = cheap.'},
+  {t:'mc',q:'You want a lower price. What do you say?',o:['थोडं कमी करा ना.=thoḍã kamī karā nā.','थोडं जास्त करा.=thoḍã jāsta karā.','चालेल, द्या.=chālel, dyā.','हे दाखवा.=he dākhvā.'],why:'कमी करा = make it less.'},
+  {t:'mc',q:'The price is fine. What do you say?',o:['चालेल, द्या.=chālel, dyā.','राहू दे.=rāhū de.','शेवटचं किती?=shevaṭchã kitī?','खूप महाग आहे!=khūp mahāg āhe!'],why:'चालेल = that works.'},
+  {t:'mc',listen:1,jp:'दुसरा रंग आहे का?=dusrā rang āhe kā?',q:'Listen. What does it mean?',o:['Do you have another colour?','Is there a bigger one?','Can I get a bag?','Is it cheaper?'],why:'दुसरा रंग = another colour.'},
+  {t:'build',en:'Give it to me for a hundred.',tiles:['शंभरला=shambharlā','द्या=dyā'],x:['शंभर=shambhar','घ्या=ghyā'],why:'शंभरला द्या: -ला = for (a price).'},
+  {t:'type',mr:1,q:'Write in Marathi: "OK, that works."',a:['chālel'],dv:['चालेल'],why:'चालेल (chālel).'},
+  {t:'mc',q:'What does राहू दे (rāhū de) mean at a stall?',o:['Leave it, never mind','Give it to me','Wrap it up','Keep the change'],why:'राहू दे = let it be.'},
+  {t:'mc',listen:1,jp:'सगळं मिळून किती?=sagḷã miḷūn kitī?',q:'Listen. What does it mean?',o:['How much for everything together?','How much for one?','Is everything here?','Can I get all of them?'],why:'सगळं मिळून = all together.'},
+  {t:'fill',jp:'पिशवी ＿ का?=pishvī ＿ kā?',en:'Can I get a bag?',o:['मिळेल=miḷel','आहेत=āhet','करते=karte','गेली=gelī'],why:'मिळेल का? = can I get?'}]},
+
+{id:'mc3',st:'m3',t:'Rickshaws and directions',sub:'येणार का? · सरळ · डावीकडे',g:'रिक्षा',kind:'gram',
+ words:WM([['रिक्षा','rikshā','auto rickshaw'],['सरळ','saraḷ','straight'],['डावीकडे','ḍāvīkaḍe','to the left'],['उजवीकडे','ujvīkaḍe','to the right'],['थांबा','thāmbā','stop, wait (polite)'],['जवळ','javaḷ','near'],['लांब','lāmb','far'],['पुढे','puḍhe','ahead, further on'],['मागे','māge','behind, back'],['चौक','chauk','junction, square']]),
+ intro:[{h:'Getting a rickshaw',ex:[['दादा, स्टेशनला येणार का?=dādā, stationlā yeṇār kā?','Will you go to the station?'],['मीटरने चला.=meterne chalā.','Go by the meter, please.'],['किती होतील?=kitī hotīl?','How much will it be?'],['इथे थांबा.=ithe thāmbā.','Stop here.'],['थोडं पुढे.=thoḍã puḍhe.','A little further.']],tip:'In Pune and Mumbai you ask a rickshaw driver येणार का? "Will you come?" If he shakes his head, just try the next one.'},
+  {h:'Directions',ex:[['सरळ जा.=saraḷ jā.','Go straight.'],['डावीकडे वळा.=ḍāvīkaḍe vaḷā.','Turn left.'],['उजवीकडे वळा.=ujvīkaḍe vaḷā.','Turn right.'],['चौकातून उजवीकडे.=chaukātūn ujvīkaḍe.','Right at the junction.'],['सिग्नलच्या पुढे.=signalchyā puḍhe.','Just past the signal.']]},
+  {h:'Asking the way',ex:[['स्टेशन कुठे आहे?=station kuṭhe āhe?','Where is the station?'],['इथून किती लांब आहे?=ithūn kitī lāmb āhe?','How far is it from here?'],['चालत जाता येईल का?=chālat jātā yeīl kā?','Can I walk there?'],['जवळच आहे.=javaḷach āhe.','It’s close by.']]}],
+ qs:[{t:'mc',q:'You want a rickshaw to the station. What do you ask?',o:['दादा, स्टेशनला येणार का?=dādā, stationlā yeṇār kā?','दादा, स्टेशन आहे का?=dādā, station āhe kā?','दादा, स्टेशन कोण?=dādā, station koṇ?','दादा, स्टेशनला गेलो.=dādā, stationlā gelo.'],why:'… येणार का? = will you go to …?'},
+  {t:'fill',jp:'＿ जा.=＿ jā.',en:'Go straight.',o:['सरळ=saraḷ','मागे=māge','लांब=lāmb','जवळ=javaḷ'],why:'सरळ = straight.'},
+  {t:'mc',listen:1,jp:'डावीकडे वळा.=ḍāvīkaḍe vaḷā.',q:'Listen. Which way?',o:['Turn left.','Turn right.','Go straight.','Stop here.'],why:'डावीकडे = left.'},
+  {t:'mc',listen:1,jp:'इथे थांबा.=ithe thāmbā.',q:'Listen. What does it mean?',o:['Stop here.','Wait there.','Come here.','Go ahead.'],why:'इथे = here, थांबा = stop.'},
+  {t:'fill',jp:'इथून किती ＿ आहे?=ithūn kitī ＿ āhe?',en:'How far is it from here?',o:['लांब=lāmb','जवळ=javaḷ','सरळ=saraḷ','पुढे=puḍhe'],why:'लांब = far.'},
+  {t:'build',en:'Go by the meter, please.',tiles:['मीटरने=meterne','चला=chalā'],x:['मीटर=meter','थांबा=thāmbā'],why:'मीटरने = by the meter.'},
+  {t:'type',mr:1,q:'Write in Marathi: "to the right"',a:['ujvīkaḍe','ujavikade'],dv:['उजवीकडे'],why:'उजवीकडे (ujvīkaḍe).'},
+  {t:'mc',listen:1,jp:'जवळच आहे.=javaḷach āhe.',q:'Listen. What does it mean?',o:['It’s close by.','It’s far away.','It’s straight ahead.','It’s behind you.'],why:'जवळ = near; -च adds emphasis.'},
+  {t:'mc',q:'The driver went past your stop. "A little back!"',o:['थोडं मागे.=thoḍã māge.','थोडं पुढे.=thoḍã puḍhe.','सरळ जा.=saraḷ jā.','उजवीकडे वळा.=ujvīkaḍe vaḷā.'],why:'मागे = back, behind.'},
+  {t:'type',mr:1,q:'Write in Marathi: "Stop here."',a:['ithe thāmbā'],dv:['इथे थांबा'],why:'इथे थांबा (ithe thāmbā).'}]},
+
+{id:'mc4',st:'m3',t:'In, on, to, from',sub:'घरात · पुण्याला · टेबलावर',g:'-त',kind:'gram',
+ words:WM([['मध्ये','madhye','in, inside'],['वर','var','on, up'],['खाली','khālī','under, down'],['बरोबर','barobar','with; correct'],['साठी','sāṭhī','for'],['समोर','samor','in front of, opposite'],['बाहेर','bāher','outside'],['आत','āt','inside'],['नंतर','nantar','after, later'],['आधी','ādhī','before']]),
+ intro:[{h:'Endings instead of prepositions',say:0,tbl:[['घरात','gharāt','in the house (-त, in)'],['पुण्याला','puṇyālā','to Pune (-ला, to)'],['टेबलावर','ṭebalāvar','on the table (-वर, on)'],['मुंबईहून','mumbaīhūn','from Mumbai (-हून, from)'],['मित्राबरोबर','mitrābarobar','with a friend (-बरोबर, with)'],['तुझ्यासाठी','tuzyāsāṭhī','for you (-साठी, for)']],p:['English puts "in, on, to" before a word. Marathi sticks them on the end: घर + त = घरात, "in the house".']},
+  {h:'The word changes a little',p:['Before an ending, many words change their last sound: पुणे → पुण्याला, मुलगा → मुलाला, टेबल → टेबलावर. Don’t worry about mastering this now; you’ll be understood even if you get it slightly wrong.'],ex:[['मी पुण्याला जातोय.=mī puṇyālā jātoy.','I’m going to Pune.'],['मुलाला भूक लागलीये.=mulālā bhūk lāglīye.','The boy is hungry.'],['चावी टेबलावर आहे.=chāvī ṭebalāvar āhe.','The key is on the table.']]},
+  {h:'The easy one: मध्ये',ex:[['ऑफिसमध्ये=officemadhye','in the office'],['बसमध्ये=basmadhye','on the bus'],['मुंबईमध्ये=mumbaīmadhye','in Mumbai'],['घरी=gharī','at home (a special form, very common)']],tip:'Not sure of the -त form? मध्ये works after almost any place and never changes the word in front of it.'}],
+ qs:[{t:'fill',jp:'मी ＿ जातोय.=mī ＿ jātoy.',en:'I’m going to Pune.',o:['पुण्याला=puṇyālā','पुण्यात=puṇyāt','पुण्याहून=puṇyāhūn','पुण्यासाठी=puṇyāsāṭhī'],why:'-ला = to: पुण्याला.'},
+  {t:'fill',jp:'चावी ＿ आहे.=chāvī ＿ āhe.',en:'The key is on the table.',o:['टेबलावर=ṭebalāvar','टेबलात=ṭebalāt','टेबलाला=ṭebalālā','टेबलाहून=ṭebalāhūn'],why:'-वर = on.'},
+  {t:'fill',jp:'ती ＿ आली.=tī ＿ ālī.',en:'She came from Mumbai.',o:['मुंबईहून=mumbaīhūn','मुंबईला=mumbaīlā','मुंबईत=mumbaīt','मुंबईसाठी=mumbaīsāṭhī'],why:'-हून = from.'},
+  {t:'mc',q:'Which ending means "for"?',o:['-साठी (-sāṭhī)','-वर (-var)','-हून (-hūn)','-त (-t)'],why:'-साठी = for: तुझ्यासाठी, for you.'},
+  {t:'mc',listen:1,jp:'हे तुझ्यासाठी आहे.=he tuzyāsāṭhī āhe.',q:'Listen. What does it mean?',o:['This is for you.','This is from you.','This is with you.','This is on you.'],why:'तुझ्यासाठी = for you.'},
+  {t:'build',en:'I’m in the office.',tiles:['मी=mī','ऑफिसमध्ये=officemadhye','आहे=āhe'],x:['ऑफिसला=officelā','आहेस=āhes'],why:'मी ऑफिसमध्ये आहे.'},
+  {t:'type',mr:1,q:'Write in Marathi: "at home"',a:['gharī'],dv:['घरी'],why:'घरी (gharī) = at home.'},
+  {t:'mc',listen:1,jp:'मी मित्राबरोबर जातोय.=mī mitrābarobar jātoy.',q:'Listen. What does it mean?',o:['I’m going with a friend.','I’m going for a friend.','I’m going to a friend’s.','My friend is going.'],why:'-बरोबर = with.'},
+  {t:'mc',q:'You aren’t sure of the -त form for a place. What can you safely use?',o:['मध्ये (madhye)','साठी (sāṭhī)','हून (hūn)','नको (nako)'],why:'मध्ये works after almost any place.'},
+  {t:'mc',listen:1,jp:'जेवणानंतर चहा घेऊ.=jevaṇānantar chahā gheū.',q:'Listen. What does it mean?',o:['We’ll have tea after the meal.','We’ll have tea before the meal.','We’ll have tea with the meal.','We had tea after the meal.'],why:'-नंतर = after.'}]},
+
+{id:'mc5',st:'m3',t:'The past: went, came, did',sub:'मी गेलो · ती आली · मी केलं',g:'गेलो',kind:'gram',
+ words:WM([['गेलो','gelo','went (I, man)'],['आलो','ālo','came (I, man)'],['झालं','zālã','happened; done'],['केलं','kelã','did'],['पाहिलं','pāhilã','saw'],['सांगितलं','sāngitlã','said, told'],['जेवलो','jevlo','ate a meal (I, man)'],['पोहोचलो','pohochlo','arrived (I, man)'],['काल रात्री','kāl rātrī','last night'],['आधीच','ādhīch','already']]),
+ intro:[{h:'Went, came: गेला, आला',say:0,tbl:[['मी गेलो / गेले','mī gelo / gele','I went (man / woman)'],['तू गेलास / गेलीस','tū gelās / gelīs','you went (to a man / woman)'],['तो गेला','to gelā','he went'],['ती गेली','tī gelī','she went'],['आम्ही गेलो','āmhī gelo','we went'],['तुम्ही गेलात','tumhī gelāt','you went (polite)'],['ते गेले','te gele','they went']],p:['For verbs like go, come, sit, sleep and arrive, the past agrees with the person: a man says मी गेलो, a woman मी गेले.']},
+  {h:'More past verbs like this',ex:[['मी काल पुण्याला आलो.=mī kāl puṇyālā ālo.','I came to Pune yesterday. (man)'],['ती घरी पोहोचली.=tī gharī pohochlī.','She reached home.'],['मी जेवले.=mī jevle.','I’ve eaten. (woman)'],['आम्ही उशिरा झोपलो.=āmhī ushirā zoplo.','We slept late.']]},
+  {h:'Did, saw, said',ex:[['मी काम केलं.=mī kām kelã.','I did the work.'],['मी तो पिक्चर पाहिला.=mī to picture pāhilā.','I watched that film.'],['त्याने मला सांगितलं.=tyāne malā sāngitlã.','He told me.'],['काय झालं?=kāy zālã?','What happened?'],['झालं!=zālã!','Done!']],p:['Verbs that take an object, like do, see and say, work differently in the past: they agree with the thing, not the person. For now, learn them as phrases: मी केलं, मी पाहिलं, त्याने सांगितलं.']}],
+ qs:[{t:'fill',jp:'मी काल पुण्याला ＿.=mī kāl puṇyālā ＿.',en:'I came to Pune yesterday. (man)',o:['आलो=ālo','आले=āle','आला=ālā','आलीस=ālīs'],why:'A man: मी आलो. A woman: मी आले.'},
+  {t:'fill',jp:'ती घरी ＿.=tī gharī ＿.',en:'She reached home.',o:['पोहोचली=pohochlī','पोहोचला=pohochlā','पोहोचलो=pohochlo','पोहोचलात=pohochlāt'],why:'ती → -ली.'},
+  {t:'mc',q:'A woman says "I went". Which is right?',o:['मी गेले.=mī gele.','मी गेलो.=mī gelo.','मी गेली.=mī gelī.','मी गेला.=mī gelā.'],why:'मी गेले (woman), मी गेलो (man).'},
+  {t:'mc',listen:1,jp:'तुम्ही कधी आलात?=tumhī kadhī ālāt?',q:'Listen. What does it mean?',o:['When did you come?','When are you coming?','Where did you go?','Why did you come?'],why:'आलात = came (polite you).'},
+  {t:'fill',jp:'तो ऑफिसला ＿.=to officelā ＿.',en:'He went to the office.',o:['गेला=gelā','गेली=gelī','गेलो=gelo','गेलात=gelāt'],why:'तो गेला.'},
+  {t:'build',en:'I did the work.',tiles:['मी=mī','काम=kām','केलं=kelã'],x:['करतो=karto','गेलो=gelo'],why:'मी काम केलं.'},
+  {t:'type',mr:1,q:'Write in Marathi: "Done!" (it has happened)',a:['zālã','jhālã'],dv:['झालं'],why:'झालं (zālã).'},
+  {t:'mc',listen:1,jp:'त्याने मला सांगितलं.=tyāne malā sāngitlã.',q:'Listen. What does it mean?',o:['He told me.','I told him.','He asked me.','She told me.'],why:'त्याने = he (did), मला = to me.'},
+  {t:'mc',q:'Which verbs agree with the person in the past (मी गेलो / गेले)?',o:['Go, come, sit, sleep, arrive','Do, see, say','All verbs','No verbs'],why:'Verbs without an object agree with the person.'},
+  {t:'fill',jp:'आम्ही उशिरा ＿.=āmhī ushirā ＿.',en:'We slept late.',o:['झोपलो=zoplo','झोपला=zoplā','झोपली=zoplī','झोपलात=zoplāt'],why:'आम्ही → -लो.'}]},
+
+{id:'mc6',st:'m3',t:'Plans and the future',sub:'जाणार आहे · जाईन · जाऊया',g:'णार',kind:'gram',
+ words:WM([['जाणार','jāṇār','going to go'],['येणार','yeṇār','going to come'],['करणार','karṇār','going to do'],['पुढच्या आठवड्यात','puḍhchyā āṭhavḍyāt','next week'],['लवकर','lavkar','soon, early'],['उशिरा','ushirā','late'],['नक्की','nakkī','definitely, for sure'],['कदाचित','kadāchit','maybe'],['जाईन','jāīn','I will go'],['भेटूया','bheṭūyā','let’s meet']]),
+ intro:[{h:'Plans: -णार आहे',say:0,tbl:[['मी जाणार आहे','mī jāṇār āhe','I’m going to go'],['तू जाणार आहेस','tū jāṇār āhes','you’re going to go'],['तो / ती जाणार आहे','to / tī jāṇār āhe','he / she is going to go'],['आम्ही जाणार आहोत','āmhī jāṇār āhot','we’re going to go'],['तुम्ही जाणार आहात','tumhī jāṇār āhāt','you’re going to go (polite)'],['ते जाणार आहेत','te jāṇār āhet','they’re going to go']],p:['stem + णार + आहे is the everyday way to talk about plans, and it’s the same for men and women. In speech the आहे is often dropped: मी उद्या जाणार.']},
+  {h:'Will: जाईन, करीन',say:0,tbl:[['मी जाईन','mī jāīn','I will go'],['तू जाशील','tū jāshīl','you will go'],['तो / ती जाईल','to / tī jāīl','he / she will go'],['आम्ही जाऊ','āmhī jāū','we will go'],['तुम्ही जाल','tumhī jāl','you will go (polite)'],['ते जातील','te jātīl','they will go']],tip:'Use this for promises and maybes: मी उद्या फोन करीन, "I’ll call tomorrow". After a consonant stem it’s -ईन: करीन, बोलीन.'},
+  {h:'Let’s…',ex:[['चला, जाऊया.=chalā, jāūyā.','Come on, let’s go.'],['उद्या भेटूया.=udyā bheṭūyā.','Let’s meet tomorrow.'],['आपण जेवूया का?=āpaṇ jevūyā kā?','Shall we eat?'],['नक्की येईन.=nakkī yeīn.','I’ll definitely come.'],['कदाचित उशीर होईल.=kadāchit ushīr hoīl.','I might be late.']]}],
+ qs:[{t:'fill',jp:'मी उद्या मुंबईला ＿ आहे.=mī udyā mumbaīlā ＿ āhe.',en:'I’m going to go to Mumbai tomorrow.',o:['जाणार=jāṇār','गेलो=gelo','जातो=jāto','जा=jā'],why:'stem + णार आहे: जाणार आहे.'},
+  {t:'fill',jp:'आम्ही पुढच्या आठवड्यात येणार ＿.=āmhī puḍhchyā āṭhavḍyāt yeṇār ＿.',en:'We’re going to come next week.',o:['आहोत=āhot','आहे=āhe','आहात=āhāt','आहेस=āhes'],why:'आम्ही … आहोत.'},
+  {t:'mc',q:'Does -णार आहे change for a woman speaker?',o:['No, मी जाणार आहे is the same for everyone','Yes, it becomes -णारी','Yes, it becomes आहेस','Only in questions'],why:'-णार never changes for gender.'},
+  {t:'mc',listen:1,jp:'नक्की येईन.=nakkī yeīn.',q:'Listen. What does it mean?',o:['I’ll definitely come.','Maybe I’ll come.','I came already.','I won’t come.'],why:'नक्की = definitely; येईन = I will come.'},
+  {t:'mc',q:'"Come on, let’s go!"',o:['चला, जाऊया.=chalā, jāūyā.','चला, गेलो.=chalā, gelo.','चला, जातात.=chalā, jātāt.','चला, जाणार नाही.=chalā, jāṇār nāhī.'],why:'-ऊया = let’s.'},
+  {t:'build',en:'Let’s meet tomorrow.',tiles:['उद्या=udyā','भेटूया=bheṭūyā'],x:['काल=kāl','भेटलो=bheṭlo'],why:'उद्या भेटूया.'},
+  {t:'type',mr:1,q:'Write in Marathi: "I will go."',a:['mī jāīn'],dv:['मी जाईन'],why:'मी जाईन (mī jāīn).'},
+  {t:'mc',listen:1,jp:'कदाचित उशीर होईल.=kadāchit ushīr hoīl.',q:'Listen. What does it mean?',o:['I might be late.','I’ll definitely be late.','I was late.','Don’t be late.'],why:'कदाचित = maybe, उशीर = lateness.'},
+  {t:'fill',jp:'तुम्ही कधी ＿?=tumhī kadhī ＿?',en:'When will you come?',o:['येणार=yeṇār','आलात=ālāt','आलो=ālo','आली=ālī'],why:'येणार = going to come.'},
+  {t:'type',mr:1,q:'Write in Marathi: "definitely"',a:['nakkī'],dv:['नक्की'],why:'नक्की (nakkī).'}]},
+
+{id:'mcx',st:'m3',t:'Out and about checkpoint',sub:'Food, shopping, directions, past, future',g:'३',kind:'gexam',from:['mc1','mc2','mc3','mc4','mc5','mc6'],
+ intro:[{h:'Check your out-and-about Marathi',p:['A mixed exam on food, shopping, rickshaws, postpositions, the past and plans. Score 90% to unlock Real-life Marathi.']}]},
+
+/* ---------- STAGE 4 ---------- */
+{id:'md1',st:'m4',t:'Phone calls and plans',sub:'कोण बोलतंय? · मी निघालो',g:'फोन',kind:'gram',
+ words:WM([['फोन','phone','phone'],['मेसेज','message','message'],['नंबर','number','number'],['भेटणे','bheṭṇe','to meet'],['बिझी','busy','busy'],['उशीर','ushīr','delay, lateness'],['निघालो','nighālo','I’ve set off (man)'],['आत्ता','āttā','right now'],['परत','parat','back, again'],['वाट बघणे','vāṭ baghṇe','to wait for']]),
+ intro:[{h:'On the phone',ex:[['हॅलो, कोण बोलतंय?=hello, koṇ boltãy?','Hello, who’s speaking?'],['मी समीर बोलतोय.=mī samīr boltoy.','This is Sameer. (lit. "I Sameer am speaking")'],['आवाज येत नाहीये.=āvāj yet nāhīye.','I can’t hear you.'],['मी नंतर फोन करतो.=mī nantar phone karto.','I’ll call you later. (man)'],['आत्ता मी बिझी आहे.=āttā mī busy āhe.','I’m busy right now.']]},
+  {h:'Making plans',ex:[['आज संध्याकाळी भेटूया का?=āj sandhyākāḷī bheṭūyā kā?','Shall we meet this evening?'],['किती वाजता?=kitī vājtā?','At what time?'],['सात वाजता चालेल?=sāt vājtā chālel?','Is seven OK?'],['कुठे भेटायचं?=kuṭhe bheṭāychã?','Where shall we meet?'],['मी तुला मेसेज करते.=mī tulā message karte.','I’ll message you. (woman)']]},
+  {h:'On the way',ex:[['मी निघालो.=mī nighālo.','I’ve set off. (man)'],['पाच मिनिटांत पोहोचते.=pāch miniṭāt pohochte.','I’ll be there in five minutes. (woman)'],['थोडा उशीर होईल.=thoḍā ushīr hoīl.','I’ll be a little late.'],['माझी वाट बघ.=māzī vāṭ bagh.','Wait for me.'],['तू कुठे आहेस?=tū kuṭhe āhes?','Where are you?']],tip:'Like "I’m on my way" in English, मी निघालो sometimes means "I’m about to leave". Marathi friends know this. Now so do you.'}],
+ qs:[{t:'mc',listen:1,jp:'हॅलो, कोण बोलतंय?=hello, koṇ boltãy?',q:'Listen. What does it mean?',o:['Hello, who’s speaking?','Hello, where are you?','Hello, can you hear me?','Hello, call me later.'],why:'कोण बोलतंय = who is speaking.'},
+  {t:'fill',jp:'मी नंतर फोन ＿.=mī nantar phone ＿.',en:'I’ll call you later. (man)',o:['करतो=karto','करते=karte','केलं=kelã','करतात=kartāt'],why:'A man: मी फोन करतो.'},
+  {t:'mc',q:'The line is bad. What do you say?',o:['आवाज येत नाहीये.=āvāj yet nāhīye.','मी निघालो.=mī nighālo.','किती वाजता?=kitī vājtā?','माझी वाट बघ.=māzī vāṭ bagh.'],why:'आवाज = voice, sound: the sound isn’t coming.'},
+  {t:'fill',jp:'सात वाजता ＿?=sāt vājtā ＿?',en:'Is seven OK?',o:['चालेल=chālel','आहेस=āhes','गेलो=gelo','नको=nako'],why:'चालेल? = will it work?'},
+  {t:'build',en:'Where shall we meet?',tiles:['कुठे=kuṭhe','भेटायचं?=bheṭāychã?'],x:['कधी=kadhī','भेटलो=bheṭlo'],why:'कुठे भेटायचं?'},
+  {t:'mc',listen:1,jp:'थोडा उशीर होईल.=thoḍā ushīr hoīl.',q:'Listen. What does it mean?',o:['I’ll be a little late.','I’m already there.','I’m leaving now.','Wait for me.'],why:'उशीर होईल = there will be a delay.'},
+  {t:'type',mr:1,q:'Write in Marathi: "Where are you?" (casual)',a:['tū kuṭhe āhes'],dv:['तू कुठे आहेस'],why:'तू कुठे आहेस? (tū kuṭhe āhes?)'},
+  {t:'mc',q:'Your friend texts "मी निघालो". What does it mean?',o:['He’s set off (or is about to)','He has arrived','He isn’t coming','He’s at home'],why:'निघालो = set off, left.'},
+  {t:'mc',listen:1,jp:'पाच मिनिटांत पोहोचते.=pāch miniṭāt pohochte.',q:'Listen. What does it mean?',o:['I’ll be there in five minutes.','I left five minutes ago.','Wait five minutes.','It’s five o’clock.'],why:'पोहोचते = reach (woman).'},
+  {t:'fill',jp:'मी तुला मेसेज ＿.=mī tulā message ＿.',en:'I’ll message you. (woman)',o:['करते=karte','करतो=karto','करतेस=kartes','करतात=kartāt'],why:'A woman: मी करते.'}]},
+
+{id:'md2',st:'m4',t:'At work',sub:'मीटिंग · काम झालं का? · सुट्टी',g:'काम',kind:'gram',
+ words:WM([['काम','kām','work'],['ऑफिस','office','office'],['मीटिंग','meeting','meeting'],['सुट्टी','suṭṭī','day off, holiday, leave'],['पगार','pagār','salary'],['साहेब','sāheb','boss; sir'],['प्रयत्न','prayatna','effort, attempt'],['लगेच','lagech','right away'],['अजून','ajūn','yet, still; more'],['सहकारी','sahakārī','colleague']]),
+ intro:[{h:'At the office',ex:[['मी एका कंपनीत काम करतो.=mī ekā kampanīt kām karto.','I work at a company. (man)'],['आज माझी मीटिंग आहे.=āj māzī meeting āhe.','I have a meeting today.'],['मीटिंग किती वाजता आहे?=meeting kitī vājtā āhe?','What time is the meeting?'],['उद्या मी सुट्टी घेतोय.=udyā mī suṭṭī ghetoy.','I’m taking tomorrow off. (man)']]},
+  {h:'Getting things done',ex:[['काम झालं का?=kām zālã kā?','Is the work done?'],['हो, झालं. / अजून नाही.=ho, zālã. / ajūn nāhī.','Yes, it’s done. / Not yet.'],['मी लगेच करतो.=mī lagech karto.','I’ll do it right away. (man)'],['मी प्रयत्न करते.=mī prayatna karte.','I’ll try. (woman)'],['थोडा वेळ लागेल.=thoḍā veḷ lāgel.','It’ll take a little time.']]},
+  {h:'Polite office Marathi',ex:[['सर, एक मिनिट बोलू का?=sir, ek minit bolū kā?','Sir, can I talk to you for a minute?'],['मला थोडी मदत कराल का?=malā thoḍī madat karāl kā?','Could you help me a little?'],['चालेल, काही हरकत नाही.=chālel, kāhī harkat nāhī.','Sure, no problem.'],['आज मी लवकर निघतो.=āj mī lavkar nighto.','I’m leaving early today. (man)']],tip:'Offices in Maharashtra mix Marathi and English freely: मीटिंग, डेडलाइन, प्रोजेक्ट. English words inside a Marathi sentence are completely normal.'}],
+ qs:[{t:'fill',jp:'आज माझी ＿ आहे.=āj māzī ＿ āhe.',en:'I have a meeting today.',o:['मीटिंग=meeting','काम=kām','पगार=pagār','साहेब=sāheb'],why:'मीटिंग is feminine, so माझी.'},
+  {t:'mc',q:'Your manager asks "काम झालं का?" It isn’t finished. What do you say?',o:['अजून नाही.=ajūn nāhī.','हो, झालं.=ho, zālã.','काही हरकत नाही.=kāhī harkat nāhī.','मीटिंग आहे.=meeting āhe.'],why:'अजून नाही = not yet.'},
+  {t:'mc',listen:1,jp:'थोडा वेळ लागेल.=thoḍā veḷ lāgel.',q:'Listen. What does it mean?',o:['It’ll take a little time.','I have a little time.','I don’t have time.','It’s time to go.'],why:'वेळ लागेल = time will be needed.'},
+  {t:'fill',jp:'मी लगेच ＿.=mī lagech ＿.',en:'I’ll do it right away. (man)',o:['करतो=karto','करते=karte','केलं=kelã','करतोस=kartos'],why:'A man: मी करतो.'},
+  {t:'build',en:'Could you help me a little?',tiles:['मला=malā','थोडी=thoḍī','मदत=madat','कराल=karāl','का?=kā?'],x:['मी=mī','करतो=karto'],why:'मला थोडी मदत कराल का?'},
+  {t:'mc',listen:1,jp:'उद्या मी सुट्टी घेतोय.=udyā mī suṭṭī ghetoy.',q:'Listen. What does it mean?',o:['I’m taking tomorrow off.','Tomorrow is a holiday.','I took leave yesterday.','I want a holiday.'],why:'सुट्टी घेतोय = am taking leave.'},
+  {t:'type',mr:1,q:'Write in Marathi: "work"',a:['kām'],dv:['काम'],why:'काम (kām).'},
+  {t:'mc',q:'Is it OK to use English words like "meeting" inside a Marathi sentence?',o:['Yes, it’s completely normal','No, it’s considered rude','Only in writing','Only with friends'],why:'Everyday Marathi mixes in English freely, especially at work.'},
+  {t:'fill',jp:'मी प्रयत्न ＿.=mī prayatna ＿.',en:'I’ll try. (woman)',o:['करते=karte','करतो=karto','करता=kartā','करतात=kartāt'],why:'A woman: मी करते.'},
+  {t:'mc',listen:1,jp:'सर, एक मिनिट बोलू का?=sir, ek minit bolū kā?',q:'Listen. What does it mean?',o:['Sir, can I talk to you for a minute?','Sir, wait a minute.','Sir, the meeting is in a minute.','Sir, I’ll call you in a minute.'],why:'बोलू का? = may I speak?'}]},
+
+{id:'md3',st:'m4',t:'Everyday expressions',sub:'भारी · जाऊ दे · अरे बापरे',g:'भारी',kind:'gram',
+ words:WM([['भारी','bhārī','awesome, great'],['मस्त','mast','great, lovely'],['जाऊ दे','jāū de','let it go, forget it'],['खरंच?','kharãch?','really?'],['अरे बापरे!','are bāpre!','oh my god!'],['हो ना','ho nā','right?, isn’t it?'],['बस झालं','bas zālã','that’s enough!'],['काळजी घ्या','kāḷjī ghyā','take care'],['काय चाललंय?','kāy chāllãy?','what’s up?'],['एकदम','ekdam','totally, completely']]),
+ intro:[{h:'Sounding natural',ex:[['काय चाललंय?=kāy chāllãy?','What’s up?'],['काही खास नाही.=kāhī khās nāhī.','Nothing special.'],['एकदम भारी!=ekdam bhārī!','Totally awesome!'],['मस्त आहे!=mast āhe!','It’s great!'],['खरंच?=kharãch?','Really?']]},
+  {h:'अरे and अगं',p:['Marathi speakers start lots of sentences with अरे (to a man or boy) or अगं (to a woman or girl), like "hey" or "listen". अरे is also used for groups, and when you’re surprised.'],ex:[['अरे, ऐक ना!=are, aik nā!','Hey, listen!'],['अगं, कुठे आहेस?=agã, kuṭhe āhes?','Hey, where are you? (to a woman)'],['अरे बापरे!=are bāpre!','Oh my god!']]},
+  {h:'Reacting',ex:[['जाऊ दे.=jāū de.','Let it go. / Forget it.'],['हो ना!=ho nā!','Exactly! / Right?'],['बस झालं!=bas zālã!','That’s enough!'],['काही फरक पडत नाही.=kāhī pharak paḍat nāhī.','It doesn’t matter.'],['काळजी घ्या.=kāḷjī ghyā.','Take care.']],tip:'जाऊ दे may be the most Marathi phrase of all: use it to drop a small argument, a lost bet or a missed bus.'}],
+ qs:[{t:'mc',listen:1,jp:'काय चाललंय?=kāy chāllãy?',q:'Listen. What does it mean?',o:['What’s up?','What happened?','What’s this?','Where are you going?'],why:'काय चाललंय? = what’s going on?'},
+  {t:'mc',q:'Your friend got a new job. "Totally awesome!"',o:['एकदम भारी!=ekdam bhārī!','जाऊ दे.=jāū de.','बस झालं!=bas zālã!','काळजी घ्या.=kāḷjī ghyā.'],why:'एकदम भारी = totally awesome.'},
+  {t:'mc',q:'You missed the bus. Shrug it off:',o:['जाऊ दे.=jāū de.','मस्त आहे!=mast āhe!','काळजी घ्या.=kāḷjī ghyā.','खरंच?=kharãch?'],why:'जाऊ दे = let it go.'},
+  {t:'fill',jp:'＿, कुठे आहेस?=＿, kuṭhe āhes?',en:'Hey, where are you? (to a woman)',o:['अगं=agã','अरे=are','बस=bas','हो=ho'],why:'अगं for a woman, अरे for a man.'},
+  {t:'mc',listen:1,jp:'काही फरक पडत नाही.=kāhī pharak paḍat nāhī.',q:'Listen. What does it mean?',o:['It doesn’t matter.','Nothing special.','The price is the same.','I don’t understand.'],why:'फरक पडत नाही = it makes no difference.'},
+  {t:'build',en:'Nothing special.',tiles:['काही=kāhī','खास=khās','नाही=nāhī'],x:['नको=nako','आहे=āhe'],why:'काही खास नाही.'},
+  {t:'type',mr:1,q:'Write in Marathi: "Let it go." / "Forget it."',a:['jāū de'],dv:['जाऊ दे'],why:'जाऊ दे (jāū de).'},
+  {t:'mc',q:'When do you say अरे बापरे!?',o:['When you’re shocked or amazed','When you say goodbye','When you agree politely','When you order food'],why:'अरे बापरे = oh my god!'},
+  {t:'mc',listen:1,jp:'हो ना!=ho nā!',q:'Listen. What does it mean?',o:['Exactly! / Right?','No way!','Yes, please.','Not now.'],why:'हो ना = right? / exactly!'},
+  {t:'type',mr:1,q:'Write in Marathi: "really?"',a:['kharãch'],dv:['खरंच'],why:'खरंच? (kharãch?)'}]},
+
+{id:'md4',st:'m4',t:'Feelings and health',sub:'बरं वाटत नाही · मला ताप आहे',g:'बरं',kind:'gram',
+ words:WM([['बरं वाटत नाही','barã vāṭat nāhī','not feeling well'],['ताप','tāp','fever'],['सर्दी','sardī','a cold'],['खोकला','khoklā','cough'],['डोकं','ḍokã','head'],['पोट','poṭ','stomach'],['औषध','aushadh','medicine'],['दवाखाना','davākhānā','clinic, doctor’s'],['थकलो','thaklo','tired (man)'],['आनंद','ānand','happiness, joy']]),
+ intro:[{h:'Not feeling well',ex:[['मला बरं वाटत नाहीये.=malā barã vāṭat nāhīye.','I’m not feeling well.'],['मला ताप आहे.=malā tāp āhe.','I have a fever.'],['माझं डोकं दुखतंय.=māzã ḍokã dukhtãy.','My head hurts.'],['पोट दुखतंय.=poṭ dukhtãy.','My stomach hurts.'],['मला सर्दी झालीये.=malā sardī zālīye.','I’ve got a cold.']]},
+  {h:'Getting help',ex:[['जवळ दवाखाना कुठे आहे?=javaḷ davākhānā kuṭhe āhe?','Where’s a clinic nearby?'],['मला डॉक्टरकडे जायचंय.=malā doctorkaḍe jāychãy.','I need to go to a doctor.'],['हे औषध दिवसातून दोनदा घ्या.=he aushadh divasātūn dondā ghyā.','Take this medicine twice a day.'],['काळजी करू नका.=kāḷjī karū nakā.','Don’t worry. (polite)']]},
+  {h:'Feelings: मला + feeling',ex:[['मी थकलो आहे. / मी थकले आहे.=mī thaklo āhe. / mī thakle āhe.','I’m tired. (man / woman)'],['मला खूप आनंद झाला.=malā khūp ānand zālā.','I’m really happy. (lit. "joy happened to me")'],['मला कंटाळा आलाय.=malā kanṭāḷā ālāy.','I’m bored.'],['मला भीती वाटते.=malā bhītī vāṭte.','I’m scared.'],['मला राग आला.=malā rāg ālā.','I got angry.']],tip:'Most feelings use मला: the feeling "comes" or "happens" to you. Tired is an exception: मी थकलो.'}],
+ qs:[{t:'mc',listen:1,jp:'मला बरं वाटत नाहीये.=malā barã vāṭat nāhīye.',q:'Listen. What does it mean?',o:['I’m not feeling well.','I’m feeling better.','I don’t like it.','I’m not hungry.'],why:'बरं वाटत नाही = not feeling well.'},
+  {t:'fill',jp:'मला ＿ आहे.=malā ＿ āhe.',en:'I have a fever.',o:['ताप=tāp','पोट=poṭ','डोकं=ḍokã','औषध=aushadh'],why:'ताप = fever.'},
+  {t:'mc',q:'Your head hurts. What do you say?',o:['माझं डोकं दुखतंय.=māzã ḍokã dukhtãy.','माझं पोट दुखतंय.=māzã poṭ dukhtãy.','मला सर्दी झालीये.=malā sardī zālīye.','मला भीती वाटते.=malā bhītī vāṭte.'],why:'डोकं = head, दुखतंय = is hurting.'},
+  {t:'mc',listen:1,jp:'हे औषध दिवसातून दोनदा घ्या.=he aushadh divasātūn dondā ghyā.',q:'Listen. What does it mean?',o:['Take this medicine twice a day.','Take this medicine once a day.','Take this medicine after food.','Don’t take this medicine.'],why:'दोनदा = twice.'},
+  {t:'mc',q:'A woman says she’s tired.',o:['मी थकले आहे.=mī thakle āhe.','मी थकलो आहे.=mī thaklo āhe.','मला थकले आहे.=malā thakle āhe.','मी थकली आहेस.=mī thaklī āhes.'],why:'Tired uses मी: मी थकले (woman), मी थकलो (man).'},
+  {t:'build',en:'Where’s a clinic nearby?',tiles:['जवळ=javaḷ','दवाखाना=davākhānā','कुठे=kuṭhe','आहे?=āhe?'],x:['लांब=lāmb','कोण=koṇ'],why:'जवळ दवाखाना कुठे आहे?'},
+  {t:'type',mr:1,q:'Write in Marathi: "medicine"',a:['aushadh','aushadha'],dv:['औषध'],why:'औषध (aushadh).'},
+  {t:'fill',jp:'मला खूप आनंद ＿.=malā khūp ānand ＿.',en:'I’m really happy.',o:['झाला=zālā','आहेस=āhes','करतो=karto','गेला=gelā'],why:'आनंद झाला = joy happened.'},
+  {t:'mc',listen:1,jp:'मला कंटाळा आलाय.=malā kanṭāḷā ālāy.',q:'Listen. What does it mean?',o:['I’m bored.','I’m angry.','I’m scared.','I’m tired.'],why:'कंटाळा = boredom.'},
+  {t:'mc',q:'How do you say "I’m scared"?',o:['मला भीती वाटते.=malā bhītī vāṭte.','मी भीती आहे.=mī bhītī āhe.','मला राग आला.=malā rāg ālā.','मला कंटाळा आलाय.=malā kanṭāḷā ālāy.'],why:'भीती = fear; मला भीती वाटते.'}]},
+
+{id:'ml1',st:'m4',t:'Listening: everyday sentences',sub:'ऐकणे',g:'ऐक',kind:'gram',listen:1,words:[],
+ sents:[['स्टेशन इथून किती लांब आहे?=station ithūn kitī lāmb āhe?','How far is the station from here?'],['मला एक कटिंग चहा द्या.=malā ek kaṭing chahā dyā.','Give me a cutting chai, please.'],['तुम्ही कुठले आहात?=tumhī kuṭhle āhāt?','Where are you from?'],['मी उद्या सकाळी येणार आहे.=mī udyā sakāḷī yeṇār āhe.','I’m going to come tomorrow morning.'],['आज खूप गर्दी आहे.=āj khūp gardī āhe.','It’s very crowded today.'],['परत एकदा सांगा ना.=parat ekdā sāngā nā.','Please say it once more.'],['मला भूक लागलीये, जेवूया का?=malā bhūk lāglīye, jevūyā kā?','I’m hungry, shall we eat?'],['तुमचा नंबर द्याल का?=tumchā number dyāl kā?','Could you give me your number?'],['बस किती वाजता येते?=bas kitī vājtā yete?','What time does the bus come?'],['माझा फोन घरी राहिला.=māzā phone gharī rāhilā.','I left my phone at home.'],['काल खूप पाऊस पडला.=kāl khūp pāūs paḍlā.','It rained a lot yesterday.'],['हे दुकान किती वाजता उघडतं?=he dukān kitī vājtā ughaḍtã?','What time does this shop open?'],['मी पाच मिनिटांत तिथे पोहोचतो.=mī pāch miniṭāt tithe pohochto.','I’ll get there in five minutes.'],['तुम्हाला मराठी छान येते!=tumhālā marāṭhī chhān yete!','You speak Marathi well!']],
+ intro:[{h:'Training your ear',p:['Each question plays a sentence: pick what it means, or which sentence you heard. Replay as often as you like, and slow the voice down in Settings → Speech speed.'],tip:'Listen for the last word first. In Marathi the verb comes at the end, and it tells you who did what, and when.'}]},
+
+{id:'ml2',st:'m4',t:'Listening: short conversations',sub:'गप्पा',g:'गप्पा',kind:'gram',listen:1,words:[],
+ sents:[['मी उद्या येत नाहीये.=mī udyā yet nāhīye.','I’m not coming tomorrow.'],['काय म्हणालात?=kāy mhaṇālāt?','Sorry, what did you say?'],['इथून डावीकडे वळा.=ithūn ḍāvīkaḍe vaḷā.','Turn left from here.'],['आज ऑफिसला सुट्टी आहे.=āj officelā suṭṭī āhe.','The office is closed today.'],['आपण कधी भेटायचं?=āpaṇ kadhī bheṭāychã?','When shall we meet?'],['मला डॉक्टरकडे जायचंय.=malā doctorkaḍe jāychãy.','I need to go to the doctor.']],
+ dlg:[{jp:'दादा, स्टेशनला येणार का? हो, बसा. मीटरने चला हं. हो, मीटरनेच.=dādā, stationlā yeṇār kā? ho, basā. meterne chalā hã. ho, meternech.',q:'How will the fare be charged?',o:['By the meter','A fixed ₹100','The driver didn’t say','He refused the ride'],why:'मीटरने चला … हो, मीटरनेच: by the meter.'},
+  {jp:'हे कितीला? दोनशे. खूप महाग आहे, दीडशेला द्या. चालेल, घ्या.=he kitīlā? donshe. khūp mahāg āhe, dīḍshelā dyā. chālel, ghyā.',q:'What price did they agree on?',o:['₹150','₹200','₹250','₹100'],why:'दीडशेला द्या … चालेल: ₹150.'},
+  {jp:'तू उद्या येणार आहेस का? नाही, उद्या नाही, परवा येईन.=tū udyā yeṇār āhes kā? nāhī, udyā nāhī, parvā yeīn.',q:'When is the person coming?',o:['The day after tomorrow','Tomorrow','Today','Next week'],why:'परवा येईन = I’ll come the day after tomorrow.'},
+  {jp:'काय झालं? मला ताप आहे, बरं वाटत नाहीये. मग आराम कर, डॉक्टरकडे जा.=kāy zālã? malā tāp āhe, barã vāṭat nāhīye. mag ārām kar, doctorkaḍe jā.',q:'What’s wrong with the person?',o:['They have a fever','They have a stomach ache','They are bored','They hurt their leg'],why:'मला ताप आहे = I have a fever.'},
+  {jp:'एक चहा द्या. साखर? नको, बिनसाखरेचा.=ek chahā dyā. sākhar? nako, binsākharechā.',q:'How does the customer want the tea?',o:['Without sugar','With extra sugar','With less milk','Strong'],why:'बिनसाखरेचा = without sugar.'},
+  {jp:'तुम्ही कुठे राहता? मी अंधेरीला राहतो, पण माझं ऑफिस दादरला आहे.=tumhī kuṭhe rāhtā? mī andherīlā rāhto, paṇ māzã office dādarlā āhe.',q:'Where is the man’s office?',o:['Dadar','Andheri','Pune','He works from home'],why:'माझं ऑफिस दादरला आहे.'},
+  {jp:'आज जेवणात काय आहे? वरण-भात, भाजी आणि पोळी.=āj jevaṇāt kāy āhe? varaṇ-bhāt, bhājī āṇi poḷī.',q:'What is NOT on today’s menu?',o:['Fish','Dal and rice','Vegetables','Chapati'],why:'वरण-भात, भाजी आणि पोळी: dal-rice, vegetables and chapati.'},
+  {jp:'माफ करा, जरा हळू बोलाल का? हो, नक्की. तुम्ही कुठून आलात?=māph karā, jarā haḷū bolāl kā? ho, nakkī. tumhī kuṭhūn ālāt?',q:'What did the first person ask for?',o:['To speak more slowly','To repeat the address','To write it down','To speak in English'],why:'हळू बोलाल का? = could you speak slowly?'},
+  {jp:'मीटिंग किती वाजता आहे? साडेनऊ वाजता. ठीक आहे, मी नऊ वाजता निघतो.=meeting kitī vājtā āhe? sāḍenaū vājtā. ṭhīk āhe, mī naū vājtā nighto.',q:'What time is the meeting?',o:['9:30','9:00','10:30','8:30'],why:'साडेनऊ = 9:30. He leaves at nine.'},
+  {jp:'अगं, कुठे आहेस? मी निघाले, दहा मिनिटांत पोहोचते.=agã, kuṭhe āhes? mī nighāle, dahā miniṭāt pohochte.',q:'When will she arrive?',o:['In ten minutes','In two minutes','She has already arrived','In an hour'],why:'दहा मिनिटांत = in ten minutes.'}],
+ intro:[{h:'Following a conversation',p:['Each question plays a short exchange between two people. Read the question first so you know what to listen for.'],tip:'Prices, times and days carry most of the meaning. Listen for numbers and for words like उद्या, परवा and वाजता.'}]},
+
+{id:'mdx',st:'m4',t:'Spoken Marathi final exam',sub:'Everything in the course',g:'म',kind:'gexam',from:['ma1','ma2','ma3','ma4','ma5','mb1','mb2','mb3','mb4','mb5','mb6','mc1','mc2','mc3','mc4','mc5','mc6','md1','md2','md3','md4','ml1','ml2'],
+ intro:[{h:'The final exam',p:['Questions from the whole course, including listening. Score 90% to complete Spoken Marathi.']}]}
+];
+
+/* prepare: record transliterations, keep Devanagari */
+MR_UNITS.forEach(u=>{
+ (u.intro||[]).forEach(c=>{if(c.ex)c.ex=c.ex.map(([j,e])=>[mrS(j),e]);if(c.tbl)c.tbl.forEach(r=>{if(/[ऀ-ॿ]/.test(r[0])&&r[1])mrReg(r[0],r[1])})});
+ (u.qs||[]).forEach(q=>{if(q.jp)q.jp=mrS(q.jp);if(q.o)q.o=q.o.map(mrS);if(q.tiles)q.tiles=q.tiles.map(mrS);if(q.x)q.x=q.x.map(mrS);(q.dv||[]).forEach((d,i)=>{if(q.a&&q.a[i])mrReg(d,q.a[i])})});
+ if(u.sents)u.sents=u.sents.map(([j,e])=>[mrS(j),e]);
+ (u.dlg||[]).forEach(d=>{d.jp=mrS(d.jp)});
+ if(u.drill&&u.drill.t==='mrnum')u.drill.L.forEach(([n,dv,rom])=>mrReg(dv,rom));
+ if(u.drill&&u.drill.t==='mrverb')u.drill.L.forEach(([s,r])=>{mrReg(s+'णे',r+'ṇe');MR_E.forEach(([e,er])=>mrReg(s+e,r+er))});
+});
+MR_UNITS.filter(u=>u.listen).forEach(u=>{const qs=[],S2=u.sents||[];
+ S2.forEach(([jp,en],i)=>{const others=S2.filter((_,j)=>j!==i),pick=k=>[0,1,2].map(n=>others[(i+n*3+k)%others.length]);
+  if(i%2===0)qs.push({t:'mc',listen:1,jp,q:'Listen. What does it mean?',o:[en,...pick(0).map(x=>x[1])],why:`${jp} (${mrRom(jp)}) = ${en}`});
+  else qs.push({t:'mc',listen:1,jp,q:'Listen. Which sentence did you hear?',o:[jp,...pick(1).map(x=>x[0])],why:`${jp} (${mrRom(jp)}) = ${en}`})});
+ (u.dlg||[]).forEach(d=>qs.push({t:'mc',listen:1,jp:d.jp,q:d.q,o:d.o,why:d.why}));u.qs=qs});
+
+/* ===== MARATHI DRILLS ===== */
+const MRDR={
+ mrverb:(u,j,id)=>{const[s,r,en]=u.drill.L[j],p=Math.random()*MR_P.length|0,P=MR_P[p],a=s+MR_E[P[2]][0];
+  const all=MR_E.map(e=>s+e[0]),opts=[a,...shuffle(all.filter(x=>x!==a)).slice(0,3)];
+  return{id,kind:'mc',label:`Present tense of “${s}णे” (${en})${P[3]?' · '+P[3]:''}`,sent:`${P[0]} ＿`,opts:shuffle(opts),a,optJP:1,optS:1,showRom:1,audio:`${P[0]} ${a}`,
+   why:`${esc(s)}णे: `+[['मी',0],['मी',1],['तू',2],['तो',0],['ती',1],['तुम्ही',4],['ते',5]].map(([pp,k])=>{const f=s+MR_E[k][0],t=`${pp} ${f}`;return pp===P[0]&&k===P[2]?`<b>${t}</b>`:t}).join(' · ')}},
+ mrnum:(u,j,id)=>{const L=u.drill.L,[n,dv,rom]=L[j];const near=L.filter(x=>x[0]!==n).sort((x,y)=>Math.abs(x[0]-n)-Math.abs(y[0]-n)).slice(0,6);const ch=[L[j],...shuffle(near).slice(0,3)];
+  const why=`<b>${n}</b> = ${esc(dv)} (${esc(rom)})`;
+  if(Math.random()<.5)return{id,kind:'mc',label:'How do you say this number?',big:String(n),bigW:1,opts:shuffle(ch.map(x=>x[1])),a:dv,optJP:1,optS:1,showRom:1,audio:dv,why};
+  return{id,kind:'mc',label:'Listen. Which number did you hear?',listen:dv,opts:shuffle(ch.map(x=>String(x[0]))),a:String(n),audio:dv,why}}};
+const MR_ROAD=[['Basics','Greet people, introduce yourself, numbers and money'],['Conversation','Daily life, questions, likes, wants, family, time'],['Getting around','Food, shopping, rickshaws, the past and plans'],['Real life','Phone calls, work, health and natural expressions'],['Reading','The Devanagari script, signs and messages (coming next)']];
+const MR_GRAMMAR=[['आहे (to be)',['','is / am / are','is not'],[['मी','आहे','नाही'],['तू','आहेस','नाहीस'],['तो / ती','आहे','नाही'],['आम्ही / आपण','आहोत','नाही'],['तुम्ही','आहात','नाही'],['ते','आहेत','नाहीत']],'In everyday speech you will also hear नाहीये.'],
+ ['Present tense: करणे (do)',['','man','woman'],[['मी','करतो','करते'],['तू','करतोस','करतेस'],['तो / ती','करतो','करते'],['आम्ही','करतो','करतो'],['तुम्ही','करता','करता'],['ते','करतात','करतात']],'Not doing: stem + त + नाही, the same for everyone (मी करत नाही). Right now: करतोय / करतेय.'],
+ ['Past tense: जाणे (go)',['','man','woman'],[['मी','गेलो','गेले'],['तू','गेलास','गेलीस'],['तो / ती','गेला','गेली'],['आम्ही','गेलो','गेलो'],['तुम्ही','गेलात','गेलात'],['ते','गेले','गेल्या']],'Works the same way for आलो (came), बसलो (sat), झोपलो (slept), पोहोचलो (arrived).'],
+ ['Future',['','plan (-णार आहे)','will'],[['मी','जाणार आहे','जाईन'],['तू','जाणार आहेस','जाशील'],['तो / ती','जाणार आहे','जाईल'],['आम्ही','जाणार आहोत','जाऊ'],['तुम्ही','जाणार आहात','जाल'],['ते','जाणार आहेत','जातील']],'Let’s: stem + ऊया (जाऊया, भेटूया, जेवूया).'],
+ ['"To me" and "my"',['','to …','my, your… (m / f / n)'],[['मी','मला','माझा / माझी / माझं'],['तू','तुला','तुझा / तुझी / तुझं'],['तो','त्याला','त्याचा / त्याची / त्याचं'],['ती','तिला','तिचा / तिची / तिचं'],['आम्ही','आम्हाला','आमचा / आमची / आमचं'],['तुम्ही','तुम्हाला','तुमचा / तुमची / तुमचं'],['ते','त्यांना','त्यांचा / त्यांची / त्यांचं']],'मला is used for likes, wants, knowing and feelings: मला चहा आवडतो, मला पाणी पाहिजे.'],
+ ['Question words',['Marathi','English'],[['काय','what'],['कोण','who'],['कुठे','where'],['कधी','when'],['का','why'],['कसं','how'],['किती','how much / many'],['कोणता / कोणती','which']],'For a yes/no question, add का at the end.'],
+ ['Postpositions',['Ending','Meaning','Example'],[['-त / मध्ये','in','घरात, ऑफिसमध्ये'],['-ला','to','पुण्याला'],['-वर','on','टेबलावर'],['-हून','from','मुंबईहून'],['-बरोबर','with','मित्राबरोबर'],['-साठी','for','तुझ्यासाठी'],['-नंतर / -आधी','after / before','जेवणानंतर']]]];
+[['काय','kāy'],['कोण','koṇ'],['कुठे','kuṭhe'],['कधी','kadhī'],['का','kā'],['कसं','kasã'],['किती','kitī'],['कोणता','koṇtā'],['कोणती','koṇtī'],['नाहीस','nāhīs'],['मला','malā'],['तुला','tulā'],['त्याला','tyālā'],['तिला','tilā'],['आम्हाला','āmhālā'],['तुम्हाला','tumhālā'],['त्यांना','tyānnā'],['माझा','māzā'],['माझी','māzī'],['माझं','māzã'],['तुझा','tuzā'],['तुझी','tuzī'],['तुझं','tuzã'],['त्याचा','tyāchā'],['त्याची','tyāchī'],['त्याचं','tyāchã'],['तिचा','tichā'],['तिची','tichī'],['तिचं','tichã'],['आमचा','āmchā'],['आमची','āmchī'],['आमचं','āmchã'],['तुमचा','tumchā'],['तुमची','tumchī'],['तुमचं','tumchã'],['त्यांचा','tyānchā'],['त्यांची','tyānchī'],['त्यांचं','tyānchã'],
+ ['करतोस','kartos'],['करतेस','kartes'],['करता','kartā'],['करतात','kartāt'],['गेलास','gelās'],['गेलीस','gelīs'],['गेलात','gelāt'],['गेल्या','gelyā'],['जाशील','jāshīl'],['जाईल','jāīl'],['जाऊ','jāū'],['जाल','jāl'],['जातील','jātīl'],['घरात','gharāt'],['ऑफिसमध्ये','officemadhye'],['जेवणानंतर','jevaṇānantar'],['मध्ये','madhye'],['-ला','-lā'],['-हून','-hūn'],['ला','lā'],['हून','hūn']].forEach(([d,r])=>mrReg(d,r));
+
+JA_UNITS.forEach(u=>u.course='ja');DE_UNITS.forEach(u=>u.course='de');MR_UNITS.forEach(u=>u.course='mr');
+const UI={};[JA_UNITS,DE_UNITS,MR_UNITS].forEach(L=>L.forEach((u,i)=>{u.i=i;UI[u.id]=u}));
 const ROAD=[['N5','~800 words · ~100 kanji · basic grammar'],['N4','~1,500 words · ~300 kanji'],['N3','~3,750 words · ~650 kanji'],['N2','~6,000 words · ~1,000 kanji'],['N1','~10,000 words · ~2,000 kanji']];
 const NUMD=['ゼロ','いち','に','さん','よん','ご','ろく','なな','はち','きゅう'];
 const numJp=n=>n===100?'ひゃく':n<=10?(n===10?'じゅう':NUMD[n]):((n/10|0)>1?NUMD[n/10|0]:'')+'じゅう'+(n%10?NUMD[n%10]:'');
 
 /* items registry */
 const ITEMS={};const ALLWORDS=[];
-[...JA_UNITS,...DE_UNITS].forEach(u=>{
+[...JA_UNITS,...DE_UNITS,...MR_UNITS].forEach(u=>{
  if(u.kind==='kana')u.chars.forEach(c=>{if(!ITEMS['c:'+c])ITEMS['c:'+c]={t:'c',c,u:u.id}});
  (u.words||[]).forEach(w=>{w.u=u.id;if(!ITEMS['w:'+w.jp]){ITEMS['w:'+w.jp]={t:'w',w,u:u.id};ALLWORDS.push(w)}});
  (u.qs||[]).forEach((q,i)=>{ITEMS['q:'+u.id+':'+i]={t:'q',q,u:u.id}});
@@ -1575,11 +2038,12 @@ const ITEMS={};const ALLWORDS=[];
 const unitIds=u=>Object.keys(ITEMS).filter(id=>ITEMS[id].u===u.id);
 
 /* ================= STATE ================= */
-let CID=(()=>{try{return localStorage.getItem('michi.course')==='de'?'de':'ja'}catch(e){return'ja'}})();
+function CK(c){return{lsk:{ja:'michi.v1',de:'michi.de.v1',mr:'michi.mr.v1'}[c],f:{ja:'s',de:'d',mr:'m'}[c],u:{ja:'upd',de:'du',mr:'mu'}[c],doc:{ja:'progress',de:'progress_de',mr:'progress_mr'}[c]}}
+let CID=(()=>{try{const c=localStorage.getItem('michi.course');return c==='de'||c==='mr'?c:'ja'}catch(e){return'ja'}})();
 /* First visit: ask which language to learn (skipped if this device already has progress) */
 let NEED_PICK=(()=>{try{if(localStorage.getItem('michi.course'))return false;const has=k=>{const v=JSON.parse(localStorage.getItem(k)||'null');return!!v&&(Object.keys(v.srs||{}).length>0||Object.values(v.u||{}).some(x=>x&&x.l))};
- if(has('michi.v1')){localStorage.setItem('michi.course','ja');return false}if(has('michi.de.v1')){localStorage.setItem('michi.course','de');CID='de';return false}return true}catch(e){return false}})();
-let LSK=CID==='de'?'michi.de.v1':'michi.v1',FKEY=CID==='de'?'d':'s',UKEY=CID==='de'?'du':'upd';
+ if(has('michi.v1')){localStorage.setItem('michi.course','ja');return false}if(has('michi.de.v1')){localStorage.setItem('michi.course','de');CID='de';return false}if(has('michi.mr.v1')){localStorage.setItem('michi.course','mr');CID='mr';return false}return true}catch(e){return false}})();
+let {lsk:LSK,f:FKEY,u:UKEY}=CK(CID);
 const def=()=>({v:1,u:{},srs:{},xp:{},time:{},acc:{},miss:{},badges:{},okT:0,revs:0,streak:{n:0,best:0,last:''},goal:50,romaji:true,rate:0.9,upd:0,started:Date.now()});
 let S=def();try{const s=localStorage.getItem(LSK);if(s)S=Object.assign(def(),JSON.parse(s))}catch(e){}if(CID==='de')S.romaji=false;
 const U=id=>S.u[id]||(S.u[id]={});
@@ -1593,7 +2057,7 @@ async function flush(){if(!store.ref||writing||!dirty)return;writing=true;dirty=
  try{await store.ref.set({s:JSON.stringify(S),upd:S.upd});syncTxt='Synced to your account'}catch(e){syncTxt='Saved on this device (sync paused)'}
  writing=false;if(dirty)flush()}
 async function initStore(){try{const c=window.claude;if(!c||!c.use)return;const [db,user]=await Promise.all([c.use('db'),c.use('user')]);if(!db||!user)return;
- const uid=await user.id();if(!uid)return;const ref=db.doc('data/users/'+uid+'/'+(CID==='de'?'progress_de':'progress'));
+ const uid=await user.id();if(!uid)return;const ref=db.doc('data/users/'+uid+'/'+CK(CID).doc);
  const snap=await Promise.race([ref.get(),new Promise(r=>setTimeout(()=>r(null),10000))]);if(!snap)return;
  store.ref=ref;store.kind='claude';syncTxt='Synced to your account';
  if(snap.exists){const d=snap.data();if(d&&d.s&&(d.upd||0)>(S.upd||0)){try{S=Object.assign(def(),JSON.parse(d.s));localStorage.setItem(LSK,d.s);render()}catch(e){}}else if(S.upd>(d.upd||0)){dirty=true;flush()}}
@@ -1647,7 +2111,8 @@ function qAuth(q,id){const why=esc(q.why||'');
  if(q.listen)return{id,kind:'mc',label:q.q,listen:q.jp,opts:shuffle(q.o),a:q.o[0],optJP:hasJP(q.o[0])?1:0,optS:1,showRom:1,audio:q.jp,why};
  if(q.t==='mc')return{id,kind:'mc',label:q.q,sent:q.jp,opts:shuffle(q.o),a:q.o[0],optJP:hasJP(q.o[0])?1:0,optS:1,showRom:1,audio:q.jp,why};
  if(q.t==='fill')return{id,kind:'mc',label:`Fill the gap: “${q.en}”`,sent:q.jp,opts:shuffle(q.o),a:q.o[0],optJP:1,optS:1,showRom:1,audio:q.jp.replace('＿',q.o[0]),why};
- if(q.t==='build')return{id,kind:'build',label:`Build the sentence: “${q.en}”`,tiles:q.tiles,bank:shuffle([...q.tiles,...(q.x||[])]),a:q.tiles.join(' '),audio:q.tiles.join(''),why};
+ if(q.t==='build')return{id,kind:'build',label:`Build the sentence: “${q.en}”`,tiles:q.tiles,bank:shuffle([...q.tiles,...(q.x||[])]),a:q.tiles.join(' '),audio:q.tiles.join(UI[(id.split(':')[1])]&&UI[id.split(':')[1]].course==='ja'?'':' '),why};
+ if(q.mr)return{id,kind:'type',label:q.q,a:q.a,dv:q.dv||[],ar:[],mode:'mr',audio:(q.dv||q.a)[0],why};
  if(!hasJP(q.a[0]))return{id,kind:'type',label:q.q,a:q.a,ar:[],mode:'de',audio:q.a[0],why};
  return{id,kind:'type',label:q.q,a:q.a,ar:q.a.map(toRomaji),mode:'jp',len:1,audio:q.a[0],why}}
 function qNum(n,type,id){const jp=numJp(n),why=`<b>${n}</b> = ${esc(jp)} · ${esc(toRomaji(jp))}`;
@@ -1928,7 +2393,7 @@ async function doGoogle(){const pr=new FB.GoogleAuthProvider();try{await FB.sign
 async function doForgot(){const em=(($('#em')||{}).value||'').trim();if(!em){authErrTxt='Type your email above first, then tap "Forgot password?"';authModal();return}
  try{await FB.sendPasswordResetEmail(FB.auth,em);authErrTxt='';toast('Password reset email sent. Check your inbox.')}catch(e){authErrTxt=authErr(e);authModal();const a=$('#em');if(a)a.value=em}}
 async function doSignOut(){flushNow();try{await new Promise(r=>setTimeout(r,400));await FB.signOut(FB.auth)}catch(e){}
- store.ref=null;store.kind=null;S=def();try{localStorage.removeItem('michi.v1');localStorage.removeItem('michi.de.v1');localStorage.removeItem('michi.course');NEED_PICK=true;localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}if(CID==='de')S.romaji=false;$('#modal').innerHTML='';go('home');toast('Signed out. Your progress is safe in your account.')}
+ store.ref=null;store.kind=null;S=def();try{localStorage.removeItem('michi.v1');localStorage.removeItem('michi.de.v1');localStorage.removeItem('michi.mr.v1');localStorage.removeItem('michi.course');NEED_PICK=true;localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}if(CID==='de')S.romaji=false;$('#modal').innerHTML='';go('home');toast('Signed out. Your progress is safe in your account.')}
 
 /* ===== N4 CONJUGATION ===== */
 const RW={'う':['わ','え','お'],'く':['か','け','こ'],'ぐ':['が','げ','ご'],'す':['さ','せ','そ'],'つ':['た','て','と'],'ぬ':['な','ね','の'],'ぶ':['ば','べ','ぼ'],'む':['ま','め','も'],'る':['ら','れ','ろ']};
@@ -1983,7 +2448,7 @@ function mockResult(){const M=MOCKS[SES.lv],sec={};SES.qs.forEach(q=>{const s=se
  const r=x=>x[1]?x[0]/x[1]:0,sc=r(tot),pass=sc>=M.pass&&r(lang)>=(M.secMin||.32)&&r(lis)>=(M.secMin||.32);
  S.mocks=S.mocks||{};const a=S.mocks[SES.lv]||(S.mocks[SES.lv]=[]);a.push({at:Date.now(),sc,pass:pass?1:0,secs:sec});while(a.length>10)a.shift();
  return{lv:SES.lv,sc,pass,secs:sec,lang:r(lang),lis:r(lis)}}
-function mockHome(){return`<section class="sec"><h2>${CID==='ja'?'JLPT mock tests':'Mock exam'}</h2><p>Timed practice exams that copy the real ${CID==='ja'?'JLPT':'exam'}. Each unlocks when you finish that level's stages.</p><div class="refs">${Object.values(MOCKS).map(M=>{const o=mockOpen(M.lv),h=(S.mocks||{})[M.lv]||[],best=h.length?Math.round(Math.max(...h.map(x=>x.sc))*100):null;
+function mockHome(){if(!Object.keys(MOCKS).length)return'';return`<section class="sec"><h2>${CID==='ja'?'JLPT mock tests':'Mock exam'}</h2><p>Timed practice exams that copy the real ${CID==='ja'?'JLPT':'exam'}. Each unlocks when you finish that level's stages.</p><div class="refs">${Object.values(MOCKS).map(M=>{const o=mockOpen(M.lv),h=(S.mocks||{})[M.lv]||[],best=h.length?Math.round(Math.max(...h.map(x=>x.sc))*100):null;
   return`<button class="ref st-${M.st} ${o?'':'lock'}" ${o?`data-act="mock:${M.lv}"`:'disabled aria-disabled="true"'}><span class="g">${o?M.lv:IC.lock}</span><span><b>${M.lv} mock test</b><span>${o?(best!=null?`Best ${best}% · ${h.length} attempt${h.length>1?'s':''}`:`${M.min} minutes · ${M.sub}`):`Unlocks after ${esc(UI[M.unlock].t)}`}</span></span></button>`}).join('')}</div></section>`}
 
 /* ===== DAILY REMINDERS ===== */
@@ -2016,13 +2481,13 @@ try{if('speechSynthesis' in window){loadVoices();speechSynthesis.addEventListene
 /* iOS only allows speech that starts directly from a tap: unlock it on the first touch */
 const unlockSpeech=()=>{try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u)}catch(e){}};
 ['pointerdown','touchend','keydown'].forEach(ev=>document.addEventListener(ev,unlockSpeech,{once:true,capture:true}));
-function speakNow(t,de){try{if(!('speechSynthesis' in window))return false;const s=window.speechSynthesis,u=new SpeechSynthesisUtterance(t);u.lang=de?'de-DE':'ja-JP';u.rate=S.rate||0.9;
- if(!VOICES.length)loadVoices();const re=de?/^de/i:/^ja/i,v=VOICES.find(v=>re.test(v.lang)&&/enhanced|premium|google/i.test(v.name))||VOICES.find(v=>re.test(v.lang));if(v)u.voice=v;
+function speakNow(t,L){try{if(!('speechSynthesis' in window))return false;if(L===true)L='de';if(!L)L='ja';const s=window.speechSynthesis,u=new SpeechSynthesisUtterance(t);u.lang={ja:'ja-JP',de:'de-DE',mr:'mr-IN'}[L]||'ja-JP';u.rate=S.rate||0.9;
+ if(!VOICES.length)loadVoices();const pick=re=>VOICES.find(v=>re.test(v.lang)&&/enhanced|premium|google/i.test(v.name))||VOICES.find(v=>re.test(v.lang));let v=pick(new RegExp('^'+L,'i'));if(!v&&L==='mr'){v=pick(/^hi/i);if(v)u.lang=v.lang}if(v)u.voice=v;
  if(s.speaking||s.pending)s.cancel();if(s.paused)s.resume();s.speak(u);return true}catch(e){return false}}
-function say(t){const de=CID==='de';t=String(t);t=de?t.replace(/[＿…→·]/g,', ').replace(/\s*,\s*(,\s*)+/g,', ').replace(/\s+/g,' ').replace(/^[,\s]+|[,\s]+$/g,''):t.replace(/[\s＿+→\/a-zA-Z]+/g,'');if(!t)return;
+function say(t){const de=CID!=='ja';t=String(t);if(CID==='mr')t=t.replace(/\([^)]*\)/g,' ').replace(/[a-zA-Z]+/g,' ');t=de?t.replace(/[＿…→·]/g,', ').replace(/\s*,\s*(,\s*)+/g,', ').replace(/\s+/g,' ').replace(/^[,\s]+|[,\s]+$/g,''):t.replace(/[\s＿+→\/a-zA-Z]+/g,'');if(!t)return;
  /* Claude's voice when it is available; otherwise the device voice, started synchronously so iOS allows it */
- if(ttsV&&!ttsOff){ttsV.speak(t,{language:de?'de':'ja',rate:S.rate||0.9}).catch(e=>{if(e&&e.code==='busy')return;if(e&&(e.code==='not_granted'||e.code==='invalid_argument'))ttsOff=true;speakNow(t,de)});return}
- speakNow(t,de)}
+ if(ttsV&&!ttsOff&&CID!=='mr'){ttsV.speak(t,{language:CID,rate:S.rate||0.9}).catch(e=>{if(e&&e.code==='busy')return;if(e&&(e.code==='not_granted'||e.code==='invalid_argument'))ttsOff=true;speakNow(t,CID)});return}
+ speakNow(t,CID)}
 /* ================= RENDER ================= */
 let VIEW='home',VU=null,LS=null,SES=null,RES=null,CTAB='h';
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2600)}
@@ -2034,7 +2499,7 @@ function renderTop(){if(GATED()){$('#top').innerHTML=`<span class="brand"><span 
  <button class="chip ${d?'due':''}" data-act="review" title="Reviews due">${IC.cards}<b>${d}</b><span class="tx">review${d===1?'':'s'}</span></button>
  <button class="chip ico hamb" data-act="menu" aria-label="Open menu" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
  <button class="chip ${VIEW==='prog'?'due':''}" data-act="progress" aria-label="Progress" title="Progress">${IC.chart}<span class="tx">Progress</span></button>
- <button class="chip" data-act="chart" aria-label="Charts" title="Charts">${IC.grid}<span class="tx">${CID==='de'?'Grammar':'Charts'}</span></button>
+ <button class="chip" data-act="chart" aria-label="Charts" title="Charts">${IC.grid}<span class="tx">${CID!=='ja'?'Grammar':'Charts'}</span></button>
  ${FB?(fbUser?`<button class="chip ico" data-act="account" aria-label="Account" title="${esc(fbUser.email||'Account')}"><span class="av">${esc((fbUser.displayName||fbUser.email||'?')[0].toUpperCase())}</span></button>`:`<button class="chip si" data-act="signin">Sign in</button>`):''}
  <button class="chip ico thb" data-act="theme-toggle" aria-label="Switch to ${curTheme()==='dark'?'light':'dark'} mode" title="Switch to ${curTheme()==='dark'?'light':'dark'} mode">${curTheme()==='dark'?IC.sun:IC.moon}</button>
  <button class="chip ico" data-act="settings" aria-label="Settings" title="Settings">${IC.cog}</button>`}
@@ -2067,24 +2532,24 @@ function stepInfo(uid,k){const u=UI[uid];if(!u)return;const s=U(u.id),cards=less
   btn=fix?`<button class="btn pri" data-act="fix:${u.id}">Fix weak spots</button>`:lockT?'':`<button class="btn pri" data-act="test:${u.id}">${s.pass?'Retake':isExam(u)?'Start the exam':'Take the test'}</button>`}
  if(S.resume&&S.resume.u===u.id&&((k==='lesson'&&S.resume.k==='lesson')||(S.resume.k==='ses'&&(S.resume.mode===k||(k==='test'&&S.resume.mode==='fix')))))btn=`<button class="btn pri" data-act="resume">Resume where you left off</button>`;
  $('#modal').innerHTML=`<div class="ov" data-act="close"><div class="dlg stepi st-${u.st}" role="dialog" aria-modal="true" aria-label="${title}"><span class="lbl" style="color:var(--c);font-weight:700">${esc(u.t)}</span><h2 style="margin-top:4px">${title}</h2><p class="sst">${state}</p><ul class="sil">${body}</ul><div class="pbtn" style="justify-content:flex-end"><button class="btn" data-act="close">Close</button>${btn}</div></div></div>`}
-function pickModal(){const C=[['ja','s1','日本語','Japanese','From your first hiragana to JLPT N4'],['de','d1','Deutsch','German','From your first "Hallo" to CEFR A1']];
- $('#modal').innerHTML=`<div class="ov"><div class="dlg pkd" role="dialog" aria-modal="true" aria-label="Choose a language"><span class="lbl" style="color:var(--shu);font-weight:700">Welcome to Michi 道</span><h2 style="margin:6px 0 8px">What do you want to learn?</h2><p class="fine" style="margin:0 0 16px">You can switch or add the other one any time from the menu. Each language keeps its own progress.</p>
+function pickModal(){const C=[['ja','s1','日本語','Japanese','From your first hiragana to JLPT N4'],['de','d1','Deutsch','German','From your first "Hallo" to CEFR A1'],['mr','m1','मराठी','Marathi','Spoken Marathi for everyday life']];
+ $('#modal').innerHTML=`<div class="ov"><div class="dlg pkd" role="dialog" aria-modal="true" aria-label="Choose a language"><span class="lbl" style="color:var(--shu);font-weight:700">Welcome to Michi 道</span><h2 style="margin:6px 0 8px">What do you want to learn?</h2><p class="fine" style="margin:0 0 16px">You can switch or add another any time from the menu. Each language keeps its own progress.</p>
  <div class="pkg">${C.map(([id,st,nat,name,sub])=>`<button class="pkc st-${st}" data-act="pick:${id}"><span class="pkn">${nat}</span><b>${name}</b><span class="pks">${sub}</span></button>`).join('')}</div></div></div>`}
 function maybePick(){if(!NEED_PICK||GATED())return;if(hasProgress(S)){NEED_PICK=false;try{localStorage.setItem('michi.course',CID)}catch(e){}return}pickModal()}
-async function inferCourse(u){if(!NEED_PICK)return;try{const snap=await FB.getDoc(FB.doc(FB.db,'users',u.uid));if(!snap.exists())return;const d=snap.data(),hs=!!d.s,hd=!!d.d;if(!hs&&!hd)return;
- const c=hd&&(!hs||(d.du||0)>(d.upd||0))?'de':'ja';NEED_PICK=false;try{localStorage.setItem('michi.course',c)}catch(e){}
- if(c!==CID){CID=c;LSK=c==='de'?'michi.de.v1':'michi.v1';FKEY=c==='de'?'d':'s';UKEY=c==='de'?'du':'upd';let n=def();try{const v=localStorage.getItem(LSK);if(v)n=Object.assign(def(),JSON.parse(v))}catch(e){}S=n;applyCourse()}}catch(e){}}
+async function inferCourse(u){if(!NEED_PICK)return;try{const snap=await FB.getDoc(FB.doc(FB.db,'users',u.uid));if(!snap.exists())return;const d=snap.data(),cs=[['ja','s','upd'],['de','d','du'],['mr','m','mu']].filter(x=>!!d[x[1]]);if(!cs.length)return;
+ const c=cs.sort((a,b)=>(d[b[2]]||0)-(d[a[2]]||0))[0][0];NEED_PICK=false;try{localStorage.setItem('michi.course',c)}catch(e){}
+ if(c!==CID){CID=c;({lsk:LSK,f:FKEY,u:UKEY}=CK(c));let n=def();try{const v=localStorage.getItem(LSK);if(v)n=Object.assign(def(),JSON.parse(v))}catch(e){}S=n;applyCourse()}}catch(e){}}
 function pickCourse(c){$('#modal').innerHTML='';NEED_PICK=false;try{localStorage.setItem('michi.course',c)}catch(e){}if(c!==CID){setCourse(c)}else{go('home');toast(`Let's start ${CFG[c].name}!`)}}
 function menuSheet(){const x=xpToday(),g=S.goal,sn=streakNow(),dk=curTheme()==='dark',ic=(i,t,act,sub,cls='')=>`<button class="mi ${cls}" data-act="${act}"><span class="mic">${i}</span><span class="mit">${t}${sub?`<small>${sub}</small>`:''}</span><svg class="mch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>`;
  $('#modal').innerHTML=`<div class="ov sheet-ov" data-act="close"><div class="sheet st-${(curUnit()||UNITS[UNITS.length-1]).st}" role="dialog" aria-modal="true" aria-label="Menu">
  <div class="shh"><span class="brand"><span class="seal">道</span><span class="nm" style="display:inline">Michi</span></span><button class="spk" data-act="close" aria-label="Close menu">${IC.x}</button></div>
  <button class="shc" data-act="courses"><span class="g">${CFG[CID].native}</span><span><b>${CFG[CID].name} course</b><small>Tap to switch course</small></span><svg class="mch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
  <div class="shs"><div><span class="lbl">Today</span><b>${x} / ${g} XP</b><div class="meter"><i style="width:${Math.min(100,x/g*100)}%"></i></div></div><div><span class="lbl">Streak</span><b>${sn} day${sn===1?'':'s'}</b><small>${S.freeze||0} freeze${(S.freeze||0)===1?'':'s'} saved</small></div></div>
- <nav class="shl">${ic(IC.home,'Home','home')}${ic(IC.chart,'Progress','progress','Stats, calendar, milestones')}${ic(IC.grid,CID==='de'?'Grammar tables':'Charts','chart',CID==='de'?'Articles, cases, verbs':'Kana and kanji with stroke order')}${ic(IC.cog,'Settings','settings','Goal, reminder, speech')}
+ <nav class="shl">${ic(IC.home,'Home','home')}${ic(IC.chart,'Progress','progress','Stats, calendar, milestones')}${ic(IC.grid,CID!=='ja'?'Grammar tables':'Charts','chart',CID==='de'?'Articles, cases, verbs':CID==='mr'?'Verbs, "to me" forms, postpositions':'Kana and kanji with stroke order')}${ic(IC.cog,'Settings','settings','Goal, reminder, speech')}
  <button class="mi" data-act="theme-toggle"><span class="mic">${dk?IC.sun:IC.moon}</span><span class="mit">Dark mode</span><span class="tog ${dk?'on':''}" aria-hidden="true"></span></button>
  ${FB?(fbUser?ic(`<span class="av">${esc((fbUser.displayName||fbUser.email||'?')[0].toUpperCase())}</span>`,'Account','account',esc(fbUser.email||'')):ic(IC.cog,'Sign in','signin','Sync progress across devices')):''}</nav></div></div>`}
 function gateV(){if(!fbReady||!FB)return fbFail?`<div class="gate-wrap"><div class="gcard" style="text-align:center"><span class="seal" style="margin:0 auto 14px">道</span><h2>Can't reach the sign-in service</h2><p class="fine">Check your internet connection, then try again.</p><button class="btn pri" data-act="reload">Try again</button></div></div>`:`<div class="gate-wrap"><p class="fine" style="text-align:center;padding:60px 0">Loading Michi…</p></div>`;
- return`<div class="gate-wrap"><section class="gintro st-s1">${WAVES}<div><span class="lbl">Michi 道</span><h1>Learn Japanese and German, step by step</h1><p>From your very first words to real exams, with lessons that explain, tests that check, and reviews that make it stick.</p>
+ return`<div class="gate-wrap"><section class="gintro st-s1">${WAVES}<div><span class="lbl">Michi 道</span><h1>Learn Japanese, German and Marathi, step by step</h1><p>From your very first words to real conversations, with lessons that explain, tests that check, and reviews that make it stick.</p>
  <ul class="gl3"><li><b>Japanese</b> (JLPT N5–N4) and <b>German</b> (A1)</li><li><b>Units</b> unlocked one at a time</li><li><b>Spaced reviews</b>, mock tests and progress tracking</li></ul></div></section><div class="gcard">${authCard()}</div></div>`}
 function render(){applyTheme();renderTop();const a=$('#app');if(GATED()){a.innerHTML=gateV();const em=$('#em');if(em&&!$('.aerr'))em.focus({preventScroll:true});return}
  if(VIEW==='home')a.innerHTML=home();else if(VIEW==='unit')a.innerHTML=unitPage(VU);else if(VIEW==='lesson')a.innerHTML=lessonV();else if(VIEW==='ses')a.innerHTML=sesV();else if(VIEW==='res')a.innerHTML=resV();else if(VIEW==='chart')a.innerHTML=chartV();else if(VIEW==='prog')a.innerHTML=progV();
@@ -2112,9 +2577,9 @@ function home(){const u=curUnit(),d=dueIds().length,x=xpToday(),g=S.goal;let her
  <div class="tile"><span class="ic">${IC.flame}</span><span class="lbl">This week</span><div class="week">${days.map(([k,l])=>{const v=S.xp[k]||0;return`<div><b class="${v>=S.goal?'on':''}" style="height:${Math.max(3,v/mx*26)}px"></b>${l}</div>`}).join('')}</div></div>
  <div class="tile"><span class="ic">${IC.cards}</span><span class="lbl">Reviews due</span><div class="n">${d}</div>${d?`<button class="btn lk" data-act="review">Review now</button>`:`<p class="fine" style="margin:6px 0 0">All caught up.</p>`}</div>
  <div class="tile"><span class="ic">${IC.chart}</span><span class="lbl">Strong items</span><div class="n">${mastered()}<small> / ${Object.keys(S.srs).length} learned</small></div><a href="#" class="plink" data-act="progress">See full progress →</a></div></section>`;
- const refs=CID==='de'?`<section class="sec"><h2>Reference</h2><p>Articles, cases, pronouns and verb tables on one page, with audio.</p><div class="refs"><button class="ref st-d2" data-act="chart"><span class="g">der</span><span><b>Grammar tables</b><span>Everything you need for A1</span></span></button></div></section>`:`<section class="sec"><h2>Reference charts</h2><p>Every character with stroke-order animations, audio and a writing pad.</p><div class="refs"><button class="ref st-s1" data-act="chart:h"><span class="g">あ</span><span><b>Hiragana chart</b><span>46 basic + voiced + combinations</span></span></button><button class="ref st-s2" data-act="chart:k"><span class="g">ア</span><span><b>Katakana chart</b><span>Including foreign sounds</span></span></button><button class="ref st-s5" data-act="chart:j"><span class="g">字</span><span><b>Kanji chart</b><span>N5 and N4 kanji</span></span></button></div></section>`;
+ const refs=CID==='mr'?`<section class="sec"><h2>Reference</h2><p>Pronouns, verb endings, "to me" forms and postpositions on one page, with audio.</p><div class="refs"><button class="ref st-m2" data-act="chart"><span class="g">मी</span><span><b>Grammar tables</b><span>The patterns behind spoken Marathi</span></span></button></div></section>`:CID==='de'?`<section class="sec"><h2>Reference</h2><p>Articles, cases, pronouns and verb tables on one page, with audio.</p><div class="refs"><button class="ref st-d2" data-act="chart"><span class="g">der</span><span><b>Grammar tables</b><span>Everything you need for A1</span></span></button></div></section>`:`<section class="sec"><h2>Reference charts</h2><p>Every character with stroke-order animations, audio and a writing pad.</p><div class="refs"><button class="ref st-s1" data-act="chart:h"><span class="g">あ</span><span><b>Hiragana chart</b><span>46 basic + voiced + combinations</span></span></button><button class="ref st-s2" data-act="chart:k"><span class="g">ア</span><span><b>Katakana chart</b><span>Including foreign sounds</span></span></button><button class="ref st-s5" data-act="chart:j"><span class="g">字</span><span><b>Kanji chart</b><span>N5 and N4 kanji</span></span></button></div></section>`;
  const path=`<section class="sec"><h2>Your path</h2><p>Each unit unlocks only when you pass the one before it.</p>${STAGES.map(s=>{const su=UNITS.filter(x=>x.st===s.id),sp=su.filter(passed).length;return`<div class="stage st-${s.id}"><div class="sh"><h3>${esc(s.name)}</h3><span class="jp">${esc(s.jp)}</span><span class="tag">${esc(s.lvl)}</span><span class="sp">${sp}/${su.length}<i><b style="width:${sp/su.length*100}%"></b></i></span></div><div class="units">${su.map(unitCard).join('')}</div></div>`}).join('')}</section>`;
- const road=CID==='de'?`<section class="sec"><h2>The road to B1 and beyond</h2><p>German levels follow the CEFR, from A1 to C2, which the Goethe exams use. Michi starts with A1; A2 and B1 are added next.</p><div class="road">${DE_ROAD.map(([l,t],i)=>`<div class="lv ${i<1?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div></section>`:`<section class="sec"><h2>The road to N1</h2><p>The JLPT has five levels. Michi now covers N5 and N4: the scripts, all N5 and N4 grammar, listening, and about 270 kanji. N3 and beyond are added stage by stage.</p><div class="road">${ROAD.map(([l,t],i)=>`<div class="lv ${i<2?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div><p class="fine">Word and kanji counts are common estimates; the JLPT does not publish official lists.</p></section>`;
+ const road=CID==='mr'?`<section class="sec"><h2>Where this course goes</h2><p>Marathi has no standard exam like the JLPT or Goethe, so Michi focuses on speaking and understanding everyday Marathi. Reading Devanagari comes next.</p><div class="road">${MR_ROAD.map(([l,t],i)=>`<div class="lv ${i<4?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div></section>`:CID==='de'?`<section class="sec"><h2>The road to B1 and beyond</h2><p>German levels follow the CEFR, from A1 to C2, which the Goethe exams use. Michi starts with A1; A2 and B1 are added next.</p><div class="road">${DE_ROAD.map(([l,t],i)=>`<div class="lv ${i<1?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div></section>`:`<section class="sec"><h2>The road to N1</h2><p>The JLPT has five levels. Michi now covers N5 and N4: the scripts, all N5 and N4 grammar, listening, and about 270 kanji. N3 and beyond are added stage by stage.</p><div class="road">${ROAD.map(([l,t],i)=>`<div class="lv ${i<2?'on':''}"><b>${l}</b><span>${t}</span></div>`).join('')}</div><p class="fine">Word and kanji counts are common estimates; the JLPT does not publish official lists.</p></section>`;
  const sib=FB&&fbReady&&!fbUser&&!S.noSignin&&!CLOUD_OK?`<div class="sib"><span><b>Save your progress to an account</b> so it follows you to any device, and never gets lost.</span><button class="btn pri" data-act="signin">Sign in</button><button class="spk" data-act="sib-x" aria-label="Dismiss">${IC.x}</button></div>`:'';
  return sib+resumeCard()+dailyCard()+hero+strip+path+mockHome()+refs+road}
 function unitCard(u){const p=passed(u),a=avail(u),c=curUnit()===u;
@@ -2140,9 +2605,9 @@ function startLesson(u){if(!U(u.id).l&&dueIds().length>=GATE){toast('Clear your 
 function lessonV(){const {u,i,cards}=LS,c=cards[i];let body='';
  if(c.char){const k=KD[c.char];body=`<div class="charc">${padHTML('lp',c.char,'trace',{auto:1,onDone:lpDone})}<div><span class="lbl">New character${STK[c.char]?` · ${STK[c.char].length} stroke${STK[c.char].length>1?'s':''}`:''}</span><div class="big" style="margin:6px 0 12px">${esc(k.r)}</div><p>${esc(mn(c.char))}</p>${spk(c.char)}${STK[c.char]?'<p class="fine">Trace over the grey strokes in order.</p>':''}</div></div>${STK[c.char]?padBtns('lp'):''}`}
  else if(c.kanji){const k=c.kanji;body=`<div class="charc">${padHTML('lp',k.c,'trace',{auto:1,onDone:lpDone})}<div><span class="lbl">New kanji · ${(STK[k.c]||[]).length} stroke${(STK[k.c]||[]).length>1?'s':''}</span><div class="big" style="margin:6px 0 8px;font-size:40px">${esc(k.m)}</div><p style="margin:0 0 8px"><b>On:</b> ${esc(k.on||'none')}<br><b>Kun:</b> ${esc(k.kun||'none')}</p><p>${esc(k.h)}</p></div></div>${padBtns('lp')}<div class="exs">${k.w.map(x=>`<div class="ex">${spk(x.r)}<span><span class="j">${esc(x.w)}</span><span class="r" style="display:block">${esc(x.r)}${S.romaji?' · '+esc(toRomaji(x.r)):''}</span></span><span class="e">${esc(x.e)}</span></div>`).join('')}</div>`}
- else if(c.words){const gram=u.kind!=='kana';body=`<h2>Words in this unit</h2><p>Tap the speaker to hear each one. ${gram?'':'Try reading them before you look at the romaji.'}</p><div class="exs">${c.words.map(w=>`<div class="ex">${spk(w.jp)}<span><span class="j">${artc(w.jp)}</span>${CID==='ja'?`<span class="r" style="display:block">${esc(toRomaji(w.jp))}</span>`:''}</span><span class="e">${esc(w.en)}</span></div>`).join('')}</div>`}
+ else if(c.words){const gram=u.kind!=='kana';body=`<h2>Words in this unit</h2><p>Tap the speaker to hear each one. ${gram?'':'Try reading them before you look at the romaji.'}</p><div class="exs">${c.words.map(w=>`<div class="ex">${spk(w.jp)}<span><span class="j">${artc(w.jp)}</span>${CID==='ja'||(CID==='mr'&&S.romaji)?`<span class="r" style="display:block">${esc(toRomaji(w.jp))}</span>`:''}</span><span class="e">${esc(w.en)}</span></div>`).join('')}</div>`}
  else if(c.end){body=`<h2>${isExam(u)?'Ready for the exam?':'Lesson complete'}</h2><p>${isExam(u)?'You need 90% to pass. Go when you are ready.':'Now lock it in. In practice, anything you miss comes straight back until you get it right.'}</p><button class="btn pri big" data-act="${isExam(u)?'test':'practice'}:${u.id}">${isExam(u)?'Start the exam':'Start practice'}</button>`}
- else{body=`<h2>${esc(c.h)}</h2>${(c.p||[]).map(p=>`<p>${p}</p>`).join('')}${c.tbl?`<table class="tbl"><tbody>${c.tbl.map(r=>`<tr><td class="jj">${esc(r[0])}</td><td><b>${esc(r[1])}</b></td><td style="color:var(--mut)">${esc(r[2])}</td><td style="width:52px">${spk(c.say!=null?r[c.say]:CID==='de'?r[0]:sp(r))}</td></tr>`).join('')}</tbody></table>`:''}${c.ex?`<div class="exs">${c.ex.map(([j,e])=>`<div class="ex">${spk(j)}<span><span class="j">${esc(j)}</span>${S.romaji?`<span class="r" style="display:block">${esc(toRomaji(j))}</span>`:''}</span><span class="e">${esc(e)}</span></div>`).join('')}</div>`:''}${c.tip?`<div class="tip">${c.tip}</div>`:''}`}
+ else{body=`<h2>${esc(c.h)}</h2>${(c.p||[]).map(p=>`<p>${p}</p>`).join('')}${c.tbl?`<table class="tbl"><tbody>${c.tbl.map(r=>`<tr><td class="jj">${esc(r[0])}</td><td><b>${esc(r[1])}</b></td><td style="color:var(--mut)">${esc(r[2])}</td><td style="width:52px">${spk(c.say!=null?r[c.say]:CID!=='ja'?r[0]:sp(r))}</td></tr>`).join('')}</tbody></table>`:''}${c.ex?`<div class="exs">${c.ex.map(([j,e])=>`<div class="ex">${spk(j)}<span><span class="j">${esc(j)}</span>${S.romaji?`<span class="r" style="display:block">${esc(toRomaji(j))}</span>`:''}</span><span class="e">${esc(e)}</span></div>`).join('')}</div>`:''}${c.tip?`<div class="tip">${c.tip}</div>`:''}`}
  return`<div class="lesson st-${u.st}"><div class="lbar"><button class="spk" data-act="unit:${u.id}" aria-label="Close lesson">${IC.x}</button><div class="dots">${cards.map((_,k)=>`<i class="${k<=i?'on':''}"></i>`).join('')}</div><span class="lbl">${i+1}/${cards.length}</span></div><div class="card">${body}</div>
  <div class="lnav"><button class="btn" data-act="lprev" ${i===0?'disabled':''}>Back</button>${c.end?'':`<button class="btn ai" data-act="lnext">Next</button>`}</div></div>`}
 
@@ -2168,12 +2633,12 @@ function sesV(){const q=cur(),T=SES.mode==='test'||SES.mode==='mock',ans=SES.ans
  let ansH='';
  if(q.kind==='mc'){ansH=`<div class="opts">${q.opts.map((o,k)=>{let cl='';if(ans){if(o===q.a)cl='right';else if(o===ans.given)cl='wrong'}
    return`<button class="opt ${q.optJP?(q.optS?'jps':'jp'):''} ${cl}" data-act="opt:${k}" ${ans?'disabled':''}><span class="k">${k+1}</span>${esc(o)}${q.optJP&&q.showRom&&ROM?`<span class="rom">${esc(toRomaji(o))}</span>`:''}</button>`}).join('')}</div>`}
- else if(q.kind==='type'){const ph=q.mode==='rom'?'Type in romaji…':q.mode==='num'?'Type digits…':q.mode==='de'?'Type in German…':'Type in romaji or kana…';
+ else if(q.kind==='type'){const ph=q.mode==='rom'?'Type in romaji…':q.mode==='num'?'Type digits…':q.mode==='de'?'Type in German…':q.mode==='mr'?'Type in Marathi (English letters are fine)…':'Type in romaji or kana…';
   ansH=`<input class="tin ${ans?(ans.ok?'right':'wrong'):''}" id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" ${q.mode==='num'?'inputmode="numeric"':''} placeholder="${ph}" value="${ans?esc(ans.given):''}" ${ans?'disabled':''} aria-label="Your answer">${q.mode==='de'&&!ans?`<div class="uml">${['ä','ö','ü','ß'].map(c=>`<button class="tl" data-act="ins:${c}" aria-label="Insert ${c}">${c}</button>`).join('')}</div>`:''}${q.mode==='jp'?`<div class="prev" id="prev">${ans?esc(toKana(ans.given)):''}</div>`:''}${ans?'':`<div class="act"><button class="btn ai big" data-act="check">Check</button></div>`}`}
  else if(q.kind==='build'){const used=new Set(SES.built);
   ansH=`<div class="slot">${SES.built.map((bi,k)=>`<button class="tl" data-act="untile:${k}" ${ans?'disabled':''}>${esc(q.bank[bi])}${ROM?`<small>${esc(toRomaji(q.bank[bi]))}</small>`:''}</button>`).join('')||'<span class="lbl">Tap the words below in order</span>'}</div><div class="bank">${q.bank.map((t,k)=>`<button class="tl ${used.has(k)?'used':''}" data-act="tile:${k}" ${ans||used.has(k)?'disabled':''}>${esc(t)}${ROM?`<small>${esc(toRomaji(t))}</small>`:''}</button>`).join('')}</div>${ans?'':`<div class="act"><button class="btn ai big" data-act="check" ${SES.built.length?'':'disabled'}>Check</button></div>`}`}
  else if(q.kind==='write'){const md=ans?'show':(q.trace?'trace':'recall');ansH=padHTML('sp',q.ch,md,{onDone:m=>{if(!SES.ans)grade(m<=allowMiss(q.ch),m?m+' slips':'clean')}})+(ans?'':`<div class="pbtn"><button class="btn" data-act="phint:sp">Hint</button><button class="btn" data-act="pclear:sp">Clear</button><button class="btn ghost" data-act="giveup">Show me</button></div><p class="fine">Write each stroke in the right order and direction. ${q.trace?'Trace the grey guide.':'From memory: no guide this time.'}</p>`)}
- let fb='';if(ans){const corr=q.kind==='write'?q.a:q.kind==='mc'?q.a:q.kind==='build'?q.a:q.mode==='rom'?q.ar[0]:q.a[0];
+ let fb='';if(ans){const corr=q.kind==='write'?q.a:q.kind==='mc'?q.a:q.kind==='build'?q.a:q.mode==='rom'?q.ar[0]:q.mode==='mr'&&q.dv&&q.dv[0]?q.dv[0]+' · '+q.a[0]:q.a[0];
   fb=`<div class="fb ${ans.ok?'ok':'no'}" role="status"><div class="m"><h3>${ans.ok?rnd(['Correct!','Nice!','Exactly.','Well done.','That\'s it.']):'Not quite.'}</h3>${ans.ok?'':`<p style="margin-bottom:6px">Correct answer: <b>${esc(corr)}</b></p>`}<p>${q.why||''}</p></div>${q.audio?spk(q.audio):''}<button class="btn ${ans.ok?'ai':'pri'}" data-act="next">Continue</button></div>`}
  return`<div class="ses ${SES.u?'st-'+SES.u.st:MK?'st-s6':''}"><div class="stop"><button class="spk" data-act="quit" aria-label="Quit session">${IC.x}</button><div class="bar"><i style="width:${pr}%"></i></div>${MK?`<span class="mode" id="tmr">${fmtClock(SES.end-Date.now())}</span>`:`<span class="mode ${T?'test':''}">${ml}</span>`}</div>
  <div class="qc"><p class="ql">${esc(q.label)}</p>${body}${ansH}</div>${fb}</div>`}
@@ -2191,6 +2656,7 @@ function check(){const q=cur();if(SES.ans)return;
  if(q.kind==='type'){const raw=($('#tin').value||'').trim();if(!raw)return;let ok=false;
   if(q.mode==='num')ok=raw.replace(/\s/g,'')===q.a[0];
   else if(q.mode==='de')ok=q.a.some(a=>normDE(a)===normDE(raw));
+  else if(q.mode==='mr'){const rs=raw.replace(/[?!.,।\s]+/g,' ').trim();ok=q.a.some(a=>normMR(a)===normMR(raw))||(q.dv||[]).some(d=>d.replace(/[?!.,।\s]+/g,' ').trim()===rs)}
   else{const uk=normK(/[a-z]/i.test(raw)?toKana(raw):raw,q.len);const acc=new Set([...q.a.map(a=>normK(a,q.len)),...(q.ar||[]).map(r=>normK(toKana(r),q.len))]);
    ok=acc.has(uk)||(q.mode==='rom'&&(q.ar||[]).some(r=>r.replace(/\s/g,'')===raw.toLowerCase().replace(/\s/g,'')))}
   grade(ok,raw)}
@@ -2230,13 +2696,13 @@ function itemLabel(id){const it=ITEMS[id];if(!it)return'';
  if(it.t==='w')return`<b>${esc(it.w.jp)}</b>${hasJP(it.w.jp)?` (${esc(toRomaji(it.w.jp))})`:''} = ${esc(it.w.en)}`;
  if(it.t==='n')return`<b>${it.n}</b> = ${esc(numJp(it.n))}`;
  if(it.t==='k')return`<b style="font-size:20px">${esc(it.k.c)}</b> = ${esc(it.k.m)} (${esc(it.k.kun||it.k.on)})`;
- if(it.t==='d'){const D=UI[it.u].drill,L=D.L[it.j];if(D.t==='gender')return`<b class="g-${L[0]}">${L[0]}</b> ${esc(L[1])} (${esc(L[2])})`;if(D.t==='denum')return`<b>${L}</b> = ${deNum(L)}`;return`Conjugating <b>${esc(Array.isArray(L)?L[0]:L)}</b>`}
+ if(it.t==='d'){const D=UI[it.u].drill,L=D.L[it.j];if(D.t==='gender')return`<b class="g-${L[0]}">${L[0]}</b> ${esc(L[1])} (${esc(L[2])})`;if(D.t==='denum')return`<b>${L}</b> = ${deNum(L)}`;if(D.t==='mrnum')return`<b>${L[0]}</b> = ${esc(L[1])} (${esc(L[2])})`;if(D.t==='mrverb')return`Present tense of <b>${esc(L[0])}णे</b> (${esc(L[2])})`;return`Conjugating <b>${esc(Array.isArray(L)?L[0]:L)}</b>`}
  const q=it.q;return esc(q.listen?q.jp:(q.q||q.en||q.jp||''))}
 
 /* chart */
 const GRID=['あいうえお','かきくけこ','さしすせそ','たちつてと','なにぬねの','はひふへほ','まみむめも','や・ゆ・よ','らりるれろ','わ・・・を','ん・・・・'];
 const GRID2=['がぎぐげご','ざじずぜぞ','だぢづでど','ばびぶべぼ','ぱぴぷぺぽ'];
-function chartV(){if(CID==='de')return deTablesV();const k=CTAB==='k',j=CTAB==='j',f=c=>k?toKata(c):c;
+function chartV(){if(CID==='de')return deTablesV();if(CID==='mr')return mrTablesV();const k=CTAB==='k',j=CTAB==='j',f=c=>k?toKata(c):c;
  const cell=c=>{if(c==='・')return'<span class="kc e"></span>';const ch=f(c);const l=lvl('c:'+ch);return`<button class="kc l${l}" data-act="char:${esc(ch)}" aria-label="${esc(ch)} ${esc(KD[ch].r)}"><b>${esc(ch)}</b><span>${esc(KD[ch].r)}</span></button>`};
  const g=rows=>`<div class="kg">${rows.map(r=>[...r].map(cell).join('')).join('')}</div>`;
  const leg=`<div class="leg"><span><i></i>Not learned</span><span><i style="background:var(--m1)"></i>Learning</span><span><i style="background:var(--m2)"></i>Familiar</span><span><i style="background:var(--m3)"></i>Strong</span><span><i style="background:var(--m4)"></i>Mastered</span></div>`;
@@ -2254,7 +2720,7 @@ function settings(){const G=[[30,'Light','about 15 min'],[50,'Regular','about 30
  <div class="row"><b>Daily goal</b><div class="seg">${G.map(([n,t,s])=>`<button class="${S.goal===n?'on':''}" data-act="goal:${n}">${t} · ${n} XP<span>${s}</span></button>`).join('')}</div></div>
  <div class="row"><b>Theme</b><div class="seg" style="grid-template-columns:repeat(3,minmax(0,1fr))">${[['auto','Auto','Follows your device'],['light','Light','Always light'],['dark','Dark','Always dark']].map(([k,t,d])=>`<button class="${(S.theme||'auto')===k?'on':''}" data-act="theme:${k}"><span class="thi">${IC[k==='light'?'sun':k==='dark'?'moon':'auto']}</span>${t}<span>${d}</span></button>`).join('')}</div></div>
  ${remRow()}
- ${CID==='ja'?`<div class="row sw"><span><b style="margin:0">Show romaji</b><span class="fine" style="display:block;margin:2px 0 0">Helpful at first. Turn it off once you read kana comfortably.</span></span><button class="tog ${S.romaji?'on':''}" data-act="romaji" role="switch" aria-checked="${S.romaji}" aria-label="Show romaji"></button></div>`:''}
+ ${CID!=='de'?`<div class="row sw"><span><b style="margin:0">${CID==='mr'?'Show transliteration':'Show romaji'}</b><span class="fine" style="display:block;margin:2px 0 0">${CID==='mr'?'English letters under the Devanagari. Turn it off once you can read the script.':'Helpful at first. Turn it off once you read kana comfortably.'}</span></span><button class="tog ${S.romaji?'on':''}" data-act="romaji" role="switch" aria-checked="${S.romaji}" aria-label="${CID==='mr'?'Show transliteration':'Show romaji'}"></button></div>`:''}
  <div class="row"><b>Speech speed</b><input type="range" id="rate" min="0.7" max="1.2" step="0.05" value="${S.rate}" aria-label="Speech speed"><button class="btn" style="margin-top:8px" data-say="こんにちは">Test voice</button></div>
  <div class="row"><b>Progress</b><p class="fine" style="margin:0 0 10px">${esc(syncTxt)}.</p><button class="btn" data-act="reset" id="rst">Reset all progress</button></div>
  <p class="credit">Stroke order data: KanjiVG by Ulrich Apel (CC BY-SA 3.0). Lessons and exercises written for Michi.</p><div style="text-align:right;margin-top:10px"><button class="btn ai" data-act="close">Done</button></div></div></div>`}
@@ -2358,6 +2824,7 @@ const DEDR={
  deperf:(u,j,id)=>{const[inf,en,aux,pp,wr]=u.drill.L[j],p=Math.random()*4|0,H=['habe','hast','hat','haben'],Sx=['bin','bist','ist','sind'],A=(aux==='s'?Sx:H)[p],W2=(aux==='s'?H:Sx)[p],sub=['Ich','Du','Er','Wir'][p];
   const a=`${A} … ${pp}`;return{id,kind:'mc',label:`Perfekt of “${inf}” (${en})`,sent:`${sub} ＿`,opts:shuffle([a,`${W2} … ${pp}`,`${A} … ${wr}`,`${W2} … ${wr}`]),a,optJP:1,optS:1,audio:`${sub} ${A} ${pp}`,why:`${esc(inf)} → ${aux==='s'?'sein':'haben'} + <b>${esc(pp)}</b>`}}};
 
+Object.assign(DEDR,MRDR);
 /* ===== COURSES ===== */
 const BADGES_JA=BADGES.slice(),MOCKS_JA=Object.assign({},MOCKS);MOCKS_JA.N5.st='s5';MOCKS_JA.N4.st='s6';
 const GENB=['first','perfect','s3','s7','s30','i100','i500','m100','h10','c1000','freeze'];
@@ -2367,21 +2834,30 @@ const BADGES_DE=[...BADGES_JA.filter(b=>GENB.includes(b[0])),
  ['de3','Unterwegs','Finish the Out and about stage','C','d3',()=>passed(UI.dcx)],
  ['a1','A1 complete','Pass the A1 final exam','A1','d4',()=>passed(UI.ddx)],
  ['mockA1','A1 mock passed','Pass the A1 mock exam','Ok','d4',()=>((S.mocks||{}).A1||[]).some(x=>x.pass)]];
+const BADGES_MR=[...BADGES_JA.filter(b=>GENB.includes(b[0])),
+ ['mr1','पहिले शब्द','Finish the First words stage','१','m1',()=>passed(UI.max)],
+ ['mr2','रोजचं बोलणं','Finish the Daily conversation stage','२','m2',()=>passed(UI.mbx)],
+ ['mr3','बाहेर','Finish the Out and about stage','३','m3',()=>passed(UI.mcx)],
+ ['mrfin','Spoken Marathi','Pass the final exam','म','m4',()=>passed(UI.mdx)]];
 const MOCKS_DE={A1:{lv:'A1',unlock:'ddx',min:40,pass:.6,secMin:.45,stages:['d1','d2','d3','d4'],st:'d4',sub:'Goethe-style A1 practice exam'}};
-const CFG={ja:{id:'ja',name:'Japanese',native:'日本語',sub:'Kana, kanji and grammar · JLPT N5–N4',units:JA_UNITS,stages:JA_STAGES,badges:BADGES_JA,mocks:MOCKS_JA,exam:'JLPT'},
- de:{id:'de',name:'German',native:'Deutsch',sub:'Everyday, travel and work German · CEFR A1',units:DE_UNITS,stages:DE_STAGES,badges:BADGES_DE,mocks:MOCKS_DE,exam:'Goethe-style'}};
+const CFG={ja:{id:'ja',name:'Japanese',native:'日本語',st:'s1',sub:'Kana, kanji and grammar · JLPT N5–N4',units:JA_UNITS,stages:JA_STAGES,badges:BADGES_JA,mocks:MOCKS_JA,exam:'JLPT'},
+ de:{id:'de',name:'German',native:'Deutsch',st:'d1',sub:'Everyday, travel and work German · CEFR A1',units:DE_UNITS,stages:DE_STAGES,badges:BADGES_DE,mocks:MOCKS_DE,exam:'Goethe-style'},
+ mr:{id:'mr',name:'Marathi',native:'मराठी',st:'m1',sub:'Spoken Marathi for everyday life',units:MR_UNITS,stages:MR_STAGES,badges:BADGES_MR,mocks:{},exam:''}};
 function applyCourse(){const C=CFG[CID];UNITS.length=0;UNITS.push(...C.units);STAGES.length=0;STAGES.push(...C.stages);BADGES.length=0;BADGES.push(...C.badges);
  for(const k in MOCKS)delete MOCKS[k];Object.assign(MOCKS,C.mocks);document.documentElement.dataset.course=CID;if(CID==='de')S.romaji=false}
-function courseSummary(c){let st=c===CID?S:null;if(!st){try{st=JSON.parse(localStorage.getItem(c==='de'?'michi.de.v1':'michi.v1')||'null')}catch(e){}}
+function courseSummary(c){let st=c===CID?S:null;if(!st){try{st=JSON.parse(localStorage.getItem(CK(c).lsk)||'null')}catch(e){}}
  const us=CFG[c].units,p=st&&st.u?us.filter(u=>st.u[u.id]&&st.u[u.id].pass).length:0;return{p,n:us.length}}
 function coursesModal(){$('#modal').innerHTML=`<div class="ov" data-act="close"><div class="dlg" role="dialog" aria-modal="true" aria-label="Choose a course"><h2>Your courses</h2><div class="crsl">${Object.values(CFG).map(C=>{const s=courseSummary(C.id);
- return`<button class="crsc ${C.id===CID?'on':''} st-${C.id==='ja'?'s1':'d1'}" data-act="course:${C.id}"><span class="g">${C.native}</span><span><b>${C.name}${C.id===CID?' · current':''}</b><span>${C.sub}</span><span class="cp"><i><b style="width:${s.p/s.n*100}%"></b></i>${s.p} of ${s.n} units</span></span></button>`}).join('')}</div>
+ return`<button class="crsc ${C.id===CID?'on':''} st-${C.st}" data-act="course:${C.id}"><span class="g">${C.native}</span><span><b>${C.name}${C.id===CID?' · current':''}</b><span>${C.sub}</span><span class="cp"><i><b style="width:${s.p/s.n*100}%"></b></i>${s.p} of ${s.n} units</span></span></button>`}).join('')}</div>
  <p class="fine">Each course keeps its own path, reviews, streak and progress, all saved to your account.</p><div style="text-align:right;margin-top:8px"><button class="btn" data-act="close">Close</button></div></div></div>`}
 async function setCourse(c){$('#modal').innerHTML='';if(!CFG[c]||c===CID)return;flushNow();const keep={theme:S.theme,goal:S.goal,rate:S.rate};
- CID=c;try{localStorage.setItem('michi.course',c)}catch(e){}LSK=c==='de'?'michi.de.v1':'michi.v1';FKEY=c==='de'?'d':'s';UKEY=c==='de'?'du':'upd';
+ CID=c;try{localStorage.setItem('michi.course',c)}catch(e){}({lsk:LSK,f:FKEY,u:UKEY}=CK(c));
  let n=def();try{const v=localStorage.getItem(LSK);if(v)n=Object.assign(def(),JSON.parse(v))}catch(e){}if(!n.upd)Object.assign(n,keep);
  S=n;dirty=false;SES=null;LS=null;applyCourse();VIEW='home';render();window.scrollTo(0,0);toast(`Switched to ${CFG[c].name}`);
  if(fbUser&&FB){store.ref=null;await linkAccount(fbUser);render()}else if(store.kind==='claude'){store.ref=null;initStore()}}
+function mrTablesV(){const SKIP={'Question words':[1],Postpositions:[1]};const ROM=S.romaji;
+ return`<button class="back" data-act="home">${IC.back} Back to path</button><div class="ch"><h1 style="font-size:clamp(30px,4.4vw,44px);margin:4px 0 6px">Grammar tables</h1><p class="fine">The patterns behind spoken Marathi on one page. Tap any Marathi word to hear it.</p>
+ <div class="gtw">${MR_GRAMMAR.map(([t,h,rows,note])=>`<section class="pc"><h2>${esc(t)}</h2><div class="scroll"><table class="tbl gt"><thead><tr>${h.map(x=>`<th>${esc(x)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>(SKIP[t]||[]).includes(i)||!c||!/[\u0900-\u097f]/.test(c)?`<td>${esc(c)}</td>`:`<td><button class="gsay" data-say="${esc(c.replace(/\s*\/\s*/g,', '))}">${esc(c)}${ROM?`<small class="rom" style="display:block;font-size:12px">${esc(mrRom(c))}</small>`:''}</button></td>`).join('')}</tr>`).join('')}</tbody></table></div>${note?`<p class="fine" style="margin:10px 0 0">${esc(note)}</p>`:''}</section>`).join('')}</div></div>`}
 function deTablesV(){const SKIP={Articles:[0],Possessives:[2],Prepositions:[0],'Question words':[1]};
  return`<button class="back" data-act="home">${IC.back} Back to path</button><div class="ch"><h1 style="font-size:clamp(30px,4.4vw,44px);margin:4px 0 6px">Grammar tables</h1><p class="fine">Everything you need for A1 on one page. Tap any German word to hear it.</p>
  <div class="gtw">${DE_GRAMMAR.map(([t,h,rows,note])=>`<section class="pc"><h2>${t}</h2><div class="scroll"><table class="tbl gt"><thead><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>(SKIP[t]||[]).includes(i)||!c||c==='–'?`<td>${esc(c)}</td>`:`<td><button class="gsay" data-say="${esc(c)}">${esc(c)}</button></td>`).join('')}</tr>`).join('')}</tbody></table></div>${note?`<p class="fine" style="margin:10px 0 0">${esc(note)}</p>`:''}</section>`).join('')}</div></div>`}
