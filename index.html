@@ -1994,10 +1994,19 @@ function remRow(){if(!CLOUD_OK||!fbUser)return'';const r=S.rem||{h:19},on=!!r.on
 /* ================= AUDIO ================= */
 let ttsP=null,ttsOff=false;
 const getTTS=()=>ttsP||(ttsP=(window.claude&&window.claude.use)?Promise.resolve(window.claude.use('tts')).catch(()=>null):Promise.resolve(null));
-async function say(t){const de=CID==='de';t=String(t);t=de?t.replace(/[＿…→·]/g,', ').replace(/\s*,\s*(,\s*)+/g,', ').replace(/\s+/g,' ').replace(/^[,\s]+|[,\s]+$/g,''):t.replace(/[\s＿+→\/a-zA-Z]+/g,'');if(!t)return;const tts=ttsOff?null:await getTTS();
- if(tts){try{await tts.speak(t,{language:de?'de':'ja',rate:S.rate||0.9});return}catch(e){if(e&&e.code==='busy')return;if(e&&(e.code==='not_granted'||e.code==='invalid_argument'))ttsOff=true}}
- try{if('speechSynthesis' in window){const s=window.speechSynthesis;const u=new SpeechSynthesisUtterance(t);u.lang=de?'de-DE':'ja-JP';u.rate=S.rate||0.9;const v=s.getVoices().find(v=>(de?/^de/i:/^ja/i).test(v.lang));if(v)u.voice=v;s.cancel();s.speak(u)}}catch(e){}}
-
+let ttsV;getTTS().then(v=>{ttsV=v||null}).catch(()=>{ttsV=null});
+let VOICES=[];const loadVoices=()=>{try{VOICES=speechSynthesis.getVoices()||[]}catch(e){}};
+try{if('speechSynthesis' in window){loadVoices();speechSynthesis.addEventListener('voiceschanged',loadVoices)}}catch(e){}
+/* iOS only allows speech that starts directly from a tap: unlock it on the first touch */
+const unlockSpeech=()=>{try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u)}catch(e){}};
+['pointerdown','touchend','keydown'].forEach(ev=>document.addEventListener(ev,unlockSpeech,{once:true,capture:true}));
+function speakNow(t,de){try{if(!('speechSynthesis' in window))return false;const s=window.speechSynthesis,u=new SpeechSynthesisUtterance(t);u.lang=de?'de-DE':'ja-JP';u.rate=S.rate||0.9;
+ if(!VOICES.length)loadVoices();const re=de?/^de/i:/^ja/i,v=VOICES.find(v=>re.test(v.lang)&&/enhanced|premium|google/i.test(v.name))||VOICES.find(v=>re.test(v.lang));if(v)u.voice=v;
+ if(s.speaking||s.pending)s.cancel();if(s.paused)s.resume();s.speak(u);return true}catch(e){return false}}
+function say(t){const de=CID==='de';t=String(t);t=de?t.replace(/[＿…→·]/g,', ').replace(/\s*,\s*(,\s*)+/g,', ').replace(/\s+/g,' ').replace(/^[,\s]+|[,\s]+$/g,''):t.replace(/[\s＿+→\/a-zA-Z]+/g,'');if(!t)return;
+ /* Claude's voice when it is available; otherwise the device voice, started synchronously so iOS allows it */
+ if(ttsV&&!ttsOff){ttsV.speak(t,{language:de?'de':'ja',rate:S.rate||0.9}).catch(e=>{if(e&&e.code==='busy')return;if(e&&(e.code==='not_granted'||e.code==='invalid_argument'))ttsOff=true;speakNow(t,de)});return}
+ speakNow(t,de)}
 /* ================= RENDER ================= */
 let VIEW='home',VU=null,LS=null,SES=null,RES=null,CTAB='h';
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2600)}
