@@ -366,6 +366,12 @@ select.tin2{appearance:auto}
 .sst{padding:10px 12px;border-radius:12px;background:var(--cS);color:var(--ink);font-weight:500;margin:6px 0 12px}
 .sil{margin:0 0 16px;padding-left:20px;display:grid;gap:6px}
 @media (max-width:600px){.rsm{flex-wrap:wrap;position:relative;padding-right:52px}.rsm .btn{width:100%}.rsm .spk{position:absolute;top:10px;right:10px}}
+.pick{max-width:880px;margin:36px auto 0}.pick h1{font-size:clamp(32px,5vw,48px);margin:8px 0 10px}.pick .lbl{color:var(--shu);font-weight:700}
+.pkg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pkc{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;padding:22px;border-radius:22px;border:2px solid var(--line);background:var(--cS);transition:border-color .15s,transform .15s}
+.pkc:hover{border-color:var(--c);transform:translateY(-2px)}.pkn{font-size:28px;font-weight:700;color:var(--c)}.pkc>b{font-size:22px}.pks{color:var(--mut)}
+.dlg.pkd{width:min(560px,100%)}.pkd .pkc{padding:18px}
+@media (max-width:520px){.pkg{grid-template-columns:minmax(0,1fr)}}
 .chip.si{background:var(--ink);border-color:var(--ink);color:var(--bg);font-weight:700}
 .av{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--shu);color:#fff;font-weight:700;font-size:14px}.av.big{width:52px;height:52px;font-size:22px}
 .dlg.auth{width:min(420px,100%)}.dlg.auth h2{margin-bottom:10px}
@@ -1570,6 +1576,9 @@ const unitIds=u=>Object.keys(ITEMS).filter(id=>ITEMS[id].u===u.id);
 
 /* ================= STATE ================= */
 let CID=(()=>{try{return localStorage.getItem('michi.course')==='de'?'de':'ja'}catch(e){return'ja'}})();
+/* First visit: ask which language to learn (skipped if this device already has progress) */
+let NEED_PICK=(()=>{try{if(localStorage.getItem('michi.course'))return false;const has=k=>{const v=JSON.parse(localStorage.getItem(k)||'null');return!!v&&(Object.keys(v.srs||{}).length>0||Object.values(v.u||{}).some(x=>x&&x.l))};
+ if(has('michi.v1')){localStorage.setItem('michi.course','ja');return false}if(has('michi.de.v1')){localStorage.setItem('michi.course','de');CID='de';return false}return true}catch(e){return false}})();
 let LSK=CID==='de'?'michi.de.v1':'michi.v1',FKEY=CID==='de'?'d':'s',UKEY=CID==='de'?'du':'upd';
 const def=()=>({v:1,u:{},srs:{},xp:{},time:{},acc:{},miss:{},badges:{},okT:0,revs:0,streak:{n:0,best:0,last:''},goal:50,romaji:true,rate:0.9,upd:0,started:Date.now()});
 let S=def();try{const s=localStorage.getItem(LSK);if(s)S=Object.assign(def(),JSON.parse(s))}catch(e){}if(CID==='de')S.romaji=false;
@@ -1866,8 +1875,8 @@ async function initCloud(){if(!CLOUD_OK)return;
  try{FB=Object.assign({},await import('./fb.js'))}catch(e){fbFail=true;render();return}
  const app=FB.initializeApp(FB_CFG);FB.app=app;FB.auth=FB.getAuth(app);FB.db=FB.getFirestore(app);
  try{await FB.getRedirectResult(FB.auth)}catch(e){toast(authErr(e))}
- FB.onAuthStateChanged(FB.auth,async u=>{fbUser=u;fbReady=true;if(u)await linkAccount(u);else{store.ref=null;store.kind=null;syncTxt='Saved on this device'}
-  if(CLOUD_OK&&u&&['gate'].includes(VIEW))VIEW='home';renderTop();render()});
+ FB.onAuthStateChanged(FB.auth,async u=>{fbUser=u;fbReady=true;if(u){await inferCourse(u);await linkAccount(u)}else{store.ref=null;store.kind=null;syncTxt='Saved on this device'}
+  if(CLOUD_OK&&u&&['gate'].includes(VIEW))VIEW='home';renderTop();render();if(u)maybePick()});
  document.addEventListener('visibilitychange',()=>{if(!fbUser)return;if(document.visibilityState==='visible')pullRemote();else flushNow()});
  addEventListener('pagehide',()=>{if(fbUser)flushNow()})}
 function parseRemote(d){try{return d&&d[FKEY]?JSON.parse(d[FKEY]):null}catch(e){return null}}
@@ -1919,7 +1928,7 @@ async function doGoogle(){const pr=new FB.GoogleAuthProvider();try{await FB.sign
 async function doForgot(){const em=(($('#em')||{}).value||'').trim();if(!em){authErrTxt='Type your email above first, then tap "Forgot password?"';authModal();return}
  try{await FB.sendPasswordResetEmail(FB.auth,em);authErrTxt='';toast('Password reset email sent. Check your inbox.')}catch(e){authErrTxt=authErr(e);authModal();const a=$('#em');if(a)a.value=em}}
 async function doSignOut(){flushNow();try{await new Promise(r=>setTimeout(r,400));await FB.signOut(FB.auth)}catch(e){}
- store.ref=null;store.kind=null;S=def();try{localStorage.removeItem('michi.v1');localStorage.removeItem('michi.de.v1');localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}if(CID==='de')S.romaji=false;$('#modal').innerHTML='';go('home');toast('Signed out. Your progress is safe in your account.')}
+ store.ref=null;store.kind=null;S=def();try{localStorage.removeItem('michi.v1');localStorage.removeItem('michi.de.v1');localStorage.removeItem('michi.course');NEED_PICK=true;localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}if(CID==='de')S.romaji=false;$('#modal').innerHTML='';go('home');toast('Signed out. Your progress is safe in your account.')}
 
 /* ===== N4 CONJUGATION ===== */
 const RW={'う':['わ','え','お'],'く':['か','け','こ'],'ぐ':['が','げ','ご'],'す':['さ','せ','そ'],'つ':['た','て','と'],'ぬ':['な','ね','の'],'ぶ':['ば','べ','ぼ'],'む':['ま','め','も'],'る':['ら','れ','ろ']};
@@ -2058,6 +2067,14 @@ function stepInfo(uid,k){const u=UI[uid];if(!u)return;const s=U(u.id),cards=less
   btn=fix?`<button class="btn pri" data-act="fix:${u.id}">Fix weak spots</button>`:lockT?'':`<button class="btn pri" data-act="test:${u.id}">${s.pass?'Retake':isExam(u)?'Start the exam':'Take the test'}</button>`}
  if(S.resume&&S.resume.u===u.id&&((k==='lesson'&&S.resume.k==='lesson')||(S.resume.k==='ses'&&(S.resume.mode===k||(k==='test'&&S.resume.mode==='fix')))))btn=`<button class="btn pri" data-act="resume">Resume where you left off</button>`;
  $('#modal').innerHTML=`<div class="ov" data-act="close"><div class="dlg stepi st-${u.st}" role="dialog" aria-modal="true" aria-label="${title}"><span class="lbl" style="color:var(--c);font-weight:700">${esc(u.t)}</span><h2 style="margin-top:4px">${title}</h2><p class="sst">${state}</p><ul class="sil">${body}</ul><div class="pbtn" style="justify-content:flex-end"><button class="btn" data-act="close">Close</button>${btn}</div></div></div>`}
+function pickModal(){const C=[['ja','s1','日本語','Japanese','From your first hiragana to JLPT N4'],['de','d1','Deutsch','German','From your first "Hallo" to CEFR A1']];
+ $('#modal').innerHTML=`<div class="ov"><div class="dlg pkd" role="dialog" aria-modal="true" aria-label="Choose a language"><span class="lbl" style="color:var(--shu);font-weight:700">Welcome to Michi 道</span><h2 style="margin:6px 0 8px">What do you want to learn?</h2><p class="fine" style="margin:0 0 16px">You can switch or add the other one any time from the menu. Each language keeps its own progress.</p>
+ <div class="pkg">${C.map(([id,st,nat,name,sub])=>`<button class="pkc st-${st}" data-act="pick:${id}"><span class="pkn">${nat}</span><b>${name}</b><span class="pks">${sub}</span></button>`).join('')}</div></div></div>`}
+function maybePick(){if(!NEED_PICK||GATED())return;if(hasProgress(S)){NEED_PICK=false;try{localStorage.setItem('michi.course',CID)}catch(e){}return}pickModal()}
+async function inferCourse(u){if(!NEED_PICK)return;try{const snap=await FB.getDoc(FB.doc(FB.db,'users',u.uid));if(!snap.exists())return;const d=snap.data(),hs=!!d.s,hd=!!d.d;if(!hs&&!hd)return;
+ const c=hd&&(!hs||(d.du||0)>(d.upd||0))?'de':'ja';NEED_PICK=false;try{localStorage.setItem('michi.course',c)}catch(e){}
+ if(c!==CID){CID=c;LSK=c==='de'?'michi.de.v1':'michi.v1';FKEY=c==='de'?'d':'s';UKEY=c==='de'?'du':'upd';let n=def();try{const v=localStorage.getItem(LSK);if(v)n=Object.assign(def(),JSON.parse(v))}catch(e){}S=n;applyCourse()}}catch(e){}}
+function pickCourse(c){$('#modal').innerHTML='';NEED_PICK=false;try{localStorage.setItem('michi.course',c)}catch(e){}if(c!==CID){setCourse(c)}else{go('home');toast(`Let's start ${CFG[c].name}!`)}}
 function menuSheet(){const x=xpToday(),g=S.goal,sn=streakNow(),dk=curTheme()==='dark',ic=(i,t,act,sub,cls='')=>`<button class="mi ${cls}" data-act="${act}"><span class="mic">${i}</span><span class="mit">${t}${sub?`<small>${sub}</small>`:''}</span><svg class="mch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>`;
  $('#modal').innerHTML=`<div class="ov sheet-ov" data-act="close"><div class="sheet st-${(curUnit()||UNITS[UNITS.length-1]).st}" role="dialog" aria-modal="true" aria-label="Menu">
  <div class="shh"><span class="brand"><span class="seal">道</span><span class="nm" style="display:inline">Michi</span></span><button class="spk" data-act="close" aria-label="Close menu">${IC.x}</button></div>
@@ -2261,6 +2278,7 @@ document.addEventListener('click',e=>{
  case'mock':mockIntro(arg);break;
  case'courses':coursesModal();break;
  case'menu':menuSheet();break;
+ case'pick':pickCourse(arg);break;
  case'step':{const [su,sk]=arg.split('|');stepInfo(su,sk);break}
  case'resume':resumeNow();break;
  case'resume-x':delete S.resume;save();render();toast('Saved spot cleared');break;
@@ -2368,7 +2386,7 @@ function deTablesV(){const SKIP={Articles:[0],Possessives:[2],Prepositions:[0],'
  return`<button class="back" data-act="home">${IC.back} Back to path</button><div class="ch"><h1 style="font-size:clamp(30px,4.4vw,44px);margin:4px 0 6px">Grammar tables</h1><p class="fine">Everything you need for A1 on one page. Tap any German word to hear it.</p>
  <div class="gtw">${DE_GRAMMAR.map(([t,h,rows,note])=>`<section class="pc"><h2>${t}</h2><div class="scroll"><table class="tbl gt"><thead><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>(SKIP[t]||[]).includes(i)||!c||c==='–'?`<td>${esc(c)}</td>`:`<td><button class="gsay" data-say="${esc(c)}">${esc(c)}</button></td>`).join('')}</tr>`).join('')}</tbody></table></div>${note?`<p class="fine" style="margin:10px 0 0">${esc(note)}</p>`:''}</section>`).join('')}</div></div>`}
 
-applyCourse();checkBadges();render();initStore();initCloud();
+applyCourse();checkBadges();render();Promise.resolve(initStore()).catch(()=>{}).then(()=>{if(!CLOUD_OK)setTimeout(maybePick,300)});initCloud();
 }
 </script>
 
